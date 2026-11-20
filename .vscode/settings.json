@@ -1,0 +1,7 @@
+{
+  "liveServer.settings.defaultBrowser": "chrome",
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000
+}
