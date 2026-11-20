@@ -1,3 +1,30 @@
+
+// ==========================================================================
+// Selector de Tema Dual (Modo Oscuro / Modo Claro) con Persistencia
+// ==========================================================================
+function initThemeToggle() {
+  const toggleBtn = document.getElementById('theme-toggle');
+  if (!toggleBtn) return;
+
+  function updateToggleUI(currentTheme) {
+    toggleBtn.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
+    toggleBtn.setAttribute('title', currentTheme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+  }
+
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+  updateToggleUI(currentTheme);
+
+  toggleBtn.addEventListener('click', function() {
+    const active = document.documentElement.getAttribute('data-theme') || 'dark';
+    const nextTheme = active === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', nextTheme);
+    try {
+      localStorage.setItem('datacnc-theme', nextTheme);
+    } catch (e) {}
+    updateToggleUI(nextTheme);
+  });
+}
+
 /**
  * DATA CNC MX - Lógica Interactiva, Filtros de Productos, Fichas Técnicas y Agenda
  */

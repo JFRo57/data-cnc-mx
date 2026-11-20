@@ -26,7 +26,7 @@
   <!-- Google Fonts: Chakra Petch & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="css/style.css">
@@ -51,6 +51,18 @@
     "priceRange": "$$$"
   }
   </script>
+  <!-- Detección y Aplicación Inmediata de Tema (Zero-Flash) -->
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('datacnc-theme');
+        var theme = saved || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -67,7 +79,8 @@
   <header class="site-header" role="banner">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo" aria-label="DATA CNC MX - Ir al inicio">
-        <img src="assets/images/logo-datacnc-header.png" alt="Logotipo oficial DATA CNC" class="header-brand-img">
+        <img src="assets/images/logo-datacnc-footer-light.png" alt="Logotipo oficial DATA CNC" class="header-brand-img logo-theme-dark">
+        <img src="assets/images/logo-datacnc-header.png" alt="Logotipo oficial DATA CNC" class="header-brand-img logo-theme-light">
       </a>
 
       <!-- Menú de Enlaces de Escritorio y Móvil con Mega-Menú -->
@@ -82,7 +95,8 @@
               <!-- Columna 1: DATA Laser -->
               <div class="mega-col">
                 <div class="mega-col-header">
-                  <img src="assets/images/logo-data-laser.png" alt="Logotipo DATA Laser" class="mega-brand-logo">
+                  <img src="assets/images/logo-data-laser-light.png" alt="Logotipo DATA Laser" class="mega-brand-logo logo-theme-dark">
+                  <img src="assets/images/logo-data-laser.png" alt="Logotipo DATA Laser" class="mega-brand-logo logo-theme-light">
                   <span class="mega-division-tag">Fibra Óptica</span>
                 </div>
                 <ul class="mega-links">
@@ -114,7 +128,8 @@
               <!-- Columna 2: DATA CNC -->
               <div class="mega-col">
                 <div class="mega-col-header">
-                  <img src="assets/images/logo-data-cnc.png" alt="Logotipo DATA CNC" class="mega-brand-logo">
+                  <img src="assets/images/logo-data-cnc-light.png" alt="Logotipo DATA CNC" class="mega-brand-logo logo-theme-dark">
+                  <img src="assets/images/logo-data-cnc.png" alt="Logotipo DATA CNC" class="mega-brand-logo logo-theme-light">
                   <span class="mega-division-tag">Control & Potencia</span>
                 </div>
                 <ul class="mega-links">
@@ -146,7 +161,8 @@
               <!-- Columna 3: DATA Flame -->
               <div class="mega-col">
                 <div class="mega-col-header">
-                  <img src="assets/images/logo-data-flame.png" alt="Logotipo DATA Flame" class="mega-brand-logo">
+                  <img src="assets/images/logo-data-flame-light.png" alt="Logotipo DATA Flame" class="mega-brand-logo logo-theme-dark">
+                  <img src="assets/images/logo-data-flame.png" alt="Logotipo DATA Flame" class="mega-brand-logo logo-theme-light">
                   <span class="mega-division-tag">Acabados Térmicos</span>
                 </div>
                 <ul class="mega-links">
@@ -184,6 +200,18 @@
 
       <!-- Acciones de Cabecera -->
       <div class="nav-actions">
+                <!-- Selector de Tema Dual (Claro / Oscuro) -->
+        <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar a modo claro u oscuro" title="Cambiar tema">
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-icon sun-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </span>
+            <span class="theme-toggle-icon moon-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+            <span class="theme-toggle-thumb"></span>
+          </span>
+        </button>
         <a href="tel:+525527753215" class="nav-phone" title="Llamada directa">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           <span>55 2775 3215</span>
