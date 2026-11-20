@@ -1,5 +1,54 @@
 
 // ==========================================================================
+// Fase 3: Comparador Interactivo Deslizable (Antes vs. Después)
+// ==========================================================================
+function initComparisonSlider() {
+  const widget = document.getElementById('comparison-slider');
+  const range = document.getElementById('comparison-range');
+  if (!widget || !range) return;
+
+  function updateSlider(val) {
+    widget.style.setProperty('--slider-pos', val + '%');
+  }
+
+  range.addEventListener('input', function() {
+    updateSlider(this.value);
+  });
+
+  // Eventos táctiles y de puntero directo
+  let isDragging = false;
+  function handleMove(e) {
+    if (!isDragging) return;
+    const rect = widget.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const offsetX = clientX - rect.left;
+    let percentage = (offsetX / rect.width) * 100;
+    percentage = Math.max(0, Math.min(100, percentage));
+    range.value = percentage;
+    updateSlider(percentage);
+  }
+
+  widget.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    handleMove(e);
+  });
+  window.addEventListener('mouseup', function() {
+    isDragging = false;
+  });
+  window.addEventListener('mousemove', handleMove);
+
+  widget.addEventListener('touchstart', function(e) {
+    isDragging = true;
+    handleMove(e);
+  }, { passive: true });
+  window.addEventListener('touchend', function() {
+    isDragging = false;
+  });
+  window.addEventListener('touchmove', handleMove, { passive: true });
+}
+
+
+// ==========================================================================
 // Fase 2: Control de Video Hero y Contadores Numéricos Dinámicos
 // ==========================================================================
 function initHeroVideo() {
@@ -431,10 +480,29 @@ function initProductCatalog() {
     const count = document.getElementById('product-count');
     if (count) count.textContent = `${filtered.length} ${filtered.length === 1 ? 'solución disponible' : 'soluciones disponibles'} · Consulta los detalles de cada equipo`;
 
-    filtered.forEach(product => {
+    if (category === 'todos') {
+      grid.classList.add('products-bento-grid');
+    } else {
+      grid.classList.remove('products-bento-grid');
+    }
+
+    filtered.forEach((product, idx) => {
       const card = document.createElement('article');
       card.className = 'product-card';
       card.setAttribute('data-category', product.category);
+
+      // Asignar clases de Bento Grid asimétrico en vista completa
+      if (category === 'todos') {
+        if (product.id === 'soldadora-rl-3en1') {
+          card.classList.add('bento-hero-item');
+        } else if (product.id === 'cortadora-laser-4x10') {
+          card.classList.add('bento-tall-item');
+        } else if (product.id === 'data-protect-servicio') {
+          card.classList.add('bento-wide-item');
+        } else {
+          card.classList.add('bento-compact-item');
+        }
+      }
 
       const specsListHtml = product.specsPreview.slice(0, 3)
         .map(spec => `
