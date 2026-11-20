@@ -253,7 +253,7 @@
             </div>
             <div class="guarantee-item">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Soporte Técnico &lt; 24h</span>
+              <span style="display:inline-flex; align-items:center; gap:0.4rem;"><span class="live-radar-pulse" style="width:6px; height:6px;"></span> Soporte Técnico &lt; 24h</span>
             </div>
             <div class="guarantee-item">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -261,14 +261,53 @@
             </div>
           </div>
         </div>
-        <figure class="hero-image-wrapper">
-          <div class="hero-image-label">CORTE Y SOLDADURA LÁSER</div>
-          <img class="hero-main-img" src="assets/images/cortadora-4x10-main.png" alt="Cabezal de corte láser trabajando una placa metálica" width="1536" height="1024" fetchpriority="high" decoding="async">
-          <figcaption class="hero-image-caption">
-            <div><strong>Precisión en cada proyecto.</strong><span>Encuentra la solución para tu producción.</span></div>
-            <span class="image-caption-mark" aria-hidden="true">↗</span>
-          </figcaption>
-        </figure>
+        <div class="hero-cinematic-card">
+          <!-- Crosshairs de Calibración CNC en Esquinas -->
+          <div class="hud-corner top-left" aria-hidden="true"></div>
+          <div class="hud-corner top-right" aria-hidden="true"></div>
+          <div class="hud-corner bottom-left" aria-hidden="true"></div>
+          <div class="hud-corner bottom-right" aria-hidden="true"></div>
+
+          <!-- Cabina de Telemetría Superior -->
+          <div class="hero-hud-header">
+            <div class="hud-live-badge">
+              <span class="live-radar-pulse" aria-hidden="true"></span>
+              <span>TECNOLOGÍA EN OPERACIÓN</span>
+            </div>
+            <div class="hud-telemetry-tag tech-mono">
+              2000W FIBRA ÓPTICA
+            </div>
+          </div>
+
+          <!-- Reproductor de Video Loop Cinemático -->
+          <div class="hero-video-viewport">
+            <video id="hero-loop-video" class="hero-cinematic-video" autoplay muted loop playsinline poster="assets/images/soldadora-rl-action.jpg">
+              <source src="assets/images/laser_welding_anim.mp4" type="video/mp4">
+              <img src="assets/images/laser_welding_anim.gif" alt="Demostración de soldadura láser en alta velocidad">
+            </video>
+            <div class="hero-laser-scanline" aria-hidden="true"></div>
+            <button class="hero-video-control-btn" id="hero-video-toggle" type="button" aria-label="Pausar video operativo" title="Pausar / Reanudar video">
+              <svg class="pause-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+              <svg class="play-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </button>
+          </div>
+
+          <!-- Cabina de Telemetría Inferior -->
+          <div class="hero-hud-footer">
+            <div class="hud-metric-pill">
+              <span class="metric-label">Velocidad</span>
+              <span class="metric-val tech-mono">4x vs TIG</span>
+            </div>
+            <div class="hud-metric-pill">
+              <span class="metric-label">Deformación</span>
+              <span class="metric-val tech-mono">0.0% Térmica</span>
+            </div>
+            <div class="hud-metric-pill">
+              <span class="metric-label">Proceso</span>
+              <span class="metric-val tech-mono">Suelda / Corta</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -278,19 +317,19 @@
     <section class="stats-section" aria-label="Métricas de respaldo de DATA CNC">
       <div class="container stats-grid">
         <div class="stat-item">
-          <div class="stat-number">+500</div>
+          <div class="stat-number tech-mono" data-target="500" data-prefix="+">+500</div>
           <div class="stat-label">MÁQUINAS INSTALADAS</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">99%</div>
+          <div class="stat-number tech-mono" data-target="99" data-suffix="%">99%</div>
           <div class="stat-label">DISPONIBILIDAD OPERATIVA</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">12 MESES</div>
+          <div class="stat-number tech-mono" data-target="12" data-suffix=" MESES">12 MESES</div>
           <div class="stat-label">DE GARANTÍA DE FÁBRICA</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">&lt; 24 HORAS</div>
+          <div class="stat-number tech-mono" data-target="24" data-prefix="< " data-suffix=" HORAS">&lt; 24 HORAS</div>
           <div class="stat-label">RESPUESTA DE SOPORTE</div>
         </div>
       </div>

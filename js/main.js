@@ -1,5 +1,87 @@
 
 // ==========================================================================
+// Fase 2: Control de Video Hero y Contadores Numéricos Dinámicos
+// ==========================================================================
+function initHeroVideo() {
+  const video = document.getElementById('hero-loop-video');
+  const toggleBtn = document.getElementById('hero-video-toggle');
+  if (!video || !toggleBtn) return;
+
+  const pauseIcon = toggleBtn.querySelector('.pause-icon');
+  const playIcon = toggleBtn.querySelector('.play-icon');
+
+  toggleBtn.addEventListener('click', function() {
+    if (video.paused) {
+      video.play();
+      if (pauseIcon) pauseIcon.style.display = 'block';
+      if (playIcon) playIcon.style.display = 'none';
+      toggleBtn.setAttribute('aria-label', 'Pausar video operativo');
+    } else {
+      video.pause();
+      if (pauseIcon) pauseIcon.style.display = 'none';
+      if (playIcon) playIcon.style.display = 'block';
+      toggleBtn.setAttribute('aria-label', 'Reanudar video operativo');
+    }
+  });
+
+  // Asegurar reproducción en móviles tras interacción inicial
+  document.addEventListener('touchstart', function playOnce() {
+    if (video.paused) {
+      video.play().catch(function() {});
+    }
+    document.removeEventListener('touchstart', playOnce);
+  }, { passive: true });
+}
+
+function initAnimatedCounters() {
+  const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+  if (!statNumbers.length) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return; // Respetar accesibilidad de movimiento reducido
+  }
+
+  let animated = false;
+  const observer = new IntersectionObserver(function(entries, obs) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        obs.disconnect();
+
+        statNumbers.forEach(function(el) {
+          const target = parseInt(el.getAttribute('data-target'), 10);
+          const prefix = el.getAttribute('data-prefix') || '';
+          const suffix = el.getAttribute('data-suffix') || '';
+          const duration = 1600;
+          const startTime = performance.now();
+
+          function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Curva easeOutQuad
+            const easeProgress = progress * (2 - progress);
+            const currentVal = Math.floor(easeProgress * target);
+            el.textContent = prefix + currentVal + suffix;
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
+              el.textContent = prefix + target + suffix;
+            }
+          }
+          requestAnimationFrame(updateCounter);
+        });
+      }
+    });
+  }, { threshold: 0.25 });
+
+  const statsSection = document.querySelector('.stats-section');
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+}
+
+
+// ==========================================================================
 // Selector de Tema Dual (Modo Oscuro / Modo Claro) con Persistencia
 // ==========================================================================
 function initThemeToggle() {

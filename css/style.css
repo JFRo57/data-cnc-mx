@@ -3108,3 +3108,261 @@ video.gallery-main-media {
   background: var(--footer-bg) !important;
   border-top: 1px solid var(--footer-border) !important;
 }
+
+
+/* ==========================================================================
+   FASE 2: HERO CINEMÁTICO, HUD DE TELEMETRÍA Y ANIMACIONES LÁSER
+   ========================================================================== */
+
+/* 1. Tarjeta Cinemática de Hero */
+.hero-cinematic-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  box-shadow: var(--shadow-card), 0 0 35px var(--brand-glow);
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero-cinematic-card:hover {
+  box-shadow: var(--shadow-card), 0 0 45px var(--brand-laser-glow, var(--brand-glow));
+  border-color: var(--brand-laser, var(--brand));
+}
+
+/* 2. Haz de Luz Láser Recurrente (Laser Sweep) */
+.hero-cinematic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand-laser), #ffffff, var(--brand-laser), transparent);
+  animation: laser-sweep 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 15;
+}
+
+@keyframes laser-sweep {
+  0% { left: -120%; opacity: 0; }
+  15% { opacity: 1; }
+  50% { left: 120%; opacity: 1; }
+  100% { left: 120%; opacity: 0; }
+}
+
+/* 3. Esquinas de Calibración CNC (Crosshairs) */
+.hud-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--brand-laser);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 14;
+  opacity: 0.85;
+}
+.hud-corner.top-left {
+  top: 6px;
+  left: 6px;
+  border-width: 2px 0 0 2px;
+}
+.hud-corner.top-right {
+  top: 6px;
+  right: 6px;
+  border-width: 2px 2px 0 0;
+}
+.hud-corner.bottom-left {
+  bottom: 6px;
+  left: 6px;
+  border-width: 0 0 2px 2px;
+}
+.hud-corner.bottom-right {
+  bottom: 6px;
+  right: 6px;
+  border-width: 0 2px 2px 0;
+}
+
+/* 4. Cabina de Telemetría Superior */
+.hero-hud-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.65rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  border: 1px solid var(--border-subtle);
+  z-index: 5;
+}
+
+.hud-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.04em;
+}
+
+.live-radar-pulse {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  background: var(--brand-laser);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.live-radar-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brand-laser);
+  animation: radar-wave 2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+@keyframes radar-wave {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.hud-telemetry-tag {
+  color: var(--brand-laser, var(--brand));
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+/* 5. Viewport de Video en Bucle */
+.hero-video-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: calc(var(--radius-sm) + 2px);
+  overflow: hidden;
+  background: #000000;
+}
+
+.hero-cinematic-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Línea de escaneo láser tenue sobre el video */
+.hero-laser-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.75), transparent);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.9);
+  animation: scanline-pass 3.5s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 4;
+}
+
+@keyframes scanline-pass {
+  0% { top: 0%; opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { top: 100%; opacity: 0.3; }
+}
+
+/* Botón flotante accesible de pausa/play */
+.hero-video-control-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(10, 13, 17, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.hero-video-control-btn:hover {
+  background: var(--brand);
+  border-color: var(--brand-laser);
+  transform: scale(1.08);
+}
+
+/* 6. Cabina de Telemetría Inferior */
+.hero-hud-footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  z-index: 5;
+}
+
+.hud-metric-pill {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.metric-label {
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.metric-val {
+  font-size: 0.8rem;
+  color: var(--text-main);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* 7. Destello Láser en Botón Primario */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-20deg);
+  animation: btn-laser-glint 5s ease-in-out infinite;
+}
+
+@keyframes btn-laser-glint {
+  0%, 75% { left: -150%; }
+  100% { left: 150%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cinematic-card::before,
+  .hero-laser-scanline,
+  .live-radar-pulse::after,
+  .btn-primary::after {
+    animation: none !important;
+  }
+}
