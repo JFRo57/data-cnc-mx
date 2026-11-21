@@ -1,5 +1,191 @@
 
 // ==========================================================================
+// Fase 4: Calculadora Dinámica de Parámetros B2B
+// ==========================================================================
+const TECH_CALC_MATRIX = {
+  'acero-inox': {
+    name: 'Acero Inoxidable (304 / 316)',
+    speeds: {
+      '0.5': { power: '1500W', speed: '5.5 m/min', gas: 'Nitrógeno (N2)', pressure: '12 - 14 bar', wire: '0.8 mm' },
+      '1.0': { power: '1500W - 2000W', speed: '4.2 m/min', gas: 'Nitrógeno (N2)', pressure: '12 - 14 bar', wire: '0.8 - 1.0 mm' },
+      '2.0': { power: '2000W', speed: '2.8 m/min', gas: 'Nitrógeno (N2)', pressure: '14 bar', wire: '1.0 mm' },
+      '3.0': { power: '2000W - 3000W', speed: '1.8 m/min', gas: 'Nitrógeno (N2)', pressure: '14 - 16 bar', wire: '1.2 mm' },
+      '4.0': { power: '3000W', speed: '1.2 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', wire: '1.2 mm' },
+      '6.0': { power: '3000W (Biselado)', speed: '0.8 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', wire: '1.2 mm' }
+    }
+  },
+  'acero-carbon': {
+    name: 'Acero al Carbón (A36 / Calibres)',
+    speeds: {
+      '0.5': { power: '1500W', speed: '6.0 m/min', gas: 'Aire Seco o Argón', pressure: '10 - 12 bar', wire: '0.8 mm' },
+      '1.0': { power: '1500W', speed: '4.8 m/min', gas: 'Aire Seco o Argón', pressure: '12 bar', wire: '0.8 mm' },
+      '2.0': { power: '2000W', speed: '3.2 m/min', gas: 'Aire Seco o Argón', pressure: '12 - 14 bar', wire: '1.0 mm' },
+      '3.0': { power: '2000W - 3000W', speed: '2.1 m/min', gas: 'Nitrógeno o Argón', pressure: '14 bar', wire: '1.2 mm' },
+      '4.0': { power: '3000W', speed: '1.4 m/min', gas: 'Argón puro', pressure: '14 bar', wire: '1.2 mm' },
+      '6.0': { power: '3000W (Doble pase)', speed: '0.9 m/min', gas: 'Argón puro', pressure: '15 bar', wire: '1.2 mm' }
+    }
+  },
+  'aluminio': {
+    name: 'Aluminio (Serie 5000 / 6000)',
+    speeds: {
+      '0.5': { power: '1500W', speed: '4.5 m/min', gas: 'Argón puro 99.99%', pressure: '14 bar', wire: '1.0 mm' },
+      '1.0': { power: '2000W', speed: '3.5 m/min', gas: 'Argón puro 99.99%', pressure: '14 bar', wire: '1.0 mm' },
+      '2.0': { power: '2000W - 3000W', speed: '2.2 m/min', gas: 'Argón puro 99.99%', pressure: '15 bar', wire: '1.2 mm' },
+      '3.0': { power: '3000W', speed: '1.4 m/min', gas: 'Argón puro 99.99%', pressure: '16 bar', wire: '1.2 mm' },
+      '4.0': { power: '3000W (Biselado)', speed: '0.9 m/min', gas: 'Argón puro 99.99%', pressure: '16 bar', wire: '1.2 mm' },
+      '6.0': { power: '3000W (Recomendado precalentado)', speed: '0.6 m/min', gas: 'Argón puro', pressure: '16 bar', wire: '1.2 mm' }
+    }
+  },
+  'cobre-laton': {
+    name: 'Latón y Cobre electrolítico',
+    speeds: {
+      '0.5': { power: '2000W', speed: '4.0 m/min', gas: 'Argón o Nitrógeno', pressure: '14 bar', wire: '0.8 mm' },
+      '1.0': { power: '2000W - 3000W', speed: '2.6 m/min', gas: 'Argón puro', pressure: '15 bar', wire: '1.0 mm' },
+      '2.0': { power: '3000W', speed: '1.6 m/min', gas: 'Argón puro', pressure: '16 bar', wire: '1.0 mm' },
+      '3.0': { power: '3000W', speed: '1.0 m/min', gas: 'Argón puro', pressure: '16 bar', wire: '1.2 mm' },
+      '4.0': { power: '3000W (Potencia máx)', speed: '0.7 m/min', gas: 'Argón puro', pressure: '16 bar', wire: '1.2 mm' },
+      '6.0': { power: 'Consultar ingeniería DATA', speed: '0.4 m/min', gas: 'Argón puro', pressure: '16 bar', wire: '1.2 mm' }
+    }
+  }
+};
+
+const THICKNESS_STEPS = ['0.5', '1.0', '2.0', '3.0', '4.0', '6.0'];
+
+function initTechCalculator() {
+  const container = document.getElementById('tech-calculator');
+  if (!container) return;
+
+  let currentMaterial = 'acero-inox';
+  let currentThicknessIndex = 1; // 1.0 mm por defecto
+
+  const materialBtns = container.querySelectorAll('.calc-mat-btn');
+  const slider = container.querySelector('#calc-thickness-slider');
+  const thicknessValEl = container.querySelector('#calc-current-thickness');
+
+  const titleEl = container.querySelector('#calc-result-title');
+  const powerEl = container.querySelector('#calc-result-power');
+  const speedEl = container.querySelector('#calc-result-speed');
+  const gasEl = container.querySelector('#calc-result-gas');
+  const pressureEl = container.querySelector('#calc-result-pressure');
+  const wireEl = container.querySelector('#calc-result-wire');
+  const ctaBtn = container.querySelector('#calc-quote-btn');
+
+  function updateCalculator() {
+    const matData = TECH_CALC_MATRIX[currentMaterial];
+    const thicknessKey = THICKNESS_STEPS[currentThicknessIndex];
+    const spec = matData.speeds[thicknessKey];
+
+    if (thicknessValEl) thicknessValEl.textContent = `${thicknessKey} mm`;
+    if (titleEl) titleEl.textContent = `${matData.name} · ${thicknessKey} mm`;
+    if (powerEl) powerEl.textContent = spec.power;
+    if (speedEl) speedEl.textContent = spec.speed;
+    if (gasEl) gasEl.textContent = spec.gas;
+    if (pressureEl) pressureEl.textContent = spec.pressure;
+    if (wireEl) wireEl.textContent = spec.wire;
+
+    if (ctaBtn) {
+      const msg = encodeURIComponent(`Hola, me interesa cotizar un equipo láser DATA para soldar/cortar ${matData.name} en espesor de ${thicknessKey} mm (Potencia sugerida: ${spec.power}).`);
+      ctaBtn.href = `https://wa.me/5215527753215?text=${msg}`;
+    }
+  }
+
+  materialBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      materialBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      currentMaterial = this.getAttribute('data-material');
+      updateCalculator();
+    });
+  });
+
+  if (slider) {
+    slider.addEventListener('input', function() {
+      currentThicknessIndex = parseInt(this.value, 10);
+      updateCalculator();
+    });
+  }
+
+  updateCalculator();
+}
+
+// ==========================================================================
+// Fase 4: Mapa Interactivo de Cobertura y Tiempos de SLA
+// ==========================================================================
+const REGIONS_DATA = {
+  'valle-mexico': {
+    title: 'Zona Metropolitana & Valle de México',
+    sla: '< 4 Horas en Planta',
+    status: 'Respuesta Inmediata CDMX',
+    states: ['Ciudad de México (CDMX)', 'Estado de México (EdoMex)', 'Cuernavaca / Morelos', 'Hidalgo Sur'],
+    description: 'Atención técnica directa desde nuestro Showroom y Bodega Central en Iztapalapa, CDMX. Diagnóstico en sitio el mismo día y entrega de consumibles en menos de 4 horas.',
+    engineers: '6 Ingenieros de Campo Activos',
+    stockStatus: '100% Stock en Bodega Local'
+  },
+  'bajio-centro': {
+    title: 'Corredor Industrial Bajío & Centro',
+    sla: '< 24 Horas en Planta',
+    status: 'Rutas Diarias de Asistencia',
+    states: ['Querétaro', 'Puebla', 'Toluca / Lerma', 'Guanajuato (León, Celaya, Silao)', 'Tlaxcala', 'Pachuca'],
+    description: 'Rutas programadas de servicio preventivo y respuesta a emergencias para corredores automotrices y metalmecánicos. Arribo garantizado al día siguiente hábil.',
+    engineers: '4 Especialistas Asignados a la Zona',
+    stockStatus: 'Despacho Express Nacional 24h'
+  },
+  'norte-occidente': {
+    title: 'Zona Norte, Occidente y Frontera',
+    sla: '< 48 Horas en Planta',
+    status: 'Telemetría Remota < 30 min',
+    states: ['Nuevo León (Monterrey, Apodaca)', 'Jalisco (Guadalajara, Zapopan)', 'Coahuila (Saltillo, Ramos Arizpe)', 'San Luis Potosí', 'Chihuahua', 'Sonora'],
+    description: 'Diagnóstico remoto inmediato por telemetría óptica en menos de 30 minutos. Desplazamiento de ingenieros y envío aéreo de refacciones prioritarias.',
+    engineers: 'Soporte Especializado Remoto + Visita',
+    stockStatus: 'Envío Aéreo Prioritario'
+  }
+};
+
+function initCoverageMap() {
+  const container = document.getElementById('coverage-map-component');
+  if (!container) return;
+
+  const tabBtns = container.querySelectorAll('.region-tab-btn');
+  const titleEl = container.querySelector('#sla-region-title');
+  const timeEl = container.querySelector('#sla-time-val');
+  const descEl = container.querySelector('#sla-region-desc');
+  const statesContainer = container.querySelector('#sla-states-container');
+  const engineersEl = container.querySelector('#sla-engineers-val');
+  const quoteBtn = container.querySelector('#sla-quote-btn');
+
+  function updateRegion(key) {
+    const reg = REGIONS_DATA[key];
+    if (!reg) return;
+
+    if (titleEl) titleEl.textContent = reg.title;
+    if (timeEl) timeEl.textContent = reg.sla;
+    if (descEl) descEl.textContent = reg.description;
+    if (engineersEl) engineersEl.textContent = reg.engineers;
+
+    if (statesContainer) {
+      statesContainer.innerHTML = reg.states.map(s => `<li class="sla-state-pill">${s}</li>`).join('');
+    }
+
+    if (quoteBtn) {
+      const msg = encodeURIComponent(`Hola, requiero asesoría técnica sobre disponibilidad y tiempos de soporte de DATA CNC en la región: ${reg.title} (${reg.sla}).`);
+      quoteBtn.href = `https://wa.me/5215527753215?text=${msg}`;
+    }
+  }
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const regKey = this.getAttribute('data-region');
+      updateRegion(regKey);
+    });
+  });
+
+  updateRegion('valle-mexico');
+}
+
+
+// ==========================================================================
 // Fase 3: Comparador Interactivo Deslizable (Antes vs. Después)
 // ==========================================================================
 function initComparisonSlider() {

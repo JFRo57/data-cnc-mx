@@ -259,6 +259,88 @@
         </div>
       </div>
     </section>
+  
+    <!-- Mapa de Cobertura Nacional y Soporte DATA PROTECT -->
+    <section class="coverage-section" id="cobertura-nacional" aria-label="Cobertura de servicio técnico y refacciones en México">
+      <div class="container" id="coverage-map-component">
+        <div class="section-header" style="text-align: center; max-width: 820px; margin: 0 auto 2rem;">
+          <span class="section-subtitle">Tiempos de Arribo Garantizados</span>
+          <h2 class="section-title">Asistencia Técnica en Sitio en Todo México</h2>
+          <p class="section-desc">
+            Consulta los tiempos de arribo a tu taller según tu estado. Nuestros ingenieros de campo están equipados con instrumental de diagnóstico óptico y refacciones originales.
+          </p>
+        </div>
+
+        <div class="region-tabs-group" style="justify-content:center;">
+          <button type="button" class="region-tab-btn active" data-region="valle-mexico">CDMX & Área Metro (&lt; 4h)</button>
+          <button type="button" class="region-tab-btn" data-region="bajio-centro">Bajío & Centro (&lt; 24h)</button>
+          <button type="button" class="region-tab-btn" data-region="norte-occidente">Norte & Occidente (&lt; 48h)</button>
+        </div>
+
+        <div class="coverage-layout">
+          <div class="region-sla-card">
+            <div class="sla-badge-row">
+              <span class="badge">Compromiso DATA PROTECT</span>
+              <div class="sla-time-tag tech-mono" id="sla-time-val">&lt; 4 Horas</div>
+            </div>
+            <h3 id="sla-region-title" style="font-size:1.35rem; font-weight:700; color:var(--text-main); margin-bottom:0.75rem;">Zona Metropolitana & Valle de México</h3>
+            <p id="sla-region-desc" style="color:var(--text-muted); font-size:0.92rem; line-height:1.6;">
+              Atención técnica directa desde nuestro Showroom y Bodega Central en Iztapalapa, CDMX. Diagnóstico en sitio el mismo día y entrega de consumibles en menos de 4 horas.
+            </p>
+
+            <ul class="sla-states-list" id="sla-states-container">
+              <li class="sla-state-pill">Ciudad de México (CDMX)</li>
+              <li class="sla-state-pill">Estado de México (EdoMex)</li>
+              <li class="sla-state-pill">Cuernavaca / Morelos</li>
+            </ul>
+
+            <div style="background:var(--bg-secondary); border-radius:var(--radius-sm); padding:0.85rem 1rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:0.78rem; font-weight:700; color:var(--text-dim); text-transform:uppercase;">Equipo de Soporte:</span>
+              <span id="sla-engineers-val" class="tech-mono" style="font-size:0.85rem; font-weight:800; color:var(--brand-laser, var(--brand));">6 Ingenieros Activos</span>
+            </div>
+
+            <a id="sla-quote-btn" href="https://wa.me/5215527753215" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width:100%; border-color:var(--brand); color:var(--brand); font-weight:700;">
+              Solicitar Asistencia en Planta
+            </a>
+          </div>
+
+          <div class="coverage-map-visual">
+            <div style="display:flex; justify-content:space-between; align-items:center; z-index:2;">
+              <span style="font-size:0.72rem; font-weight:800; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em;">Red de Respuesta Inmediata</span>
+              <span class="live-radar-pulse" style="width:8px; height:8px;"></span>
+            </div>
+
+            <svg class="map-svg-canvas" viewBox="0 0 600 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M120 70 L260 140 L340 160 L380 230 L350 250 L460 270" stroke="var(--border-accent)" stroke-width="2" stroke-dasharray="4 4" opacity="0.6"/>
+              <path d="M260 140 L380 230" stroke="var(--brand-laser, #10b981)" stroke-width="2" opacity="0.5"/>
+              <path d="M300 210 L380 230" stroke="var(--brand-laser, #10b981)" stroke-width="2" opacity="0.7"/>
+
+              <circle cx="340" cy="120" r="6" fill="var(--brand-laser, #10b981)"/>
+              <text x="352" y="124" fill="var(--text-main)" font-size="11" font-weight="700" font-family="Plus Jakarta Sans">Monterrey (&lt; 48h)</text>
+
+              <circle cx="270" cy="210" r="6" fill="var(--brand-laser, #10b981)"/>
+              <text x="180" y="214" fill="var(--text-main)" font-size="11" font-weight="700" font-family="Plus Jakarta Sans">Guadalajara (&lt; 48h)</text>
+
+              <circle cx="340" cy="210" r="6" fill="var(--brand-laser, #10b981)"/>
+              <text x="352" y="205" fill="var(--text-main)" font-size="11" font-weight="700" font-family="Plus Jakarta Sans">Querétaro (&lt; 24h)</text>
+
+              <circle cx="380" cy="235" r="10" fill="var(--brand-laser, #10b981)"/>
+              <circle cx="380" cy="235" r="16" stroke="var(--brand-laser, #10b981)" stroke-width="1.5" opacity="0.5"/>
+              <text x="396" y="240" fill="var(--brand-laser, #10b981)" font-size="12" font-weight="800" font-family="Plus Jakarta Sans">SEDE CENTRAL CDMX (&lt; 4h)</text>
+
+              <circle cx="410" cy="250" r="5" fill="var(--brand)" />
+              <text x="422" y="254" fill="var(--text-dim)" font-size="11" font-weight="600" font-family="Plus Jakarta Sans">Puebla (&lt; 24h)</text>
+            </svg>
+
+            <div style="background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:0.65rem 0.85rem; font-size:0.75rem; color:var(--text-main); display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-weight:700;">Garantía de Refacciones:</span>
+              <span class="tech-mono" style="color:var(--brand-laser, var(--brand)); font-weight:700;">Stock 100% Nacional en Iztapalapa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <!-- ==========================================================================
        Pie de Página Oficial

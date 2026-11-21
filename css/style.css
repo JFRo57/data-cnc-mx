@@ -3699,3 +3699,369 @@ video.gallery-main-media {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==========================================================================
+   FASE 4: CALCULADORA DE PARÁMETROS Y MAPA DE COBERTURA NACIONAL
+   ========================================================================== */
+
+/* 1. Calculadora de Parámetros de Corte y Soldadura */
+.tech-calculator-section {
+  padding: 5rem 0;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.calc-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+.calc-controls-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.calc-group {
+  margin-bottom: 1.75rem;
+}
+
+.calc-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.calc-chips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.calc-chip-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  color: var(--text-main);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all var(--transition-fast);
+}
+
+.calc-chip-btn:hover {
+  border-color: var(--brand);
+}
+
+.calc-chip-btn.active {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #ffffff;
+  box-shadow: 0 0 16px var(--brand-glow);
+}
+
+.calc-slider-wrap {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.calc-range-slider {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  accent-color: var(--brand-laser, var(--brand));
+}
+
+.calc-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+/* Tarjeta de Resultados Dinámicos */
+.calc-results-card {
+  background: var(--bg-surface-elevated, var(--bg-card));
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-md);
+  padding: 2.25rem 2rem;
+  box-shadow: var(--shadow-card), 0 0 35px var(--brand-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.calc-results-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-laser), var(--brand));
+}
+
+.calc-results-header {
+  margin-bottom: 1.5rem;
+}
+
+.calc-power-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--brand-laser, var(--brand));
+  margin-bottom: 0.75rem;
+}
+
+.calc-results-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.calc-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.75rem 0;
+}
+
+.calc-spec-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.spec-box-label {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.spec-box-val {
+  font-size: 1.15rem;
+  color: var(--text-main);
+  font-weight: 800;
+}
+
+/* 2. Mapa Interactivo de Cobertura y Tiempos de Arribo en México */
+.coverage-section {
+  padding: 5rem 0;
+  background: var(--bg-secondary);
+  border-block: 1px solid var(--border-subtle);
+}
+
+.coverage-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+/* Selector de Regiones */
+.region-tabs-group {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.region-tab-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 0.6rem 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.region-tab-btn:hover {
+  border-color: var(--brand);
+}
+
+.region-tab-btn.active {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #ffffff;
+  box-shadow: 0 0 16px var(--brand-glow);
+}
+
+/* Tarjeta Detalle de SLA de la Región */
+.region-sla-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.sla-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.sla-time-tag {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--brand-laser, var(--brand));
+  letter-spacing: -0.03em;
+}
+
+.sla-states-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.sla-state-pill {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Representación Visual del Mapa con Nodos de Radar */
+.coverage-map-visual {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.map-svg-canvas {
+  width: 100%;
+  height: 260px;
+  display: block;
+}
+
+.map-node-pulse {
+  position: absolute;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.map-node-pulse .node-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--brand-laser, #10b981);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--brand-laser, #10b981);
+  position: relative;
+}
+
+.map-node-pulse .node-dot::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--brand-laser, #10b981);
+  animation: radar-wave 2.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+.map-node-pulse .node-label {
+  background: rgba(10, 13, 17, 0.85);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Barra de Estado de Almacén Nacional */
+.stock-ticker-banner {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-subtle);
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+.stock-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.stock-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+@media (max-width: 992px) {
+  .calc-container,
+  .coverage-layout {
+    grid-template-columns: 1fr;
+  }
+  .stock-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .calc-chips-grid {
+    grid-template-columns: 1fr;
+  }
+  .calc-specs-grid {
+    grid-template-columns: 1fr;
+  }
+  .stock-grid {
+    grid-template-columns: 1fr;
+  }
+}
