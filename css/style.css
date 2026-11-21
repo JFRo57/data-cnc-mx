@@ -4065,3 +4065,12 @@ video.gallery-main-media {
     grid-template-columns: 1fr;
   }
 }
+
+@media screen and (max-width: 1100px) {
+  .has-dropdown.is-open .mega-menu {
+    display: block !important;
+  }
+  .has-dropdown.is-open .dropdown-chevron {
+    transform: rotate(180deg) !important;
+  }
+}

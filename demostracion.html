@@ -231,17 +231,17 @@
             <form id="demo-page-form" class="form-grid" style="gap: 1rem;">
               <div class="form-group full-width">
                 <label for="demo-name" class="form-label" style="font-size: 0.8rem;">Nombre Completo *</label>
-                <input type="text" id="demo-name" class="form-input" placeholder="Ing. Alejandro Morales" required>
+                <input type="text" id="demo-name" name="name" class="form-input" placeholder="Ing. Alejandro Morales" required>
               </div>
 
               <div class="form-group">
                 <label for="demo-phone" class="form-label" style="font-size: 0.8rem;">Teléfono / WhatsApp *</label>
-                <input type="tel" id="demo-phone" class="form-input" placeholder="55 1234 5678" required>
+                <input type="tel" id="demo-phone" name="phone" class="form-input" placeholder="55 1234 5678" required>
               </div>
 
               <div class="form-group">
                 <label for="demo-machine" class="form-label" style="font-size: 0.8rem;">Equipo a probar *</label>
-                <select id="demo-machine" class="form-select" required>
+                <select id="demo-machine" name="machine" class="form-select" required>
                   <option value="">Selecciona equipo...</option>
                   <option value="Soldadora Láser 3 en 1 RL">Soldadora Láser 3 en 1 RL (Chiller)</option>
                   <option value="Soldadora Láser RA Portátil">Soldadora Láser RA (Aire)</option>
@@ -253,7 +253,7 @@
 
               <div class="form-group">
                 <label for="demo-type" class="form-label" style="font-size: 0.8rem;">Modalidad *</label>
-                <select id="demo-type" class="form-select" required>
+                <select id="demo-type" name="type" class="form-select" required>
                   <option value="Presencial en Showroom CDMX">Presencial (Showroom CDMX)</option>
                   <option value="Virtual en Vivo por Videollamada">Virtual (Videollamada en Vivo)</option>
                 </select>
@@ -261,7 +261,7 @@
 
               <div class="form-group">
                 <label for="demo-date" class="form-label" style="font-size: 0.8rem;">Fecha tentativa *</label>
-                <input type="date" id="demo-date" class="form-input" required>
+                <input type="date" id="demo-date" name="date" class="form-input" required>
               </div>
 
               <div class="form-group full-width">

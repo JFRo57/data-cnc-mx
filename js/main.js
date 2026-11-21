@@ -1,5 +1,26 @@
 
 // ==========================================================================
+// Control de Acordeón Móvil para Mega-Menú
+// ==========================================================================
+function initMobileDropdowns() {
+  const dropdownTrigger = document.getElementById('dropdown-equipos-btn');
+  if (!dropdownTrigger) return;
+
+  const parent = dropdownTrigger.closest('.has-dropdown');
+  if (!parent) return;
+
+  dropdownTrigger.addEventListener('click', function(e) {
+    if (window.innerWidth <= 1100) {
+      // En móvil, evitar navegar a equipos.html y desplegar el acordeón
+      e.preventDefault();
+      const isOpen = parent.classList.toggle('is-open');
+      dropdownTrigger.setAttribute('aria-expanded', String(isOpen));
+    }
+  });
+}
+
+
+// ==========================================================================
 // Fase 4: Calculadora Dinámica de Parámetros B2B
 // ==========================================================================
 const TECH_CALC_MATRIX = {
@@ -1012,13 +1033,14 @@ function initContactForm() {
 
   form.addEventListener('submit', event => {
     event.preventDefault();
-    const nombre = form.elements.name.value.trim();
-    const email = form.elements.email.value.trim();
-    const phone = form.elements.phone.value.trim();
-    const estado = form.elements.state.value;
-    const maquina = form.elements.machine.value;
-    const mensaje = form.elements.message.value.trim() || 'Sin detalles adicionales';
-    const text = `Hola DATA CNC MX, solicito una cotización desde la página web:\n- Nombre: ${nombre}\n- Teléfono: ${phone}\n- Correo: ${email || 'No proporcionado'}\n- Estado: ${estado}\n- Equipo de interés: ${maquina}\n- Proyecto: ${mensaje}`;
+    const nombre = form.elements.name ? form.elements.name.value.trim() : '';
+    const empresa = form.elements.company ? form.elements.company.value.trim() : '';
+    const email = form.elements.email ? form.elements.email.value.trim() : '';
+    const phone = form.elements.phone ? form.elements.phone.value.trim() : '';
+    const estado = form.elements.state ? form.elements.state.value : 'No especificado';
+    const maquina = form.elements.product_interest ? form.elements.product_interest.value : (form.elements.machine ? form.elements.machine.value : 'General');
+    const mensaje = form.elements.message ? form.elements.message.value.trim() : 'Sin detalles adicionales';
+    const text = `Hola DATA CNC MX, solicito una cotización desde la página web:\n- Nombre: ${nombre}${empresa ? '\n- Empresa: ' + empresa : ''}\n- Teléfono: ${phone}\n- Correo: ${email || 'No proporcionado'}\n- Estado: ${estado}\n- Equipo de interés: ${maquina}\n- Proyecto: ${mensaje}`;
 
     window.open(`https://wa.me/5215527753215?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
     showToast('WhatsApp está listo con tu solicitud. Envíala desde la conversación para contactar a ventas.');
