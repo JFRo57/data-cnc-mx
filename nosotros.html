@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261120-city12">
   <!-- Detección y Aplicación Inmediata de Tema (Zero-Flash) -->
   <script>
     (function() {
@@ -42,10 +42,10 @@
       <!-- Menú de Enlaces de Escritorio y Móvil con Mega-Menú -->
       <nav id="menu-principal" class="nav-menu" aria-label="Menú principal">
         <div class="nav-item has-dropdown">
-          <a href="equipos.html" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false" aria-controls="equipos-mega-menu">
             <span>Equipos</span>
             <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
+          </button>
           <div class="mega-menu" id="equipos-mega-menu" role="region" aria-label="Catálogo de equipos y divisiones">
             <div class="container mega-menu-inner">
               <!-- Columna 1: DATA Laser -->
@@ -203,7 +203,7 @@
       <div class="container about-grid">
         <div class="about-images-composition">
           <div class="about-image-wrapper">
-            <img class="about-main-image" src="assets/images/hero-workshop.jpg" alt="Instalaciones y taller técnico de DATA CNC MX" loading="lazy">
+            <img class="about-main-image" src="assets/images/soldadora-rl-torch.jpg" alt="Equipo RL con enfriamiento por agua" loading="lazy">
           </div>
           <div class="about-badge-card">
             <div class="about-badge-number">+10 Años</div>
@@ -244,20 +244,20 @@
     <section class="section" style="background: var(--bg-secondary); padding: 3.5rem 0;">
       <div class="container">
         <div class="section-header" style="text-align: center; max-width: 700px; margin: 0 auto 2.5rem;">
-          <span class="section-subtitle">Instalaciones en CDMX</span>
-          <h2 class="section-title">Showroom, Bodega y Taller de Servicio</h2>
-          <p class="section-desc">Contamos con instalaciones físicas preparadas para demostraciones operativas y resguardo de consumibles.</p>
+          <span class="section-subtitle">Equipos y aplicaciones</span>
+          <h2 class="section-title">Tecnología y trabajo en taller</h2>
+          <p class="section-desc">Conoce algunas vistas de equipos y trabajos de soldadura. Agenda una visita para conocer el showroom en CDMX.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 1.5rem;">
           <div class="img-zoom-card">
-            <img src="assets/images/soldadora-factory.jpg" alt="Taller de ensamble DATA CNC" style="width: 100%; height: 240px; object-fit: cover;">
+            <img src="assets/images/soldadora-factory.jpg" alt="Muestra de unión soldada en piezas metálicas" style="width: 100%; height: 240px; object-fit: cover;">
           </div>
           <div class="img-zoom-card">
-            <img src="assets/images/hero-machine.png" alt="Equipos en bodega central" style="width: 100%; height: 240px; object-fit: cover;">
+            <img src="assets/images/soldadora-rl-feeder.jpeg" alt="Equipo RL con alimentador de alambre" style="width: 100%; height: 240px; object-fit: cover;">
           </div>
           <div class="img-zoom-card">
-            <img src="assets/images/soldadora-lineup.png" alt="Línea de soldadoras láser en exhibición" style="width: 100%; height: 240px; object-fit: cover;">
+            <img src="assets/images/soldadora-lineup.png" alt="Operador trabajando sobre una pieza metálica" style="width: 100%; height: 240px; object-fit: cover;">
           </div>
         </div>
       </div>
@@ -270,7 +270,7 @@
     <div class="container footer-grid">
       <div class="footer-col brand-col">
         <a href="index.html" class="brand-logo" aria-label="DATA CNC MX">
-          <img src="assets/images/logo-datacnc-footer-light.png" alt="Logotipo oficial DATA CNC" class="footer-brand-img">
+          <span class="footer-brand-name">DATA CNC MX</span>
         </a>
         <p class="footer-text">
           Líderes en importación, venta, puesta a punto y mantenimiento preventivo/correctivo de maquinaria industrial láser y CNC en México.
@@ -337,6 +337,6 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20261120-city12"></script>
 </body>
 </html>

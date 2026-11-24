@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261120-city12">
   <!-- Detección y Aplicación Inmediata de Tema (Zero-Flash) -->
   <script>
     (function() {
@@ -45,10 +45,10 @@
       <!-- Menú de Enlaces de Escritorio y Móvil con Mega-Menú -->
       <nav id="menu-principal" class="nav-menu" aria-label="Menú principal">
         <div class="nav-item has-dropdown">
-          <a href="equipos.html" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false" aria-controls="equipos-mega-menu">
             <span>Equipos</span>
             <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
+          </button>
           <div class="mega-menu" id="equipos-mega-menu" role="region" aria-label="Catálogo de equipos y divisiones">
             <div class="container mega-menu-inner">
               <!-- Columna 1: DATA Laser -->
@@ -205,7 +205,7 @@
     <!-- Showcase de las 3 Divisiones -->
     <section class="section" style="padding: 2.5rem 0 1rem;">
       <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
           <a href="soldadura-laser.html" class="spec-category-card" style="text-decoration: none; border-left: 4px solid var(--brand); transition: transform 0.25s ease;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
               <img src="assets/images/logo-data-laser.png" alt="DATA Laser" style="height: 24px; width: auto;">
@@ -255,7 +255,7 @@
     </section>
 
     <!-- Banner Showroom -->
-    <section class="section" style="background: var(--bg-deep); color: #ffffff; padding: 3.5rem 0;">
+    <section class="section dark-surface" style="background: var(--bg-deep); color: #ffffff; padding: 3.5rem 0;">
       <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
         <div style="max-width: 650px;">
           <span style="background: rgba(255,255,255,0.15); font-size: 0.75rem; padding: 0.3rem 0.75rem; border-radius: 4px; font-weight: 700; text-transform: uppercase;">Demostración Personalizada</span>
@@ -279,7 +279,7 @@
     <div class="container footer-grid">
       <div class="footer-col brand-col">
         <a href="index.html" class="brand-logo" aria-label="DATA CNC MX">
-          <img src="assets/images/logo-datacnc-footer-light.png" alt="Logotipo oficial DATA CNC" class="footer-brand-img">
+          <span class="footer-brand-name">DATA CNC MX</span>
         </a>
         <p class="footer-text">
           Líderes en importación, venta, puesta a punto y mantenimiento preventivo/correctivo de maquinaria industrial láser y CNC en México.
@@ -346,6 +346,6 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20261120-city12"></script>
 </body>
 </html>

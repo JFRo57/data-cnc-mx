@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261120-city12">
   <!-- Detección y Aplicación Inmediata de Tema (Zero-Flash) -->
   <script>
     (function() {
@@ -42,10 +42,10 @@
       <!-- Menú de Enlaces de Escritorio y Móvil con Mega-Menú -->
       <nav id="menu-principal" class="nav-menu" aria-label="Menú principal">
         <div class="nav-item has-dropdown">
-          <a href="equipos.html" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false" aria-controls="equipos-mega-menu">
             <span>Equipos</span>
             <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
+          </button>
           <div class="mega-menu" id="equipos-mega-menu" role="region" aria-label="Catálogo de equipos y divisiones">
             <div class="container mega-menu-inner">
               <!-- Columna 1: DATA Laser -->
@@ -255,7 +255,7 @@
         </div>
 
         <div class="protect-visual">
-          <img src="assets/images/hero-laser-weld.png" alt="Soporte técnico y corte láser industrial DATA CNC MX" loading="lazy">
+          <img src="assets/images/compresor-motor.jpg" alt="Componentes internos de un compresor para revisión y mantenimiento" loading="lazy">
         </div>
       </div>
     </section>
@@ -294,7 +294,7 @@
               <li class="sla-state-pill">Cuernavaca / Morelos</li>
             </ul>
 
-            <div style="background:var(--bg-secondary); border-radius:var(--radius-sm); padding:0.85rem 1rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+            <div class="sla-engineers-row" style="background:var(--bg-secondary); border-radius:var(--radius-sm); padding:0.85rem 1rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
               <span style="font-size:0.78rem; font-weight:700; color:var(--text-dim); text-transform:uppercase;">Equipo de Soporte:</span>
               <span id="sla-engineers-val" class="tech-mono" style="font-size:0.85rem; font-weight:800; color:var(--brand-laser, var(--brand));">6 Ingenieros Activos</span>
             </div>
@@ -305,38 +305,16 @@
           </div>
 
           <div class="coverage-map-visual">
-            <div style="display:flex; justify-content:space-between; align-items:center; z-index:2;">
-              <span style="font-size:0.72rem; font-weight:800; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em;">Red de Respuesta Inmediata</span>
-              <span class="live-radar-pulse" style="width:8px; height:8px;"></span>
-            </div>
-
-            <svg class="map-svg-canvas" viewBox="0 0 600 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M120 70 L260 140 L340 160 L380 230 L350 250 L460 270" stroke="var(--border-accent)" stroke-width="2" stroke-dasharray="4 4" opacity="0.6"/>
-              <path d="M260 140 L380 230" stroke="var(--brand-laser, #10b981)" stroke-width="2" opacity="0.5"/>
-              <path d="M300 210 L380 230" stroke="var(--brand-laser, #10b981)" stroke-width="2" opacity="0.7"/>
-
-              <circle cx="340" cy="120" r="6" fill="var(--brand-laser, #10b981)"/>
-              <text x="352" y="124" fill="var(--text-main)" font-size="11" font-weight="700" font-family="Plus Jakarta Sans">Monterrey (&lt; 48h)</text>
-
-              <circle cx="270" cy="210" r="6" fill="var(--brand-laser, #10b981)"/>
-              <text x="180" y="214" fill="var(--text-main)" font-size="11" font-weight="700" font-family="Plus Jakarta Sans">Guadalajara (&lt; 48h)</text>
-
-              <circle cx="340" cy="210" r="6" fill="var(--brand-laser, #10b981)"/>
-              <text x="352" y="205" fill="var(--text-main)" font-size="11" font-weight="700" font-family="Plus Jakarta Sans">Querétaro (&lt; 24h)</text>
-
-              <circle cx="380" cy="235" r="10" fill="var(--brand-laser, #10b981)"/>
-              <circle cx="380" cy="235" r="16" stroke="var(--brand-laser, #10b981)" stroke-width="1.5" opacity="0.5"/>
-              <text x="396" y="240" fill="var(--brand-laser, #10b981)" font-size="12" font-weight="800" font-family="Plus Jakarta Sans">SEDE CENTRAL CDMX (&lt; 4h)</text>
-
-              <circle cx="410" cy="250" r="5" fill="var(--brand)" />
-              <text x="422" y="254" fill="var(--text-dim)" font-size="11" font-weight="600" font-family="Plus Jakarta Sans">Puebla (&lt; 24h)</text>
-            </svg>
-
-            <div style="background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:0.65rem 0.85rem; font-size:0.75rem; color:var(--text-main); display:flex; justify-content:space-between; align-items:center;">
-              <span style="font-weight:700;">Garantía de Refacciones:</span>
-              <span class="tech-mono" style="color:var(--brand-laser, var(--brand)); font-weight:700;">Stock 100% Nacional en Iztapalapa</span>
-            </div>
-          </div>
+ <div class="coverage-map-heading"><h3>Red de soporte DATA CNC</h3><span class="coverage-map-kicker">México</span></div>
+ <p class="coverage-selected-zone" role="status" aria-live="polite">Respuesta Inmediata CDMX</p>
+ <!-- Geography: Natural Earth 1:110m, public domain. Source: https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_admin_0_countries.geojson -->
+ <div class="coverage-map-body"><svg class="map-svg-canvas" viewBox="0 0 640 380" role="group" aria-label="Mapa de México con la sede en CDMX y ciudades de referencia: Querétaro, Puebla, Guadalajara y Monterrey" xmlns="http://www.w3.org/2000/svg">
+ <path class="coverage-country-shape" d="M59.1,23.5 L78.6,22.0 L100.5,20.0 L98.9,23.7 L124.9,32.7 L164.2,45.9 L198.4,45.8 L212.0,45.8 L212.1,38.1 L241.9,38.1 L248.2,44.7 L257.0,50.6 L267.2,58.8 L272.9,68.6 L277.2,78.9 L286.1,84.5 L300.4,90.1 L311.2,75.4 L325.3,75.0 L337.4,82.5 L346.1,95.3 L352.0,106.2 L362.2,116.9 L366.0,130.0 L370.8,138.8 L384.2,144.6 L396.4,148.7 L403.1,148.1 L396.5,164.5 L393.4,178.0 L392.2,203.0 L390.5,212.2 L393.5,222.4 L398.9,231.5 L402.3,246.0 L413.7,259.9 L417.7,270.6 L424.5,279.8 L442.7,284.8 L449.9,292.6 L465.0,287.4 L478.1,285.5 L491.0,282.1 L501.8,278.9 L512.8,271.3 L516.9,260.4 L518.3,244.6 L521.2,239.2 L532.9,234.3 L551.1,229.9 L566.3,230.6 L576.8,229.0 L580.9,233.0 L580.3,242.0 L571.1,253.1 L567.0,264.5 L570.2,267.7 L567.6,275.8 L563.3,290.4 L558.9,285.6 L555.3,285.9 L552.0,286.2 L545.9,297.5 L542.7,295.2 L540.7,296.1 L540.8,298.9 L524.9,298.7 L508.8,298.7 L508.8,309.2 L501.0,309.3 L507.4,315.5 L513.8,319.8 L515.7,323.9 L518.5,325.0 L518.0,331.4 L496.0,331.4 L487.7,346.7 L490.1,350.2 L488.1,354.6 L487.7,360.0 L468.2,339.9 L459.3,333.8 L445.3,328.9 L435.7,330.3 L421.8,337.3 L413.2,339.2 L401.0,334.2 L388.1,330.7 L372.0,322.1 L359.1,319.5 L339.6,310.8 L325.2,301.8 L320.9,296.8 L311.3,295.7 L293.6,289.8 L286.5,281.3 L268.0,270.7 L259.4,258.9 L255.3,249.8 L261.0,247.9 L259.2,242.6 L263.2,237.8 L263.3,231.3 L257.5,222.9 L255.9,215.4 L250.1,206.0 L235.0,187.4 L217.7,172.8 L209.3,161.2 L194.5,153.5 L191.3,149.0 L194.0,137.4 L185.2,133.0 L175.0,123.9 L170.7,110.9 L161.5,109.4 L151.5,99.5 L143.4,90.4 L142.7,84.6 L133.4,70.5 L127.3,56.2 L127.6,49.0 L115.1,41.6 L109.4,42.4 L99.6,37.2 L96.8,44.8 L99.6,53.8 L101.3,67.8 L107.2,75.5 L120.0,88.4 L122.8,92.8 L125.5,94.2 L127.7,100.6 L130.8,100.3 L134.2,112.4 L139.5,117.1 L143.1,123.8 L154.0,133.3 L159.7,150.7 L164.8,158.9 L169.6,167.6 L170.5,177.5 L178.8,178.1 L185.7,186.6 L191.9,195.0 L191.5,198.3 L184.3,205.2 L181.2,205.1 L176.7,193.7 L165.4,183.1 L153.0,174.0 L144.2,169.3 L144.8,155.6 L142.2,145.5 L134.0,139.7 L122.1,131.3 L119.9,133.7 L115.5,128.8 L104.9,124.3 L94.8,113.5 L96.0,112.1 L103.1,113.1 L109.5,106.1 L110.1,97.7 L96.9,84.4 L86.8,79.2 L80.4,67.5 L74.0,55.2 L66.1,40.3 L59.1,23.5 Z"/>
+ <path class="coverage-map-route" data-map-region="bajio-centro" d="M368.8,268.5 L347.2,246.9"/><path class="coverage-map-route" data-map-region="bajio-centro" d="M368.8,268.5 L384.8,275.8"/><path class="coverage-map-route" data-map-region="norte-occidente" d="M368.8,268.5 L296.3,245.5"/><path class="coverage-map-route" data-map-region="norte-occidente" d="M368.8,268.5 L348.5,151.5"/><g class="coverage-map-city" data-map-region="valle-mexico" data-map-city="cdmx" role="button" tabindex="0" aria-label="Seleccionar CDMX · Sede" aria-pressed="false"><title>CDMX · Sede</title><circle class="coverage-map-hit" cx="368.8" cy="268.5" r="8"/><circle class="coverage-map-selection-ring" cx="368.8" cy="268.5" r="13"/><circle class="coverage-map-dot" cx="368.8" cy="268.5" r="5"/></g><g class="coverage-map-city" data-map-region="bajio-centro" data-map-city="queretaro" role="button" tabindex="0" aria-label="Seleccionar Querétaro" aria-pressed="false"><title>Querétaro</title><circle class="coverage-map-hit" cx="347.2" cy="246.9" r="8"/><circle class="coverage-map-selection-ring" cx="347.2" cy="246.9" r="13"/><circle class="coverage-map-dot" cx="347.2" cy="246.9" r="4"/></g><g class="coverage-map-city" data-map-region="bajio-centro" data-map-city="puebla" role="button" tabindex="0" aria-label="Seleccionar Puebla" aria-pressed="false"><title>Puebla</title><circle class="coverage-map-hit" cx="384.8" cy="275.8" r="8"/><circle class="coverage-map-selection-ring" cx="384.8" cy="275.8" r="13"/><circle class="coverage-map-dot" cx="384.8" cy="275.8" r="4"/></g><g class="coverage-map-city" data-map-region="norte-occidente" data-map-city="guadalajara" role="button" tabindex="0" aria-label="Seleccionar Guadalajara" aria-pressed="false"><title>Guadalajara</title><circle class="coverage-map-hit" cx="296.3" cy="245.5" r="8"/><circle class="coverage-map-selection-ring" cx="296.3" cy="245.5" r="13"/><circle class="coverage-map-dot" cx="296.3" cy="245.5" r="4"/></g><g class="coverage-map-city" data-map-region="norte-occidente" data-map-city="monterrey" role="button" tabindex="0" aria-label="Seleccionar Monterrey" aria-pressed="false"><title>Monterrey</title><circle class="coverage-map-hit" cx="348.5" cy="151.5" r="8"/><circle class="coverage-map-selection-ring" cx="348.5" cy="151.5" r="13"/><circle class="coverage-map-dot" cx="348.5" cy="151.5" r="4"/></g>
+ </svg><ul class="coverage-city-list" aria-label="Ciudades y tiempos de referencia"><li data-map-region="valle-mexico" data-map-city="cdmx"><button class="coverage-city-choice" type="button" data-city-select="cdmx" aria-pressed="false"><span class="coverage-city-name"><span class="coverage-city-dot" aria-hidden="true"></span>CDMX · Sede</span><span class="coverage-city-time">&lt; 4 h</span></button></li><li data-map-region="bajio-centro" data-map-city="queretaro"><button class="coverage-city-choice" type="button" data-city-select="queretaro" aria-pressed="false"><span class="coverage-city-name"><span class="coverage-city-dot" aria-hidden="true"></span>Querétaro</span><span class="coverage-city-time">&lt; 24 h</span></button></li><li data-map-region="bajio-centro" data-map-city="puebla"><button class="coverage-city-choice" type="button" data-city-select="puebla" aria-pressed="false"><span class="coverage-city-name"><span class="coverage-city-dot" aria-hidden="true"></span>Puebla</span><span class="coverage-city-time">&lt; 24 h</span></button></li><li data-map-region="norte-occidente" data-map-city="guadalajara"><button class="coverage-city-choice" type="button" data-city-select="guadalajara" aria-pressed="false"><span class="coverage-city-name"><span class="coverage-city-dot" aria-hidden="true"></span>Guadalajara</span><span class="coverage-city-time">&lt; 48 h</span></button></li><li data-map-region="norte-occidente" data-map-city="monterrey"><button class="coverage-city-choice" type="button" data-city-select="monterrey" aria-pressed="false"><span class="coverage-city-name"><span class="coverage-city-dot" aria-hidden="true"></span>Monterrey</span><span class="coverage-city-time">&lt; 48 h</span></button></li></ul></div>
+ <p class="coverage-map-note">Selecciona una ciudad en el mapa o en la lista para consultar su región de servicio.</p>
+ <div class="coverage-stock-note"><strong>Bodega central · Iztapalapa, CDMX</strong><span>Refacciones y consumibles para envío nacional.</span></div>
+ </div>
         </div>
       </div>
     </section>
@@ -349,7 +327,7 @@
     <div class="container footer-grid">
       <div class="footer-col brand-col">
         <a href="index.html" class="brand-logo" aria-label="DATA CNC MX">
-          <img src="assets/images/logo-datacnc-footer-light.png" alt="Logotipo oficial DATA CNC" class="footer-brand-img">
+          <span class="footer-brand-name">DATA CNC MX</span>
         </a>
         <p class="footer-text">
           Líderes en importación, venta, puesta a punto y mantenimiento preventivo/correctivo de maquinaria industrial láser y CNC en México.
@@ -416,6 +394,6 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20261120-city12"></script>
 </body>
 </html>

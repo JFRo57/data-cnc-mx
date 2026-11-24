@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261120-city12">
   <!-- Detección y Aplicación Inmediata de Tema (Zero-Flash) -->
   <script>
     (function() {
@@ -45,10 +45,10 @@
       <!-- Menú de Enlaces de Escritorio y Móvil con Mega-Menú -->
       <nav id="menu-principal" class="nav-menu" aria-label="Menú principal">
         <div class="nav-item has-dropdown">
-          <a href="equipos.html" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false" aria-controls="equipos-mega-menu">
             <span>Equipos</span>
             <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
+          </button>
           <div class="mega-menu" id="equipos-mega-menu" role="region" aria-label="Catálogo de equipos y divisiones">
             <div class="container mega-menu-inner">
               <!-- Columna 1: DATA Laser -->
@@ -224,7 +224,7 @@
               </div>
               <span class="product-power-tag">1500W - 3000W</span>
               <a href="ficha-soldadora-rl.html" class="product-thumb-link">
-                <img class="product-thumb" src="assets/images/soldadora-rl-main.png" alt="Soldadora Láser 3 en 1 RL con Chiller" loading="lazy">
+                <img class="product-thumb" src="assets/images/soldadora-rl-torch.jpg" alt="Soldadora Láser 3 en 1 RL con Chiller" loading="lazy">
               </a>
             </div>
             <div class="product-content">
@@ -264,7 +264,7 @@
               </div>
               <span class="product-power-tag">800W - 1500W</span>
               <a href="ficha-soldadora-ra.html" class="product-thumb-link">
-                <img class="product-thumb" src="assets/images/soldadora-ra-main.jpg" alt="Soldadora Láser RA Refrigerada por Aire" loading="lazy">
+                <img class="product-thumb" src="assets/images/lJQzwEZxzFYcHi5XNcZuS0V36o.jpg" alt="Soldadora Láser RA Refrigerada por Aire" loading="lazy">
               </a>
             </div>
             <div class="product-content">
@@ -352,7 +352,7 @@
     <div class="container footer-grid">
       <div class="footer-col brand-col">
         <a href="index.html" class="brand-logo" aria-label="DATA CNC MX">
-          <img src="assets/images/logo-datacnc-footer-light.png" alt="Logotipo oficial DATA CNC" class="footer-brand-img">
+          <span class="footer-brand-name">DATA CNC MX</span>
         </a>
         <p class="footer-text">
           Líderes en importación, venta, puesta a punto y mantenimiento preventivo/correctivo de maquinaria industrial láser y CNC en México.
@@ -419,6 +419,6 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20261120-city12"></script>
 </body>
 </html>

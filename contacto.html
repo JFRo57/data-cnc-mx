@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261120-city12">
   <!-- Detección y Aplicación Inmediata de Tema (Zero-Flash) -->
   <script>
     (function() {
@@ -42,10 +42,10 @@
       <!-- Menú de Enlaces de Escritorio y Móvil con Mega-Menú -->
       <nav id="menu-principal" class="nav-menu" aria-label="Menú principal">
         <div class="nav-item has-dropdown">
-          <a href="equipos.html" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false" aria-controls="equipos-mega-menu">
             <span>Equipos</span>
             <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
+          </button>
           <div class="mega-menu" id="equipos-mega-menu" role="region" aria-label="Catálogo de equipos y divisiones">
             <div class="container mega-menu-inner">
               <!-- Columna 1: DATA Laser -->
@@ -265,31 +265,32 @@
             Completa tus datos para preparar un mensaje de cotización formal por WhatsApp.
           </p>
 
-          <form id="main-contact-form" class="form-grid">
-            <p class="form-hint full-width">Los campos con * son obligatorios.</p>
-            <div class="form-group">
+          <form id="main-contact-form" class="form-grid"><p class="form-hint full-width">Solo necesitamos nombre, teléfono y equipo para comenzar.</p><div class="form-group">
               <label for="name" class="form-label">Nombre Completo *</label>
               <input type="text" id="name" name="name" class="form-input" placeholder="Ing. Juan Pérez" autocomplete="name" required>
-            </div>
-
-            <div class="form-group">
-              <label for="company" class="form-label">Empresa o Taller</label>
-              <input type="text" id="company" name="company" class="form-input" placeholder="Metalúrgica del Norte" autocomplete="organization">
-            </div>
-
-            <div class="form-group">
+            </div><div class="form-group">
               <label for="phone" class="form-label">Teléfono / WhatsApp *</label>
               <input type="tel" id="phone" name="phone" class="form-input" placeholder="55 1234 5678" autocomplete="tel" required>
-          </div>
-
-          <div class="form-group">
+          </div><div class="form-group full-width">
+              <label for="product_interest" class="form-label">Equipo de Interés *</label>
+              <select id="product_interest" name="product_interest" class="form-select" required>
+                <option value="">Selecciona un equipo...</option>
+                <option value="Soldadora Láser 3 en 1 RL (1500W - 3000W)">Soldadora Láser 3 en 1 RL (1500W - 3000W)</option>
+                <option value="Soldadora Láser RA Portátil (800W - 1500W)">Soldadora Láser RA Portátil (800W - 1500W)</option>
+                <option value="Cortadora Láser Cama Plana 4x10 (1.5 kW - 12 kW)">Cortadora Láser Cama Plana 4x10 (1.5 kW - 12 kW)</option>
+                <option value="Compresor de Tornillo Rotativo (10 - 50 HP)">Compresor de Tornillo Rotativo (10 - 50 HP)</option>
+                <option value="Sistema DATA FLAME Pintura y Horno">Sistema DATA FLAME Pintura y Horno</option>
+                <option value="Consumibles y Póliza DATA PROTECT">Consumibles y Póliza DATA PROTECT</option>
+              </select>
+            </div><details class="optional-form-details full-width"><summary>Agregar datos de mi proyecto (opcional)</summary><div class="form-grid"><div class="form-group">
+              <label for="company" class="form-label">Empresa o Taller</label>
+              <input type="text" id="company" name="company" class="form-input" placeholder="Metalúrgica del Norte" autocomplete="organization">
+            </div><div class="form-group">
             <label for="email" class="form-label">Correo Electrónico</label>
             <input type="email" id="email" name="email" class="form-input" placeholder="correo@empresa.com" autocomplete="email">
-            </div>
-
-            <div class="form-group">
-              <label for="state" class="form-label">Estado de la República *</label>
-              <select id="state" name="state" class="form-select" required>
+            </div><div class="form-group">
+              <label for="state" class="form-label">Estado de la República (opcional)</label>
+              <select id="state" name="state" class="form-select">
                 <option value="">Selecciona tu estado...</option>
                 <option value="CDMX">Ciudad de México</option>
                 <option value="Estado de México">Estado de México</option>
@@ -304,32 +305,14 @@
                 <option value="Veracruz">Veracruz</option>
                 <option value="Otro Estado">Otro Estado</option>
               </select>
-            </div>
-
-            <div class="form-group full-width">
-              <label for="product_interest" class="form-label">Equipo de Interés *</label>
-              <select id="product_interest" name="product_interest" class="form-select" required>
-                <option value="">Selecciona un equipo...</option>
-                <option value="Soldadora Láser 3 en 1 RL (1500W - 3000W)">Soldadora Láser 3 en 1 RL (1500W - 3000W)</option>
-                <option value="Soldadora Láser RA Portátil (800W - 1500W)">Soldadora Láser RA Portátil (800W - 1500W)</option>
-                <option value="Cortadora Láser Cama Plana 4x10 (1.5 kW - 12 kW)">Cortadora Láser Cama Plana 4x10 (1.5 kW - 12 kW)</option>
-                <option value="Compresor de Tornillo Rotativo (10 - 50 HP)">Compresor de Tornillo Rotativo (10 - 50 HP)</option>
-                <option value="Sistema DATA FLAME Pintura y Horno">Sistema DATA FLAME Pintura y Horno</option>
-                <option value="Consumibles y Póliza DATA PROTECT">Consumibles y Póliza DATA PROTECT</option>
-              </select>
-            </div>
-
-            <div class="form-group full-width">
+            </div><div class="form-group full-width">
               <label for="message" class="form-label">Mensaje o Especificaciones del Proyecto</label>
               <textarea id="message" name="message" class="form-textarea" placeholder="Indícanos los calibres o materiales que procesas habitualmente..." rows="4"></textarea>
-            </div>
-
-            <div class="form-group full-width">
+            </div></div></details><p class="form-hint full-width">Se abrirá WhatsApp con tus datos. Revisa el mensaje y envíalo para contactar a un asesor.</p><div class="form-group full-width">
               <button type="submit" class="btn btn-primary btn-block" style="min-height: 48px; font-weight: 800;">
-                Enviar Cotización a WhatsApp Oficial
+                Preparar solicitud en WhatsApp
               </button>
-            </div>
-          </form>
+            </div></form>
         </div>
       </div>
     </section>
@@ -341,7 +324,7 @@
     <div class="container footer-grid">
       <div class="footer-col brand-col">
         <a href="index.html" class="brand-logo" aria-label="DATA CNC MX">
-          <img src="assets/images/logo-datacnc-footer-light.png" alt="Logotipo oficial DATA CNC" class="footer-brand-img">
+          <span class="footer-brand-name">DATA CNC MX</span>
         </a>
         <p class="footer-text">
           Líderes en importación, venta, puesta a punto y mantenimiento preventivo/correctivo de maquinaria industrial láser y CNC en México.
@@ -408,6 +391,6 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20261120-city12"></script>
 </body>
 </html>

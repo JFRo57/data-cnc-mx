@@ -2,24 +2,6 @@
 // ==========================================================================
 // Control de Acordeón Móvil para Mega-Menú
 // ==========================================================================
-function initMobileDropdowns() {
-  const dropdownTrigger = document.getElementById('dropdown-equipos-btn');
-  if (!dropdownTrigger) return;
-
-  const parent = dropdownTrigger.closest('.has-dropdown');
-  if (!parent) return;
-
-  dropdownTrigger.addEventListener('click', function(e) {
-    if (window.innerWidth <= 1100) {
-      // En móvil, evitar navegar a equipos.html y desplegar el acordeón
-      e.preventDefault();
-      const isOpen = parent.classList.toggle('is-open');
-      dropdownTrigger.setAttribute('aria-expanded', String(isOpen));
-    }
-  });
-}
-
-
 // ==========================================================================
 // Fase 4: Calculadora Dinámica de Parámetros B2B
 // ==========================================================================
@@ -92,6 +74,7 @@ function initTechCalculator() {
   const ctaBtn = container.querySelector('#calc-quote-btn');
 
   function updateCalculator() {
+    materialBtns.forEach(btn => btn.setAttribute('aria-pressed', String(btn.getAttribute('data-material') === currentMaterial)));
     const matData = TECH_CALC_MATRIX[currentMaterial];
     const thicknessKey = THICKNESS_STEPS[currentThicknessIndex];
     const spec = matData.speeds[thicknessKey];
@@ -174,9 +157,27 @@ function initCoverageMap() {
   const engineersEl = container.querySelector('#sla-engineers-val');
   const quoteBtn = container.querySelector('#sla-quote-btn');
 
-  function updateRegion(key) {
+  const cityPoints = [...container.querySelectorAll('.coverage-map-city')];
+  const cityChoices = [...container.querySelectorAll('.coverage-city-choice')];
+
+  function updateRegion(key, cityKey) {
     const reg = REGIONS_DATA[key];
     if (!reg) return;
+    const city = cityPoints.find(node => node.dataset.mapRegion === key && (!cityKey || node.dataset.mapCity === cityKey));
+    const selectedCity = city?.dataset.mapCity;
+    container.querySelectorAll('[data-map-region]').forEach(node => {
+      const active = node.dataset.mapCity ? node.dataset.mapCity === selectedCity : node.dataset.mapRegion === key;
+      node.classList.toggle('is-active', active);
+      if (node.classList.contains('coverage-map-city')) node.setAttribute('aria-pressed', String(active));
+    });
+    cityChoices.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.citySelect === selectedCity)));
+    tabBtns.forEach(button => {
+      const active = button.dataset.region === key;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    const mapStatus = container.querySelector('.coverage-selected-zone');
+    if (mapStatus) mapStatus.textContent = `${city?.querySelector('title').textContent || reg.title} · ${reg.status}`;
 
     if (titleEl) titleEl.textContent = reg.title;
     if (timeEl) timeEl.textContent = reg.sla;
@@ -194,11 +195,21 @@ function initCoverageMap() {
   }
 
   tabBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      tabBtns.forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      const regKey = this.getAttribute('data-region');
-      updateRegion(regKey);
+    btn.addEventListener('click', () => updateRegion(btn.dataset.region));
+  });
+  cityPoints.forEach(point => {
+    const select = () => updateRegion(point.dataset.mapRegion, point.dataset.mapCity);
+    point.addEventListener('click', select);
+    point.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault(); select();
+      }
+    });
+  });
+  cityChoices.forEach(button => {
+    button.addEventListener('click', () => {
+      const point = cityPoints.find(node => node.dataset.mapCity === button.dataset.citySelect);
+      if (point) updateRegion(point.dataset.mapRegion, point.dataset.mapCity);
     });
   });
 
@@ -209,52 +220,6 @@ function initCoverageMap() {
 // ==========================================================================
 // Fase 3: Comparador Interactivo Deslizable (Antes vs. Después)
 // ==========================================================================
-function initComparisonSlider() {
-  const widget = document.getElementById('comparison-slider');
-  const range = document.getElementById('comparison-range');
-  if (!widget || !range) return;
-
-  function updateSlider(val) {
-    widget.style.setProperty('--slider-pos', val + '%');
-  }
-
-  range.addEventListener('input', function() {
-    updateSlider(this.value);
-  });
-
-  // Eventos táctiles y de puntero directo
-  let isDragging = false;
-  function handleMove(e) {
-    if (!isDragging) return;
-    const rect = widget.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const offsetX = clientX - rect.left;
-    let percentage = (offsetX / rect.width) * 100;
-    percentage = Math.max(0, Math.min(100, percentage));
-    range.value = percentage;
-    updateSlider(percentage);
-  }
-
-  widget.addEventListener('mousedown', function(e) {
-    isDragging = true;
-    handleMove(e);
-  });
-  window.addEventListener('mouseup', function() {
-    isDragging = false;
-  });
-  window.addEventListener('mousemove', handleMove);
-
-  widget.addEventListener('touchstart', function(e) {
-    isDragging = true;
-    handleMove(e);
-  }, { passive: true });
-  window.addEventListener('touchend', function() {
-    isDragging = false;
-  });
-  window.addEventListener('touchmove', handleMove, { passive: true });
-}
-
-
 // ==========================================================================
 // Fase 2: Control de Video Hero y Contadores Numéricos Dinámicos
 // ==========================================================================
@@ -266,27 +231,42 @@ function initHeroVideo() {
   const pauseIcon = toggleBtn.querySelector('.pause-icon');
   const playIcon = toggleBtn.querySelector('.play-icon');
 
-  toggleBtn.addEventListener('click', function() {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let userPaused = false;
+  function syncControl() {
+    const paused = video.paused;
+    if (pauseIcon) pauseIcon.style.display = paused ? 'none' : 'block';
+    if (playIcon) playIcon.style.display = paused ? 'block' : 'none';
+    toggleBtn.setAttribute('aria-label', paused ? 'Reanudar animación ilustrativa' : 'Pausar animación ilustrativa');
+    toggleBtn.setAttribute('aria-pressed', String(!paused));
+  }
+  video.addEventListener('play', syncControl);
+  video.addEventListener('pause', syncControl);
+  video.addEventListener('error', () => {
+    syncControl();
+    toggleBtn.disabled = true;
+    toggleBtn.setAttribute('aria-label', 'Animación no disponible');
+  });
+  toggleBtn.addEventListener('click', async () => {
     if (video.paused) {
-      video.play();
-      if (pauseIcon) pauseIcon.style.display = 'block';
-      if (playIcon) playIcon.style.display = 'none';
-      toggleBtn.setAttribute('aria-label', 'Pausar video operativo');
+      userPaused = false;
+      try { await video.play(); } catch (_) { syncControl(); }
     } else {
+      userPaused = true;
       video.pause();
-      if (pauseIcon) pauseIcon.style.display = 'none';
-      if (playIcon) playIcon.style.display = 'block';
-      toggleBtn.setAttribute('aria-label', 'Reanudar video operativo');
     }
   });
-
-  // Asegurar reproducción en móviles tras interacción inicial
-  document.addEventListener('touchstart', function playOnce() {
-    if (video.paused) {
-      video.play().catch(function() {});
+  function applyMotionPreference() {
+    if (reducedMotion.matches) {
+      video.autoplay = false;
+      video.pause();
+    } else if (!userPaused) {
+      video.play().catch(syncControl);
     }
-    document.removeEventListener('touchstart', playOnce);
-  }, { passive: true });
+    syncControl();
+  }
+  reducedMotion.addEventListener('change', applyMotionPreference);
+  applyMotionPreference();
 }
 
 function initAnimatedCounters() {
@@ -368,13 +348,20 @@ function initThemeToggle() {
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initProductJourney();
   initNavigation();
   initProductCatalog();
+  decorateProductCards();
   initModals();
   initProductGallery();
   initContactForm();
   initDemoScheduler();
   initScrollEffects();
+  initThemeToggle();
+  initHeroVideo();
+  initAnimatedCounters();
+  initTechCalculator();
+  initCoverageMap();
 });
 
 /* ==========================================================================
@@ -392,7 +379,7 @@ const PRODUCTS_DATA = [
     subtitle: 'Suelda, Corta y Limpia en una sola unidad de alta potencia',
     tag: 'Fibra Óptica / 3 en 1',
     powerTag: '1500W - 3000W',
-    image: 'assets/images/soldadora-rl-main.png',
+    image: 'assets/images/soldadora-rl-torch.jpg',
     description: 'Combina las funciones de soldadura láser de penetración profunda, limpieza superficial de óxido/pintura y corte de lámina ligera. Entre 2 y 5 veces más rápida que los procesos tradicionales MIG y TIG.',
     specsPreview: [
       'Funciones 3 en 1: Soldadura, Limpieza superficial y Corte fino',
@@ -428,7 +415,7 @@ const PRODUCTS_DATA = [
     subtitle: 'Ultra-portátil, sin chiller de agua y libre de mantenimiento de fluidos',
     tag: 'Ultra Portátil',
     powerTag: '800W - 1500W',
-    image: 'assets/images/soldadora-ra-main.jpg',
+    image: 'assets/images/lJQzwEZxzFYcHi5XNcZuS0V36o.jpg',
     description: 'Tecnología de última generación con disipación por aire forzado. Diseño compacto tipo maleta o torre delgada, ideal para talleres en sitio, montajes en obra y manufactura de alta movilidad.',
     specsPreview: [
       'Refrigeración 100% por aire, cero mangueras de agua externa',
@@ -463,7 +450,7 @@ const PRODUCTS_DATA = [
     subtitle: 'Velocidad, precisión y calidad de corte para lámina y placa industrial',
     tag: 'Corte CNC Industrial',
     powerTag: '1.5 kW - 12 kW',
-    image: 'assets/images/cortadora-4x10-main.png',
+    image: 'assets/images/cortadora-4x10-head.jpg',
     description: 'Mesa de trabajo para formato estándar de 4x10 pies (1500 x 3000 mm o superior). Estructura soldada de alta rigidez tratada térmicamente con pórtico de aluminio de aviación y servomotores de alta dinámica.',
     specsPreview: [
       'Área de trabajo efectiva: 1500 x 3000 mm (Formato 4x10)',
@@ -500,7 +487,7 @@ const PRODUCTS_DATA = [
     subtitle: 'Aire industrial limpio y seco que impulsa la productividad 24/7',
     tag: 'Operación Continua',
     powerTag: '10 HP - 50 HP',
-    image: 'assets/images/compresor-tornillo-main.png',
+    image: 'assets/images/compresor-pipe.jpg',
     description: 'Diseñado específicamente para las exigencias de corte láser y líneas neumáticas pesadas. Entrega flujo de aire continuo libre de pulsaciones, humedad y condensados gracias a su secador refrigerativo integrado.',
     specsPreview: [
       'Módulo 4 en 1: Compresor + Tanque + Secador + Filtros coalescentes',
@@ -552,13 +539,13 @@ const PRODUCTS_DATA = [
     category: 'soporte',
     divisionName: 'DATA CNC',
     divisionLogo: 'assets/images/logo-data-cnc.png',
-    fichaUrl: 'index.html#data-protect',
+    fichaUrl: 'respaldo-tecnico.html',
     categoryUrl: 'index.html#data-protect',
     name: 'DATA PROTECT: Soporte, Garantía y Refacciones',
     subtitle: 'Póliza integral de disponibilidad operativa para tu inversión',
     tag: 'Servicio y Garantía',
     powerTag: 'Cobertura Nacional',
-    image: 'assets/images/hero-machine.png',
+    image: 'assets/images/K1y7125iksihX4WRKM3q1skpQ8.png',
     description: 'Programa oficial de respaldo técnico postventa para toda la república mexicana. Incluye técnicos certificados, refacciones originales en stock y visitas de calibración preventiva.',
     specsPreview: [
       '12 Meses de garantía total de fábrica en componentes clave',
@@ -598,7 +585,9 @@ function initNavigation() {
     });
 
     navMenu.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => setMenuOpen(false));
+      link.addEventListener('click', () => {
+        if (!link.classList.contains('nav-dropdown-trigger')) setMenuOpen(false);
+      });
     });
 
     document.addEventListener('click', event => {
@@ -620,26 +609,31 @@ function initNavigation() {
     setMenuOpen(false);
   }
 
-  // Mega-Menú Desplegable (Móvil y Escritorio)
   const dropdownItem = document.querySelector('.has-dropdown');
   const dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
-  if (dropdownItem && dropdownTrigger) {
-    dropdownTrigger.addEventListener('click', (e) => {
-      const isMobile = window.matchMedia('(max-width: 1100px)').matches;
-      if (isMobile) {
-        e.preventDefault();
-        const isOpen = dropdownItem.classList.contains('mobile-open');
-        dropdownItem.classList.toggle('mobile-open', !isOpen);
-        dropdownTrigger.setAttribute('aria-expanded', String(!isOpen));
+  const dropdownPanel = document.getElementById('equipos-mega-menu');
+  function setDropdownOpen(open) {
+    if (!dropdownItem || !dropdownTrigger || !dropdownPanel) return;
+    dropdownItem.classList.toggle('mobile-open', open);
+    dropdownPanel.classList.toggle('is-open', open);
+    dropdownPanel.inert = !open;
+    dropdownTrigger.setAttribute('aria-expanded', String(open));
+  }
+  if (dropdownTrigger && dropdownPanel) {
+    setDropdownOpen(false);
+    dropdownTrigger.addEventListener('click', () => setDropdownOpen(dropdownTrigger.getAttribute('aria-expanded') !== 'true'));
+    dropdownTrigger.addEventListener('keydown', event => {
+      if (event.key === 'ArrowDown') {
+        event.preventDefault(); setDropdownOpen(true); dropdownPanel.querySelector('a')?.focus();
       }
     });
-
-    document.addEventListener('click', (e) => {
-      if (!dropdownItem.contains(e.target)) {
-        dropdownItem.classList.remove('mobile-open');
-        dropdownTrigger.setAttribute('aria-expanded', 'false');
-      }
+    document.addEventListener('click', event => { if (!dropdownItem.contains(event.target)) setDropdownOpen(false); });
+    dropdownItem.addEventListener('focusout', event => { if (!dropdownItem.contains(event.relatedTarget)) setDropdownOpen(false); });
+    dropdownItem.addEventListener('keydown', event => {
+      if (event.key === 'Escape') { event.stopPropagation(); setDropdownOpen(false); dropdownTrigger.focus(); }
     });
+    toggleBtn?.addEventListener('click', () => { if (!navMenu.classList.contains('open')) setDropdownOpen(false); });
+    window.addEventListener('resize', () => setDropdownOpen(false));
   }
 
   if (header) {
@@ -693,6 +687,7 @@ function initProductCatalog() {
       grid.classList.remove('products-bento-grid');
     }
 
+    grid.classList.toggle('is-single-result', filtered.length === 1);
     filtered.forEach((product, idx) => {
       const card = document.createElement('article');
       card.className = 'product-card';
@@ -702,9 +697,9 @@ function initProductCatalog() {
       if (category === 'todos') {
         if (product.id === 'soldadora-rl-3en1') {
           card.classList.add('bento-hero-item');
-        } else if (product.id === 'cortadora-laser-4x10') {
+        } else if (product.id === 'cortadora-4x10') {
           card.classList.add('bento-tall-item');
-        } else if (product.id === 'data-protect-servicio') {
+        } else if (product.id === 'data-protect') {
           card.classList.add('bento-wide-item');
         } else {
           card.classList.add('bento-compact-item');
@@ -757,6 +752,8 @@ function initProductCatalog() {
       grid.appendChild(card);
     });
 
+    decorateProductCards();
+
     // Re-enlazar botones de ficha técnica
     grid.querySelectorAll('.btn-ficha').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -796,7 +793,7 @@ function openModal(modal, trigger) {
   modal._background.forEach(element => { element.inert = true; });
   modal.classList.add('active');
   document.body.classList.add('modal-open');
-  modal.querySelector('.modal-close-btn')?.focus();
+  modal.querySelector('.modal-close-btn, .lightbox-close-btn')?.focus();
 }
 
 function closeModal(modal) {
@@ -805,7 +802,7 @@ function closeModal(modal) {
   modal.inert = true;
   modal.setAttribute('aria-hidden', 'true');
   modal._background?.forEach(element => { element.inert = false; });
-  if (!document.querySelector('.modal-overlay.active')) {
+  if (!document.querySelector('.modal-overlay.active, .lightbox-modal.active')) {
     document.body.classList.remove('modal-open');
   }
   modal._trigger?.focus();
@@ -825,7 +822,8 @@ function initModals() {
 
   if (printFicha) printFicha.addEventListener('click', () => window.print());
 
-  document.querySelectorAll('.modal-overlay').forEach(modal => {
+  document.querySelectorAll('.modal-overlay, .lightbox-modal').forEach(modal => {
+    modal.inert = true;
     modal.addEventListener('keydown', event => {
       if (event.key !== 'Tab') return;
       const items = modal.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])');
@@ -844,7 +842,7 @@ function initModals() {
 
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
-    const activeModal = document.querySelector('.modal-overlay.active');
+    const activeModal = document.querySelector('.modal-overlay.active, .lightbox-modal.active');
     if (activeModal) closeModal(activeModal);
   });
 }
@@ -950,7 +948,8 @@ function initDemoScheduler() {
   if (demoPageForm) {
     const demoDate = document.getElementById('demo-date');
     if (demoDate) {
-      demoDate.min = new Date().toISOString().split('T')[0];
+      demoDate.min = getShowroomDate();
+      demoDate.addEventListener('focus', () => { demoDate.min = getShowroomDate(); });
     }
     demoPageForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -978,7 +977,7 @@ function initDemoScheduler() {
 
       const waUrl = `https://wa.me/5215527753215?text=${encodeURIComponent(msg)}`;
       window.open(waUrl, '_blank', 'noopener,noreferrer');
-      showToast('Redirigiendo a WhatsApp para confirmar tu demostración...');
+      showToast('WhatsApp está listo con tu solicitud. Envíala para coordinar el horario.');
     });
   }
 
@@ -989,9 +988,7 @@ function initDemoScheduler() {
   const dateInput = document.getElementById('demo_date');
 
   if (dateInput) {
-    const today = new Date();
-    const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
-    dateInput.min = localDate;
+    dateInput.min = getShowroomDate();
   }
 
   openBtns.forEach(btn => {
@@ -1037,7 +1034,7 @@ function initContactForm() {
     const empresa = form.elements.company ? form.elements.company.value.trim() : '';
     const email = form.elements.email ? form.elements.email.value.trim() : '';
     const phone = form.elements.phone ? form.elements.phone.value.trim() : '';
-    const estado = form.elements.state ? form.elements.state.value : 'No especificado';
+    const estado = form.elements.state ? (form.elements.state.value || 'Por definir') : 'Por definir';
     const maquina = form.elements.product_interest ? form.elements.product_interest.value : (form.elements.machine ? form.elements.machine.value : 'General');
     const mensaje = form.elements.message ? form.elements.message.value.trim() : 'Sin detalles adicionales';
     const text = `Hola DATA CNC MX, solicito una cotización desde la página web:\n- Nombre: ${nombre}${empresa ? '\n- Empresa: ' + empresa : ''}\n- Teléfono: ${phone}\n- Correo: ${email || 'No proporcionado'}\n- Estado: ${estado}\n- Equipo de interés: ${maquina}\n- Proyecto: ${mensaje}`;
@@ -1114,16 +1111,21 @@ function initProductGallery() {
   const lightboxClose = document.getElementById('lightbox-close-btn');
 
   function switchMedia(btn) {
-    thumbs.forEach(t => t.classList.remove('active'));
+    thumbs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-pressed', 'false'); });
     btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
 
     const type = btn.getAttribute('data-type');
-    const src = btn.getAttribute('data-src');
+    let src = btn.getAttribute('data-src');
+    if (type === 'video' && mainVideo && src.endsWith('.webm') && !mainVideo.canPlayType('video/webm')) {
+      src = 'assets/images/laser_welding_h264.mp4';
+    }
     const label = btn.querySelector('.thumb-label')?.textContent || '';
 
     if (type === 'video') {
       if (mainImg) mainImg.style.display = 'none';
       if (mainVideo) {
+        mainVideo.hidden = false;
         mainVideo.style.display = 'block';
         if (mainVideo.src !== src && !mainVideo.src.endsWith(src)) {
           mainVideo.src = src;
@@ -1131,11 +1133,12 @@ function initProductGallery() {
         mainVideo.load();
         mainVideo.play().catch(() => {});
       }
-      if (badge) badge.textContent = 'Demostración en video';
+      if (badge) badge.textContent = label || 'Animación ilustrativa';
       if (zoomBtn) zoomBtn.style.display = 'none';
     } else {
       if (mainVideo) {
         mainVideo.pause();
+        mainVideo.hidden = true;
         mainVideo.style.display = 'none';
       }
       if (mainImg) {
@@ -1158,18 +1161,11 @@ function initProductGallery() {
     if (!lightbox || !lightboxImg) return;
     lightboxImg.src = src;
     lightboxImg.alt = alt || 'Imagen ampliada de equipo';
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('modal-open');
-    lightboxClose?.focus();
+    openModal(lightbox, zoomBtn);
   }
 
   function closeLightbox() {
-    if (!lightbox) return;
-    lightbox.classList.remove('active');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('modal-open');
-    zoomBtn?.focus();
+    closeModal(lightbox);
   }
 
   if (zoomBtn) {
@@ -1200,4 +1196,63 @@ function initProductGallery() {
       }
     });
   }
+}
+
+const FORM_PRODUCT_VALUES = {
+ 'soldadora-rl-3en1': ['Soldadora Láser 3 en 1 RL', 'Soldadora Láser 3 en 1 RL (1500W - 3000W)'],
+ 'soldadora-ra-aire': ['Soldadora Láser RA Portátil', 'Soldadora Láser RA Portátil (800W - 1500W)'],
+ 'cortadora-4x10': ['Cortadora Láser 4x10', 'Cortadora Láser Cama Plana 4x10 (1.5 kW - 12 kW)'],
+ 'compresor-tornillo': ['Compresor de Tornillo', 'Compresor de Tornillo Rotativo (10 - 50 HP)'],
+ 'pintura-hornos': ['Línea DATA FLAME', 'Sistema DATA FLAME Pintura y Horno'],
+ 'data-protect': ['', 'Consumibles y Póliza DATA PROTECT']
+};
+function getShowroomDate(now = new Date()) {
+ const parts = new Intl.DateTimeFormat('en-US', {timeZone:'America/Mexico_City',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now);
+ const value = type => parts.find(p => p.type === type).value;
+ return `${value('year')}-${value('month')}-${value('day')}`;
+}
+function initProductJourney() {
+ const currentProduct = PRODUCTS_DATA.find(p => p.fichaUrl === location.pathname.split('/').pop());
+ if (currentProduct && currentProduct.fichaUrl.startsWith('ficha-')) {
+  const demoUrl = `demostracion.html?equipo=${encodeURIComponent(currentProduct.id)}#demo-page-form`;
+  document.querySelectorAll('a[href="contacto.html"]').forEach(a => { a.href = `contacto.html?equipo=${encodeURIComponent(currentProduct.id)}#main-contact-form`; });
+  document.querySelectorAll('a[href="contacto.html"]').forEach(a => { a.href = `contacto.html?equipo=${encodeURIComponent(currentProduct.id)}#main-contact-form`; });
+  document.querySelectorAll('a[href="contacto.html"]').forEach(a => { a.href = `contacto.html?equipo=${encodeURIComponent(currentProduct.id)}#main-contact-form`; });
+  document.querySelectorAll('a[href="demostracion.html"], a[href="index.html#demostracion"]').forEach(a => { a.href = demoUrl; });
+  if (!document.querySelector('.mobile-product-actions')) {
+   const nav = document.createElement('nav'); nav.className='mobile-product-actions'; nav.setAttribute('aria-label',`Acciones para ${currentProduct.name}`);
+   const quote = document.createElement('a'); quote.className='btn btn-primary'; quote.textContent='Cotizar equipo'; quote.target='_blank'; quote.rel='noopener'; quote.href=`https://wa.me/5215527753215?text=${encodeURIComponent('Hola DATA CNC MX, me interesa cotizar '+currentProduct.name)}`;
+   const demo = document.createElement('a'); demo.className='btn btn-secondary'; demo.textContent='Solicitar demo'; demo.href=demoUrl;
+   nav.append(quote,demo); document.querySelector('main').after(nav); document.body.classList.add('has-product-actions');
+  }
+ }
+ const product = FORM_PRODUCT_VALUES[new URLSearchParams(location.search).get('equipo')];
+ if (product) {
+  const demo = document.getElementById('demo-machine');
+  const contact = document.getElementById('product_interest');
+  if (demo) demo.value = product[0];
+  if (contact) contact.value = product[1];
+ }
+ const title = document.getElementById('calc-result-title');
+ title?.setAttribute('aria-live', 'polite');
+}
+function decorateProductCards() {
+ document.querySelectorAll('.product-card').forEach(card => {
+  if (card.querySelector('.product-quick-facts')) return;
+  const link = card.querySelector('a[href^="ficha-"], a[href="respaldo-tecnico.html"]');
+  const product = PRODUCTS_DATA.find(p => p.fichaUrl === link?.getAttribute('href'));
+  const content = card.querySelector('.product-content');
+  if (!content) return;
+  const labels = document.createElement('div'); labels.className = 'product-labels';
+  card.querySelectorAll('.product-tag, .card-division-badge, .product-power-tag').forEach(tag => labels.appendChild(tag));
+  content.prepend(labels);
+  if (!product) return;
+  const application = {soldadura:'Soldadura',corte:'Corte de lámina',compresores:'Aire industrial',pintura:'Pintura y curado',soporte:'Servicio técnico'}[product.category];
+  const specs = product.fullSpecs;
+  const system = specs.enfriamiento || specs.secadorAire || specs.fuenteLaser || specs.tipoEnergia || 'Respaldo y refacciones';
+  const facts = [['Configuración',product.powerTag],['Aplicación',application],['Sistema',system],['Alimentación',specs.voltaje || specs.tipoEnergia || (product.category === 'soporte' ? 'No aplica' : 'Consultar por modelo')]];
+  const dl = document.createElement('dl'); dl.className = 'product-quick-facts';
+  facts.forEach(([label,value]) => { const row = document.createElement('div'); const dt = document.createElement('dt'); const dd = document.createElement('dd'); dt.textContent=label; dd.textContent=value; row.append(dt,dd); dl.appendChild(row); });
+  content.querySelector('.product-desc')?.after(dl);
+ });
 }

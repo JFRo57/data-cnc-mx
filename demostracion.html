@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261120-city12">
   <!-- Detección y Aplicación Inmediata de Tema (Zero-Flash) -->
   <script>
     (function() {
@@ -42,10 +42,10 @@
       <!-- Menú de Enlaces de Escritorio y Móvil con Mega-Menú -->
       <nav id="menu-principal" class="nav-menu" aria-label="Menú principal">
         <div class="nav-item has-dropdown">
-          <a href="equipos.html" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false" aria-controls="equipos-mega-menu">
             <span>Equipos</span>
             <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
+          </button>
           <div class="mega-menu" id="equipos-mega-menu" role="region" aria-label="Catálogo de equipos y divisiones">
             <div class="container mega-menu-inner">
               <!-- Columna 1: DATA Laser -->
@@ -196,6 +196,7 @@
         <p class="category-desc">
           Trae tus propias muestras de material (acero inoxidable, aluminio, latón o placa al carbón) a nuestro Showroom en Iztapalapa, Ciudad de México, o solicita una sesión interactiva en tiempo real por videollamada. Sin costo ni compromiso.
         </p>
+        <a class="btn btn-secondary showroom-jump" href="#ubicacion-showroom">Ver ubicación del showroom</a>
       </div>
     </section>
 
@@ -224,9 +225,9 @@
           </div>
 
           <!-- Formulario de Agenda Directo -->
-          <div class="demo-banner-action" style="background: #ffffff; color: var(--text-main); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
-            <h3 style="color: var(--brand); font-size: 1.35rem; margin-bottom: 0.5rem;">Reserva tu horario</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem;">Completa tus datos para coordinar día y horario con un asesor comercial.</p>
+          <div class="demo-banner-action" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
+            <h3 style="color: var(--brand); font-size: 1.35rem; margin-bottom: 0.5rem;">Solicita una demostración</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem;">Un asesor confirmará disponibilidad y horario por WhatsApp. La solicitud no reserva una cita.</p>
             
             <form id="demo-page-form" class="form-grid" style="gap: 1rem;">
               <div class="form-group full-width">
@@ -261,7 +262,7 @@
 
               <div class="form-group">
                 <label for="demo-date" class="form-label" style="font-size: 0.8rem;">Fecha tentativa *</label>
-                <input type="date" id="demo-date" name="date" class="form-input" required>
+                <input type="date" id="demo-date" name="date" class="form-input" aria-describedby="demo-date-help" required><p id="demo-date-help" class="form-hint">Fecha tentativa en horario de CDMX, sujeta a confirmación.</p>
               </div>
 
               <div class="form-group full-width">
@@ -274,16 +275,19 @@
         </div>
 
         <!-- Ubicación Showroom -->
-        <div class="spec-category-card" style="padding: 2rem;">
-          <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Visítanos en Nuestro Showroom Central</h3>
-          <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
-            <strong>Dirección:</strong> C. José María de Joaristi 235, San Juan, Iztapalapa, C.P. 09830, Ciudad de México, CDMX.<br>
-            <strong>Horarios:</strong> Lunes a Viernes de 9:00 a 18:00 hrs · Sábados de 9:00 a 14:00 hrs (previa cita).
-          </p>
-          <a href="https://maps.google.com/?q=C.+Jos%C3%A9+Mar%C3%ADa+de+Joaristi+235,+San+Juan,+Iztapalapa,+09830+Ciudad+de+M%C3%A9xico,+CDMX" target="_blank" rel="noopener" class="btn btn-outline">
-            Abrir ubicación en Google Maps &rarr;
-          </a>
-        </div>
+        <section class="showroom-location" id="ubicacion-showroom" aria-labelledby="showroom-map-title">
+          <div class="showroom-location-info">
+            <span class="section-subtitle">Visita presencial · CDMX</span>
+            <h2 id="showroom-map-title">Cómo llegar al showroom</h2>
+            <p><strong>Dirección</strong><br>C. José María de Joaristi 235, San Juan, Iztapalapa, C.P. 09830, Ciudad de México.</p>
+            <p><strong>Horario de atención</strong><br>Lunes a viernes: 9:00 a 18:00 h.<br>Sábados: 9:00 a 14:00 h, previa cita.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Calle%20Jos%C3%A9%20Mar%C3%ADa%20de%20Joaristi%20235%2C%20San%20Juan%2C%20Iztapalapa%2C%2009830%20Ciudad%20de%20M%C3%A9xico%2C%20M%C3%A9xico" target="_blank" rel="noopener" class="btn btn-primary">Cómo llegar en Google Maps</a>
+            <p class="form-hint">Confirma tu visita con un asesor antes de acudir.</p>
+          </div>
+          <div class="showroom-map-frame">
+            <iframe title="Ubicación del showroom DATA CNC MX en Iztapalapa" src="https://www.google.com/maps?q=Calle%20Jos%C3%A9%20Mar%C3%ADa%20de%20Joaristi%20235%2C%20San%20Juan%2C%20Iztapalapa%2C%2009830%20Ciudad%20de%20M%C3%A9xico%2C%20M%C3%A9xico&amp;z=16&amp;output=embed" width="600" height="420" style="border:0;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </section>
       </div>
     </section>
   </main>
@@ -294,7 +298,7 @@
     <div class="container footer-grid">
       <div class="footer-col brand-col">
         <a href="index.html" class="brand-logo" aria-label="DATA CNC MX">
-          <img src="assets/images/logo-datacnc-footer-light.png" alt="Logotipo oficial DATA CNC" class="footer-brand-img">
+          <span class="footer-brand-name">DATA CNC MX</span>
         </a>
         <p class="footer-text">
           Líderes en importación, venta, puesta a punto y mantenimiento preventivo/correctivo de maquinaria industrial láser y CNC en México.
@@ -361,6 +365,6 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20261120-city12"></script>
 </body>
 </html>

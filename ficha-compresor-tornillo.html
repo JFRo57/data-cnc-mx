@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261120-city12">
   <!-- Detección y Aplicación Inmediata de Tema (Zero-Flash) -->
   <script>
     (function() {
@@ -27,7 +27,7 @@
     })();
   </script>
 </head>
-<body>
+<body class="has-product-actions">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <!-- ==========================================================================
        Encabezado Principal y Navegación (Mega-Menú Interactivo)
@@ -45,10 +45,10 @@
       <!-- Menú de Enlaces de Escritorio y Móvil con Mega-Menú -->
       <nav id="menu-principal" class="nav-menu" aria-label="Menú principal">
         <div class="nav-item has-dropdown">
-          <a href="equipos.html" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="nav-link nav-dropdown-trigger" id="dropdown-equipos-btn" aria-haspopup="true" aria-expanded="false" aria-controls="equipos-mega-menu">
             <span>Equipos</span>
             <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </a>
+          </button>
           <div class="mega-menu" id="equipos-mega-menu" role="region" aria-label="Catálogo de equipos y divisiones">
             <div class="container mega-menu-inner">
               <!-- Columna 1: DATA Laser -->
@@ -145,14 +145,14 @@
                   <span class="badge">Showroom CDMX</span>
                   <h4>Prueba los equipos en vivo</h4>
                   <p>Trae tus propios materiales a Iztapalapa y prueba soldadura, corte y acabados en tiempo real.</p>
-                  <a href="demostracion.html" class="btn">Agendar demostración</a>
+                  <a href="demostracion.html?equipo=compresor-tornillo#demo-page-form" class="btn">Agendar demostración</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <a href="respaldo-tecnico.html" class="nav-link">Respaldo técnico</a>
-        <a href="demostracion.html" class="nav-link">Demostración</a>
+        <a href="demostracion.html?equipo=compresor-tornillo#demo-page-form" class="nav-link">Demostración</a>
         <a href="nosotros.html" class="nav-link">Nosotros</a>
         <a href="contacto.html" class="nav-link">Contacto</a>
       </nav>
@@ -207,49 +207,21 @@
       <div class="ficha-main">
         
         <div class="product-gallery">
-          <div class="gallery-main-viewport">
-            <img id="main-gallery-img" class="gallery-main-media" src="assets/images/compresor-tornillo-main.png" alt="Compresor de Tornillo Rotativo con Secador">
-            <video id="main-gallery-video" class="gallery-main-media" controls playsinline style="display:none;" poster="assets/images/compresor-cooling.jpg">
-              <source src="assets/images/laser_welding_anim.mp4" type="video/mp4">
-              Tu navegador no soporta video MP4.
-            </video>
-            <button class="gallery-zoom-trigger" id="gallery-zoom-btn" type="button" aria-label="Ampliar imagen (Zoom)">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-              <span>Ver ampliada</span>
-            </button>
-            <div class="gallery-media-type-badge" id="gallery-media-type-badge">Fotografía de equipo</div>
-          </div>
+ <div class="gallery-main-viewport">
+ <img id="main-gallery-img" class="gallery-main-media" src="assets/images/compresor-pipe.jpg" alt="Compresor integrado con tanque y secador">
+ <video id="main-gallery-video" class="gallery-main-media" controls playsinline preload="none" hidden style="display:none;" poster="assets/images/soldadora-rl-main.png"></video>
+ <button class="gallery-zoom-trigger" id="gallery-zoom-btn" type="button" aria-label="Ampliar imagen (Zoom)"><span>Ver ampliada</span></button>
+ <div class="gallery-media-type-badge" id="gallery-media-type-badge">Equipo integrado</div>
+ </div>
+ <div class="gallery-thumbs-strip" role="group" aria-label="Miniaturas de la galería"><button class="gallery-thumb-btn active" type="button" data-type="image" data-src="assets/images/compresor-pipe.jpg" aria-label="Compresor integrado con tanque y secador" aria-pressed="true"><img src="assets/images/compresor-pipe.jpg" alt="Compresor integrado con tanque y secador" loading="lazy"><span class="thumb-label">Equipo integrado</span></button>
+<button class="gallery-thumb-btn" type="button" data-type="image" data-src="assets/images/compresor-tank.jpg" aria-label="Panel de control y manómetro del compresor" aria-pressed="false"><img src="assets/images/compresor-tank.jpg" alt="Panel de control y manómetro del compresor" loading="lazy"><span class="thumb-label">Panel de control</span></button>
+<button class="gallery-thumb-btn" type="button" data-type="image" data-src="assets/images/compresor-cooling.jpg" aria-label="Tanque de almacenamiento bajo la unidad compresora" aria-pressed="false"><img src="assets/images/compresor-cooling.jpg" alt="Tanque de almacenamiento bajo la unidad compresora" loading="lazy"><span class="thumb-label">Tanque</span></button>
+<button class="gallery-thumb-btn" type="button" data-type="image" data-src="assets/images/compresor-motor.jpg" aria-label="Motor y componentes internos del compresor" aria-pressed="false"><img src="assets/images/compresor-motor.jpg" alt="Motor y componentes internos del compresor" loading="lazy"><span class="thumb-label">Motor</span></button>
+<button class="gallery-thumb-btn" type="button" data-type="image" data-src="assets/images/compresor-tornillo-front.png" aria-label="Ilustración de una instalación de aire industrial" aria-pressed="false"><img src="assets/images/compresor-tornillo-front.png" alt="Ilustración de una instalación de aire industrial" loading="lazy"><span class="thumb-label">Instalación ilustrativa</span></button>
+</div>
+ </div>
 
-          <div class="gallery-thumbs-strip" role="tablist" aria-label="Miniaturas de la galería">
-            <button class="gallery-thumb-btn active" type="button" data-type="image" data-src="assets/images/compresor-tornillo-main.png" aria-label="Skid integrado 4 en 1">
-              <img src="assets/images/compresor-tornillo-main.png" alt="Miniatura compresor de tornillo">
-              <span class="thumb-label">Equipo</span>
-            </button>
-            <button class="gallery-thumb-btn" type="button" data-type="image" data-src="assets/images/compresor-tornillo-front.png" aria-label="Panel de control inteligente PLC">
-              <img src="assets/images/compresor-tornillo-front.png" alt="Miniatura panel frontal">
-              <span class="thumb-label">Panel</span>
-            </button>
-            <button class="gallery-thumb-btn" type="button" data-type="image" data-src="assets/images/compresor-cooling.jpg" aria-label="Módulo secador refrigerativo">
-              <img src="assets/images/compresor-cooling.jpg" alt="Miniatura secador refrigerativo">
-              <span class="thumb-label">Secador</span>
-            </button>
-            <button class="gallery-thumb-btn" type="button" data-type="image" data-src="assets/images/compresor-motor.jpg" aria-label="Motor eléctrico y unidad compresora">
-              <img src="assets/images/compresor-motor.jpg" alt="Miniatura motor industrial">
-              <span class="thumb-label">Motor</span>
-            </button>
-            <button class="gallery-thumb-btn" type="button" data-type="image" data-src="assets/images/compresor-pipe.jpg" aria-label="Filtros coalescentes de alta pureza">
-              <img src="assets/images/compresor-pipe.jpg" alt="Miniatura filtros coalescentes">
-              <span class="thumb-label">Filtros</span>
-            </button>
-            <button class="gallery-thumb-btn" type="button" data-type="image" data-src="assets/images/compresor-tank.jpg" aria-label="Tanque de almacenamiento de alta presión">
-              <img src="assets/images/compresor-tank.jpg" alt="Miniatura tanque de aire">
-              <span class="thumb-label">Tanque</span>
-            </button>
-          </div>
-        </div>
-    
-
-        <div class="specs-section">
+<div class="specs-section">
           <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-main);">Especificaciones Técnicas Oficiales</h2>
           <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Rendimiento garantizado para corte continuo con aire de alta pureza.</p>
 
@@ -317,7 +289,7 @@
             Cotizar por WhatsApp
           </a>
 
-          <a href="demostracion.html" class="btn btn-secondary">
+          <a href="demostracion.html?equipo=compresor-tornillo#demo-page-form" class="btn btn-secondary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
             Agendar Demostración
           </a>
@@ -338,6 +310,8 @@
       </aside>
     </div>
   </main>
+<nav class="mobile-product-actions" aria-label="Acciones para Compresor de Tornillo"><a class="btn btn-primary" href="https://wa.me/5215527753215?text=Hola%20DATA%20CNC%20MX%2C%20me%20interesa%20cotizar%20Compresor%20de%20Tornillo." target="_blank" rel="noopener">Cotizar equipo</a><a class="btn btn-secondary" href="demostracion.html?equipo=compresor-tornillo#demo-page-form">Solicitar demo</a></nav>
+
   <!-- ==========================================================================
        Pie de Página Oficial
        ========================================================================== -->
@@ -348,7 +322,7 @@
     <div class="container footer-grid">
       <div class="footer-col brand-col">
         <a href="index.html" class="brand-logo" aria-label="DATA CNC MX">
-          <img src="assets/images/logo-datacnc-footer-light.png" alt="Logotipo oficial DATA CNC" class="footer-brand-img">
+          <span class="footer-brand-name">DATA CNC MX</span>
         </a>
         <p class="footer-text">
           Líderes en importación, venta, puesta a punto y mantenimiento preventivo/correctivo de maquinaria industrial láser y CNC en México.
@@ -373,7 +347,7 @@
       <div class="footer-col">
         <h4 class="footer-heading">Soporte y Demostraciones</h4>
         <ul class="footer-links">
-          <li><a href="demostracion.html">Agendar Demostración en Vivo</a></li>
+          <li><a href="demostracion.html?equipo=compresor-tornillo#demo-page-form">Agendar Demostración en Vivo</a></li>
           <li><a href="respaldo-tecnico.html">Póliza de Servicio DATA PROTECT</a></li>
           <li><a href="nosotros.html">Showroom y Taller en CDMX</a></li>
           <li><a href="contacto.html">Contacto y Cotizaciones</a></li>
@@ -415,6 +389,6 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20261120-city12"></script>
 </body>
 </html>
