@@ -223,50 +223,241 @@ function initCoverageMap() {
 // ==========================================================================
 // Fase 2: Control de Video Hero y Contadores Numéricos Dinámicos
 // ==========================================================================
-function initHeroVideo() {
-  const video = document.getElementById('hero-loop-video');
-  const toggleBtn = document.getElementById('hero-video-toggle');
-  if (!video || !toggleBtn) return;
+// Hero Showcase Interactivo de Maquinaria (Opción A)
+// ==========================================================================
+const HERO_SHOWCASE_SLIDES = [
+  {
+    kicker: 'DATA Laser · Fibra Óptica 3 en 1',
+    titleLines: ['Soldadora Láser', '3 en 1 Serie RL'],
+    desc: 'Suelda, corta y limpia metales en una sola unidad con enfriamiento por chiller. Hasta 5x más rápida que MIG/TIG, con asesoría y respaldo local en México.',
+    power: '1500W – 3000W',
+    app: 'Inox · Carbón · Aluminio',
+    status: 'SHOWROOM CDMX · EN STOCK',
+    model: 'RL-1500 / RL-2000 / RL-3000',
+    sub: 'Equipo industrial con puesta en marcha en México',
+    fichaUrl: 'ficha-soldadora-rl.html',
+    demoUrl: 'demostracion.html?equipo=soldadora-rl-3en1#demo-page-form'
+  },
+  {
+    kicker: 'DATA Laser · Corte CNC Industrial',
+    titleLines: ['Cortadora Láser', 'Cama Plana 4×10'],
+    desc: 'Mesa de trabajo de 1500 × 3000 mm con pórtico de aluminio de aviación, cabezal autofocus y software CypCut para corte de placa y lámina de alta velocidad.',
+    power: '1.5 kW – 12 kW',
+    app: 'Carbón · Inox · Latón',
+    status: 'ENTREGA & INSTALACIÓN NACIONAL',
+    model: 'DATA-CUT 4×10 Pro',
+    sub: 'Precisión de posicionamiento ±0.03 mm · 100 m/min',
+    fichaUrl: 'ficha-cortadora-4x10.html',
+    demoUrl: 'demostracion.html?equipo=cortadora-4x10#demo-page-form'
+  },
+  {
+    kicker: 'DATA Laser · Ultra Portátil',
+    titleLines: ['Soldadora Láser', 'Serie RA (Aire)'],
+    desc: 'Disipación 100% por aire forzado sin chiller externo ni mangueras de agua. Diseño compacto para montajes en obra, talleres móviles y cordones finos.',
+    power: '800W – 1500W',
+    app: 'Montaje en sitio · Taller',
+    status: 'CERO CHILLER · OPERACIÓN ÁGIL',
+    model: 'RA-800 / RA-1200 / RA-1500',
+    sub: 'Hasta 60% más compacta · 220V monofásico/bifásico',
+    fichaUrl: 'ficha-soldadora-ra.html',
+    demoUrl: 'demostracion.html?equipo=soldadora-ra-aire#demo-page-form'
+  },
+  {
+    kicker: 'DATA CNC · Aire Industrial 24/7',
+    titleLines: ['Compresor de Tornillo', 'con Secador Integrado'],
+    desc: 'Módulo 4 en 1 (compresor, tanque, secador refrigerativo y filtros coalescentes) diseñado para alimentar corte láser y líneas neumáticas sin humedad.',
+    power: '10 HP – 50 HP',
+    app: '8 – 16 bar · Punto de rocío 2°C',
+    status: 'OPERACIÓN CONTINUA 24/7',
+    model: 'DT-15B / DT-20B / DT-30B',
+    sub: 'Aire limpio y seco de alta presión para corte láser',
+    fichaUrl: 'ficha-compresor-tornillo.html',
+    demoUrl: 'demostracion.html?equipo=compresor-tornillo#demo-page-form'
+  },
+  {
+    kicker: 'DATA Flame · Acabados Térmicos',
+    titleLines: ['Pintura Electrostática', 'y Hornos de Curado'],
+    desc: 'Cabinas con recuperación ciclónica de polvo y hornos de polimerización por aire forzado a 50°C–250°C para acabados uniformes de alta resistencia.',
+    power: 'Gas LP / Natural / Eléctrico',
+    app: 'Cabina Serie C + Horno Serie H',
+    status: 'DISEÑO INDUSTRIAL A MEDIDA',
+    model: 'DATA Flame Serie C & H',
+    sub: 'Distribución térmica ±3°C · Recuperación ciclónica 98%',
+    fichaUrl: 'ficha-data-flame.html',
+    demoUrl: 'demostracion.html?equipo=pintura-hornos#demo-page-form'
+  }
+];
 
-  const pauseIcon = toggleBtn.querySelector('.pause-icon');
-  const playIcon = toggleBtn.querySelector('.play-icon');
+function initHeroShowcase() {
+  const hero = document.getElementById('inicio');
+  if (!hero) return;
+
+  const slides = [...hero.querySelectorAll('.hero-slide')];
+  const railDots = [...hero.querySelectorAll('.hero-rail-dot')];
+  const dockTabs = [...hero.querySelectorAll('.hero-dock-tab')];
+  const prevBtn = document.getElementById('hero-prev-btn');
+  const nextBtn = document.getElementById('hero-next-btn');
+  const autoplayBtn = document.getElementById('hero-autoplay-btn');
+  const stageEl = hero.querySelector('.hero-stage');
+
+  const kickerEl = document.getElementById('hero-slide-kicker');
+  const titleEl = document.getElementById('hero-slide-title');
+  const descEl = document.getElementById('hero-slide-desc');
+  const powerEl = document.getElementById('hero-slide-power');
+  const appEl = document.getElementById('hero-slide-app');
+  const ctaEl = document.getElementById('hero-slide-cta');
+  const demoEl = document.getElementById('hero-slide-demo');
+  const statusEl = document.getElementById('hero-stage-status');
+  const counterEl = document.getElementById('hero-stage-counter');
+  const modelEl = document.getElementById('hero-stage-model');
+  const subEl = document.getElementById('hero-stage-sub');
+
+  if (!slides.length || slides.length !== HERO_SHOWCASE_SLIDES.length) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let userPaused = false;
-  function syncControl() {
-    const paused = video.paused;
-    if (pauseIcon) pauseIcon.style.display = paused ? 'none' : 'block';
-    if (playIcon) playIcon.style.display = paused ? 'block' : 'none';
-    toggleBtn.setAttribute('aria-label', paused ? 'Reanudar animación ilustrativa' : 'Pausar animación ilustrativa');
-    toggleBtn.setAttribute('aria-pressed', String(!paused));
+  let activeIndex = 0;
+  let userPaused = reducedMotion.matches;
+  let timerId = null;
+  let pointerOverHero = false;
+
+  function syncAutoplayUI() {
+    if (!autoplayBtn) return;
+    const pauseIcon = autoplayBtn.querySelector('.pause-icon');
+    const playIcon = autoplayBtn.querySelector('.play-icon');
+    if (pauseIcon) pauseIcon.style.display = userPaused ? 'none' : 'block';
+    if (playIcon) playIcon.style.display = userPaused ? 'block' : 'none';
+    autoplayBtn.setAttribute('aria-pressed', String(userPaused));
+    autoplayBtn.setAttribute('aria-label', userPaused ? 'Reanudar rotación automática' : 'Pausar rotación automática');
   }
-  video.addEventListener('play', syncControl);
-  video.addEventListener('pause', syncControl);
-  video.addEventListener('error', () => {
-    syncControl();
-    toggleBtn.disabled = true;
-    toggleBtn.setAttribute('aria-label', 'Animación no disponible');
+
+  function renderSlide(nextIndex) {
+    const total = HERO_SHOWCASE_SLIDES.length;
+    activeIndex = ((nextIndex % total) + total) % total;
+    const item = HERO_SHOWCASE_SLIDES[activeIndex];
+
+    slides.forEach((slide, idx) => {
+      const isActive = idx === activeIndex;
+      slide.classList.toggle('is-active', isActive);
+      slide.setAttribute('aria-hidden', String(!isActive));
+    });
+
+    const syncControls = (buttons) => {
+      buttons.forEach(btn => {
+        const isActive = Number(btn.dataset.slideTarget) === activeIndex;
+        btn.classList.toggle('is-active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+    };
+    syncControls(railDots);
+    syncControls(dockTabs);
+
+    if (kickerEl) kickerEl.textContent = item.kicker;
+    if (titleEl) {
+      titleEl.textContent = '';
+      titleEl.appendChild(document.createTextNode(item.titleLines[0]));
+      titleEl.appendChild(document.createElement('br'));
+      const span = document.createElement('span');
+      span.textContent = item.titleLines[1];
+      titleEl.appendChild(span);
+    }
+    if (descEl) descEl.textContent = item.desc;
+    if (powerEl) powerEl.textContent = item.power;
+    if (appEl) appEl.textContent = item.app;
+    if (ctaEl) ctaEl.setAttribute('href', item.fichaUrl);
+    if (demoEl) demoEl.setAttribute('href', item.demoUrl);
+    if (statusEl) statusEl.textContent = item.status;
+    if (counterEl) counterEl.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+    if (modelEl) modelEl.textContent = item.model;
+    if (subEl) subEl.textContent = item.sub;
+  }
+
+  function stopAutoplay() {
+    if (timerId) {
+      clearInterval(timerId);
+      timerId = null;
+    }
+  }
+
+  function startAutoplay(force = false) {
+    stopAutoplay();
+    if (userPaused || (reducedMotion.matches && !force) || (pointerOverHero && !force)) return;
+    timerId = setInterval(() => {
+      renderSlide(activeIndex + 1);
+    }, 6500);
+  }
+
+  function goToSlide(index) {
+    const wasAutoplaying = timerId !== null;
+    renderSlide(index);
+    if (wasAutoplaying) startAutoplay(pointerOverHero);
+  }
+
+  prevBtn?.addEventListener('click', () => goToSlide(activeIndex - 1));
+  nextBtn?.addEventListener('click', () => goToSlide(activeIndex + 1));
+
+  [...railDots, ...dockTabs].forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = Number(btn.dataset.slideTarget);
+      if (!Number.isNaN(target)) goToSlide(target);
+    });
   });
-  toggleBtn.addEventListener('click', async () => {
-    if (video.paused) {
-      userPaused = false;
-      try { await video.play(); } catch (_) { syncControl(); }
-    } else {
-      userPaused = true;
-      video.pause();
+
+  autoplayBtn?.addEventListener('click', () => {
+    userPaused = !userPaused;
+    syncAutoplayUI();
+    if (userPaused) stopAutoplay();
+    else startAutoplay(true);
+  });
+
+  hero.addEventListener('mouseenter', () => {
+    pointerOverHero = true;
+    stopAutoplay();
+  });
+  hero.addEventListener('mouseleave', () => {
+    pointerOverHero = false;
+    startAutoplay();
+  });
+  hero.addEventListener('focusin', stopAutoplay);
+  hero.addEventListener('focusout', (event) => {
+    if (!hero.contains(event.relatedTarget)) startAutoplay();
+  });
+
+  hero.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      goToSlide(activeIndex + 1);
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      goToSlide(activeIndex - 1);
     }
   });
-  function applyMotionPreference() {
+
+  if (stageEl) {
+    let pointerStartX = null;
+    stageEl.addEventListener('pointerdown', (event) => {
+      pointerStartX = event.clientX;
+    });
+    stageEl.addEventListener('pointerup', (event) => {
+      if (pointerStartX === null) return;
+      const deltaX = event.clientX - pointerStartX;
+      pointerStartX = null;
+      if (Math.abs(deltaX) > 45) {
+        goToSlide(deltaX < 0 ? activeIndex + 1 : activeIndex - 1);
+      }
+    });
+  }
+
+  reducedMotion.addEventListener('change', () => {
     if (reducedMotion.matches) {
-      video.autoplay = false;
-      video.pause();
-    } else if (!userPaused) {
-      video.play().catch(syncControl);
+      userPaused = true;
+      stopAutoplay();
     }
-    syncControl();
-  }
-  reducedMotion.addEventListener('change', applyMotionPreference);
-  applyMotionPreference();
+    syncAutoplayUI();
+  });
+
+  syncAutoplayUI();
+  renderSlide(0);
+  startAutoplay();
 }
 
 function initAnimatedCounters() {
@@ -358,7 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDemoScheduler();
   initScrollEffects();
   initThemeToggle();
-  initHeroVideo();
+  initHeroShowcase();
   initAnimatedCounters();
   initTechCalculator();
   initCoverageMap();
