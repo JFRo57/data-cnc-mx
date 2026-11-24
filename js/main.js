@@ -1,4 +1,323 @@
 
+function getCurrentLang() {
+  return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'es';
+}
+
+const EN_HOME_I18N = {
+  'skip.link': 'Skip to content',
+  'nav.equipment': 'Equipment',
+  'mega.laser.tag': 'Fiber Optic',
+  'mega.weld.title': 'Laser Welders',
+  'mega.weld.desc': '3-in-1 RL (Chiller) & Portable RA (Air)',
+  'mega.cut.title': 'Flatbed Laser Cutting',
+  'mega.cut.desc': '4x10 Table (1500 x 3000 mm / 1.5 to 12 kW)',
+  'mega.cnc.tag': 'Control & Power',
+  'mega.comp.title': 'Screw Air Compressors',
+  'mega.comp.desc': '10 - 50 HP with 24/7 refrigerated dryer',
+  'mega.all.title': 'Full Catalog',
+  'mega.all.desc': 'Explore all product lines and models',
+  'mega.flame.tag': 'Thermal Finishing',
+  'mega.paint.title': 'Powder Coating & Ovens',
+  'mega.paint.desc': 'Electrostatic booths & 250°C curing ovens',
+  'mega.featured.badge': 'CDMX Showroom',
+  'mega.featured.title': 'Test equipment live',
+  'mega.featured.desc': 'Bring your own materials to Iztapalapa and test welding, cutting, and finishing in real time.',
+  'mega.featured.cta': 'Book a demo',
+  'nav.support': 'Technical Support',
+  'nav.demo': 'Live Demo',
+  'nav.about': 'About Us',
+  'nav.contact': 'Contact',
+  'nav.mobileCta': 'Request Quote',
+  'nav.quote': 'Quote',
+  'hero.spec.power': 'Power',
+  'hero.spec.config': 'Configuration',
+  'hero.demoCta': 'Book a live demo',
+  'hero.g1': '12-month factory warranty',
+  'hero.g2': 'Local technical support',
+  'hero.g3': 'On-site operator training',
+  'hero.tab.0': 'RL Welder',
+  'hero.tab.1': '4×10 Cutter',
+  'hero.tab.2': 'RA Welder',
+  'hero.tab.3': '16 bar Compressor',
+  'hero.tab.4': 'DATA Flame',
+  'offer.text': 'Laser & CNC machinery, industrial finishing, and technical support in Mexico.',
+  'offer.cta': 'View equipment',
+  'stats.installed': 'MACHINES INSTALLED',
+  'stats.uptime': 'OPERATIONAL UPTIME',
+  'stats.response': 'SUPPORT RESPONSE TIME',
+  'catalog.title': 'One solution for every process.',
+  'catalog.filter.all': 'All equipment',
+  'catalog.filter.weld': 'Laser welding',
+  'catalog.filter.cut': 'Laser cutting',
+  'catalog.filter.comp': 'Compressors',
+  'catalog.filter.paint': 'Coating & ovens',
+  'catalog.filter.protect': 'Data Protect',
+  'compare.subtitle': 'Shop-floor performance',
+  'compare.title': 'Why fiber laser welding replaces MIG & TIG',
+  'compare.desc': 'Less rework, minimal heat distortion, and continuous feed with an automatic wire feeder.',
+  'compare.col.metric': 'Metric',
+  'compare.col.laser': 'DATA Laser',
+  'compare.r1.criterion': 'Travel speed',
+  'compare.r1.laser': 'Up to 5× faster',
+  'compare.r2.criterion': 'Finish & post-processing',
+  'compare.r2.trad': 'Grinding & polishing',
+  'compare.r2.laser': 'Clean seam, zero slag',
+  'compare.r3.criterion': 'Thermal distortion',
+  'compare.r3.trad': 'Large heat-affected zone',
+  'compare.r3.laser': 'Minimal distortion',
+  'compare.r4.criterion': 'Wire feeding',
+  'compare.r4.trad': 'Manual trigger feed',
+  'compare.r4.laser': 'Constant automatic feed',
+  'compare.lineLink': 'View RL & RA models →',
+  'compare.p2.title': 'Real shop-floor testing',
+  'compare.p2.desc': 'Evaluate weld seams on your own parts at our Iztapalapa showroom.',
+  'compare.cta': 'Request a demo',
+  'calc.subtitle': 'Decision tools',
+  'calc.title': 'Parameter Calculator: Material, Thickness & Speed',
+  'calc.step1': '1. Laser Process',
+  'calc.mode.weld': 'Handheld Welding (RL / RA Series)',
+  'calc.mode.cut': '4×10 CNC Cutting (Flatbed)',
+  'calc.step2': '2. Material',
+  'calc.mat.inox': 'Stainless Steel',
+  'calc.mat.carbon': 'Carbon Steel',
+  'calc.mat.carbonSub': 'A36 / Gauges',
+  'calc.mat.alu': 'Aluminum',
+  'calc.mat.brass': 'Brass & Copper',
+  'calc.mat.brassSub': 'Alloys',
+  'calc.step3': '3. Thickness:',
+  'calc.res.powerLabel': 'Recommended power',
+  'calc.res.gasLabel': 'Assist Gas',
+  'calc.res.pressureLabel': 'Working Pressure',
+  'calc.cta': 'Quote Machine for this Gauge',
+  'calc.disclaimer': 'Reference values based on alloy grade and required finish.',
+  'cov.subtitle': 'On-site engineering support',
+  'cov.title': 'Nationwide Coverage & Arrival Times in Mexico',
+  'cov.desc': 'Our central warehouse and technical lab in Iztapalapa, CDMX supply spare parts and guarantee on-site response with in-house engineers so your production never stops.',
+  'cov.tab.vm': 'CDMX & Metro Area (< 4h)',
+  'cov.tab.bc': 'Bajío & Central (< 24h)',
+  'cov.tab.no': 'North & West (< 48h)',
+  'cov.cityLabel': 'Selected city',
+  'cov.arrivalLabel': 'On-site plant arrival',
+  'cov.remoteLabel': 'Remote diagnostics',
+  'cov.engineersLabel': 'Field Engineers:',
+  'cov.warranty.title': '12-month factory warranty',
+  'cov.warranty.desc': 'Direct coverage on fiber laser sources, chillers, and CNC controllers with no middlemen.',
+  'cov.cta': 'Check Technician Availability',
+  'cov.map.title': 'DATA CNC Support Network',
+  'cov.map.country': 'Mexico',
+  'cov.stock.title': 'Central warehouse · Iztapalapa, CDMX',
+  'cov.stock.desc': 'Spare parts & consumables ready for nationwide shipping.',
+  'cons.subtitle': 'Permanent stock in CDMX',
+  'cons.title': 'Original Consumables & Spare Parts Kit',
+  'cons.desc': 'Keep your cutting or welding head running without downtime from wear parts: copper nozzles, sealed protective windows against spatter, ceramic rings, adapters, alignment tools, and certified laser safety goggles.',
+  'cons.item1': 'Copper nozzles & ceramic rings',
+  'cons.item2': 'Individually sealed lenses & windows',
+  'cons.item3': 'Laser goggles & alignment tools',
+  'cons.item4': 'Raycus / Max sources & chillers',
+  'partners.label': 'Brands & components:',
+  'partners.heads': 'Raytools / WSX Laser Heads',
+  'partners.ctrl': 'CypCut CNC Control',
+  'qq.aria': 'Quick quote request',
+  'qq.subtitle': 'Direct engineering advice',
+  'qq.title': 'Get a technical quote for your shop',
+  'qq.desc': 'Tell us which machine or thickness you need and we will send datasheets, lead times, and commissioning options in Mexico.',
+  'qq.b1': 'No-obligation engineering consultation',
+  'qq.b2': 'On-site or video-call testing in CDMX',
+  'qq.b3': 'Mexican invoicing & on-site operator training',
+  'qq.demoCta': 'Book a showroom demo',
+  'qq.link.catalog': 'Full catalog',
+  'qq.link.policy': 'DATA PROTECT plan',
+  'qq.link.contact': 'Contact & location',
+  'qq.form.nameLabel': 'Full name *',
+  'qq.form.phoneLabel': 'WhatsApp or phone *',
+  'qq.form.machineLabel': 'Equipment of interest',
+  'qq.opt.rl': '3-in-1 Laser Welder RL',
+  'qq.opt.cut': '4×10 Flatbed Laser Cutter',
+  'qq.opt.ra': 'Portable Laser Welder RA',
+  'qq.opt.comp': 'Screw Compressor 15 kW · 16 bar',
+  'qq.opt.flame': 'Powder Coating & Curing Ovens',
+  'qq.opt.protect': 'Consumables Kit / DATA PROTECT',
+  'qq.form.stateLabel': 'State / City',
+  'qq.form.submit': 'Send request via WhatsApp',
+  'footer.desc': 'Leaders in import, sales, commissioning, and preventive/corrective maintenance of industrial laser and CNC machinery in Mexico.',
+  'footer.cert': 'Official DATA PROTECT Plan: Factory warranty and parts stocked in Mexico.',
+  'footer.col1': 'Divisions',
+  'footer.col1.l1': 'DATA Laser · 3-in-1 Welders',
+  'footer.col1.l2': 'DATA Laser · 4x10 Flatbed Cutting',
+  'footer.col1.l3': 'DATA CNC · Screw Compressors',
+  'footer.col1.l4': 'DATA Flame · Coating & Ovens',
+  'footer.col1.l5': 'Full Equipment Catalog',
+  'footer.col2': 'Support & Demos',
+  'footer.col2.l1': 'Book a Live Demo',
+  'footer.col2.l2': 'DATA PROTECT Service Plan',
+  'footer.col2.l3': 'CDMX Showroom & Workshop',
+  'footer.col2.l4': 'Contact & Quotes',
+  'footer.col3': 'Support & Showroom',
+  'footer.copy': '© 2026 DATA CNC MX. All rights reserved. Industrial laser equipment backed by guaranteed support in Mexico.',
+  'footer.b1': 'Home',
+  'footer.b2': 'Equipment',
+  'footer.b3': 'Technical Support',
+  'footer.b4': 'Contact',
+  'wa.tooltip': 'Chat on WhatsApp'
+};
+
+const EN_HOME_HTML_I18N = {
+  'compare.showroom': '<strong>Iztapalapa Showroom, CDMX:</strong> C. José María de Joaristi 235 · On-site or video-call testing.',
+  'footer.phone': '<strong>Phone:</strong> <a href="tel:+525527753215">+52 55 2775 3215</a>',
+  'footer.email': '<strong>Email:</strong> <a href="mailto:ventas@datacncmx.com">ventas@datacncmx.com</a>',
+  'footer.address': '<strong>Address:</strong> C. José María de Joaristi 235, San Juan, Iztapalapa, C.P. 09830, CDMX'
+};
+
+const EN_HOME_ATTR_I18N = {
+  placeholder: {
+    'qq.form.namePh': 'e.g. Carlos Perez',
+    'qq.form.statePh': 'e.g. CDMX, Queretaro, MTY'
+  },
+  title: {
+    'nav.phoneTitle': 'Direct call'
+  },
+  aria: {
+    'nav.brandAria': 'DATA CNC MX - Go to homepage',
+    'nav.menuAria': 'Main menu',
+    'nav.megaAria': 'Equipment catalog and divisions',
+    'nav.themeAria': 'Switch between light and dark theme',
+    'nav.menuToggleOpen': 'Open navigation menu',
+    'hero.specsAria': 'Equipment specifications',
+    'hero.controlsAria': 'Carousel controls',
+    'hero.prevAria': 'Previous equipment',
+    'hero.nextAria': 'Next equipment',
+    'hero.dockAria': 'Select featured equipment',
+    'stats.aria': 'DATA CNC performance metrics',
+    'catalog.filterAria': 'Filter by category',
+    'compare.aria': 'MIG/TIG vs. DATA Laser Welding comparison',
+    'calc.aria': 'Interactive laser welding and cutting parameter calculator',
+    'calc.sliderAria': 'Select gauge or thickness',
+    'calc.ticksAria': 'Thickness presets',
+    'cov.aria': 'Technical service and spare parts coverage in Mexico',
+    'partners.aria': 'Integrated brands and components',
+    'qq.aria': 'Quick quote request',
+    'wa.aria': 'Contact DATA CNC MX on WhatsApp',
+    'lightbox.aria': 'High-resolution image viewer',
+    'lightbox.closeAria': 'Close zoomed view'
+  }
+};
+
+function initLanguageToggle() {
+  const toggleBtn = document.getElementById('lang-toggle');
+  if (!toggleBtn) return;
+
+  const textCache = new Map();
+  const htmlCache = new Map();
+  const attrCache = { placeholder: new Map(), title: new Map(), aria: new Map() };
+  const origDocTitle = document.title;
+  const waBtn = document.querySelector('.floating-whatsapp');
+  const origWaHref = waBtn?.getAttribute('href') || '';
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (key && !textCache.has(key)) textCache.set(key, el.textContent);
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (key && !htmlCache.has(key)) htmlCache.set(key, el.innerHTML);
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (key) attrCache.placeholder.set(el, el.getAttribute('placeholder') || '');
+  });
+  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    const key = el.getAttribute('data-i18n-title');
+    if (key) attrCache.title.set(el, el.getAttribute('title') || '');
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const key = el.getAttribute('data-i18n-aria');
+    if (key) attrCache.aria.set(el, el.getAttribute('aria-label') || '');
+  });
+
+  function applyLanguage(lang, { persist = true, notify = true } = {}) {
+    const isEn = lang === 'en';
+    document.documentElement.setAttribute('data-lang', isEn ? 'en' : 'es');
+    document.documentElement.lang = isEn ? 'en' : 'es-MX';
+    document.title = isEn
+      ? 'DATA CNC MX | Industrial CNC Laser Machinery Sales & Support in Mexico'
+      : origDocTitle;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (!key) return;
+      el.textContent = isEn ? (EN_HOME_I18N[key] ?? textCache.get(key) ?? '') : (textCache.get(key) ?? '');
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (!key) return;
+      el.innerHTML = isEn ? (EN_HOME_HTML_I18N[key] ?? htmlCache.get(key) ?? '') : (htmlCache.get(key) ?? '');
+    });
+
+    attrCache.placeholder.forEach((orig, el) => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      el.setAttribute('placeholder', isEn ? (EN_HOME_ATTR_I18N.placeholder[key] ?? orig) : orig);
+    });
+    attrCache.title.forEach((orig, el) => {
+      const key = el.getAttribute('data-i18n-title');
+      el.setAttribute('title', isEn ? (EN_HOME_ATTR_I18N.title[key] ?? orig) : orig);
+    });
+    attrCache.aria.forEach((orig, el) => {
+      const key = el.getAttribute('data-i18n-aria');
+      el.setAttribute('aria-label', isEn ? (EN_HOME_ATTR_I18N.aria[key] ?? orig) : orig);
+    });
+
+    document.querySelectorAll('.stat-number[data-suffix-en]').forEach(el => {
+      const nextSuffix = isEn ? el.getAttribute('data-suffix-en') : el.getAttribute('data-suffix-es');
+      if (nextSuffix !== null) {
+        el.setAttribute('data-suffix', nextSuffix);
+        const prefix = el.getAttribute('data-prefix') || '';
+        const target = el.getAttribute('data-target') || '';
+        el.textContent = prefix + target + nextSuffix;
+      }
+    });
+
+    if (waBtn) {
+      waBtn.setAttribute(
+        'href',
+        isEn
+          ? 'https://wa.me/5215527753215?text=Hello%20DATA%20CNC%20MX%2C%20I%20would%20like%20tailored%20technical%20advice.'
+          : origWaHref
+      );
+    }
+
+    toggleBtn.querySelectorAll('.lang-toggle-option').forEach(opt => {
+      opt.classList.toggle('is-active', opt.getAttribute('data-lang-option') === (isEn ? 'en' : 'es'));
+    });
+    toggleBtn.setAttribute('aria-pressed', String(isEn));
+    toggleBtn.setAttribute('aria-label', isEn ? 'Cambiar idioma a español' : 'Switch language to English');
+    toggleBtn.setAttribute('title', isEn ? 'Cambiar a Español' : 'Switch to English');
+
+    if (persist) {
+      try {
+        localStorage.setItem('datacnc-lang', isEn ? 'en' : 'es');
+      } catch (e) {}
+    }
+
+    if (notify) {
+      document.dispatchEvent(new CustomEvent('datacnc:langchange', { detail: { lang: isEn ? 'en' : 'es' } }));
+    }
+  }
+
+  let initialLang = 'es';
+  try {
+    initialLang = localStorage.getItem('datacnc-lang') === 'en' ? 'en' : getCurrentLang();
+  } catch (e) {
+    initialLang = getCurrentLang();
+  }
+  applyLanguage(initialLang, { persist: false, notify: false });
+
+  toggleBtn.addEventListener('click', () => {
+    const next = getCurrentLang() === 'en' ? 'es' : 'en';
+    applyLanguage(next, { persist: true, notify: true });
+  });
+}
+
 // ==========================================================================
 // Control de Acordeón Móvil para Mega-Menú
 // ==========================================================================
@@ -6,67 +325,166 @@
 // Fase 4: Calculadora Dinámica de Parámetros B2B
 // ==========================================================================
 const TECH_CALC_MATRIX = {
-  'acero-inox': {
-    name: 'Acero Inoxidable (304 / 316)',
-    speeds: {
-      '0.5': { power: '1500W', speed: '5.5 m/min', gas: 'Nitrógeno (N2)', pressure: '12 - 14 bar', wire: '0.8 mm' },
-      '1.0': { power: '1500W - 2000W', speed: '4.2 m/min', gas: 'Nitrógeno (N2)', pressure: '12 - 14 bar', wire: '0.8 - 1.0 mm' },
-      '2.0': { power: '2000W', speed: '2.8 m/min', gas: 'Nitrógeno (N2)', pressure: '14 bar', wire: '1.0 mm' },
-      '3.0': { power: '2000W - 3000W', speed: '1.8 m/min', gas: 'Nitrógeno (N2)', pressure: '14 - 16 bar', wire: '1.2 mm' },
-      '4.0': { power: '3000W', speed: '1.2 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', wire: '1.2 mm' },
-      '6.0': { power: '3000W (Biselado)', speed: '0.8 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', wire: '1.2 mm' }
+  soldadura: {
+    steps: ['0.5', '1.0', '2.0', '3.0', '4.0', '6.0'],
+    speedLabel: 'Velocidad de Avance',
+    extraLabel: 'Alambre Sugerido',
+    materials: {
+      'acero-inox': {
+        name: 'Acero Inoxidable (304 / 316)',
+        speeds: {
+          '0.5': { power: '1500W', speed: '5.5 m/min', gas: 'Nitrógeno (N2)', pressure: '12 - 14 bar', extra: '0.8 mm' },
+          '1.0': { power: '1500W - 2000W', speed: '4.2 m/min', gas: 'Nitrógeno (N2)', pressure: '12 - 14 bar', extra: '0.8 - 1.0 mm' },
+          '2.0': { power: '2000W', speed: '2.8 m/min', gas: 'Nitrógeno (N2)', pressure: '14 bar', extra: '1.0 mm' },
+          '3.0': { power: '2000W - 3000W', speed: '1.8 m/min', gas: 'Nitrógeno (N2)', pressure: '14 - 16 bar', extra: '1.2 mm' },
+          '4.0': { power: '3000W', speed: '1.2 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: '1.2 mm' },
+          '6.0': { power: '3000W (Biselado)', speed: '0.8 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: '1.2 mm' }
+        }
+      },
+      'acero-carbon': {
+        name: 'Acero al Carbón (A36 / Calibres)',
+        speeds: {
+          '0.5': { power: '1500W', speed: '6.0 m/min', gas: 'Aire Seco o Argón', pressure: '10 - 12 bar', extra: '0.8 mm' },
+          '1.0': { power: '1500W', speed: '4.8 m/min', gas: 'Aire Seco o Argón', pressure: '12 bar', extra: '0.8 mm' },
+          '2.0': { power: '2000W', speed: '3.2 m/min', gas: 'Aire Seco o Argón', pressure: '12 - 14 bar', extra: '1.0 mm' },
+          '3.0': { power: '2000W - 3000W', speed: '2.1 m/min', gas: 'Nitrógeno o Argón', pressure: '14 bar', extra: '1.2 mm' },
+          '4.0': { power: '3000W', speed: '1.4 m/min', gas: 'Argón puro', pressure: '14 bar', extra: '1.2 mm' },
+          '6.0': { power: '3000W (Doble pase)', speed: '0.9 m/min', gas: 'Argón puro', pressure: '15 bar', extra: '1.2 mm' }
+        }
+      },
+      'aluminio': {
+        name: 'Aluminio (Serie 5000 / 6000)',
+        speeds: {
+          '0.5': { power: '1500W', speed: '4.5 m/min', gas: 'Argón puro 99.99%', pressure: '14 bar', extra: '1.0 mm' },
+          '1.0': { power: '2000W', speed: '3.5 m/min', gas: 'Argón puro 99.99%', pressure: '14 bar', extra: '1.0 mm' },
+          '2.0': { power: '2000W - 3000W', speed: '2.2 m/min', gas: 'Argón puro 99.99%', pressure: '15 bar', extra: '1.2 mm' },
+          '3.0': { power: '3000W', speed: '1.4 m/min', gas: 'Argón puro 99.99%', pressure: '16 bar', extra: '1.2 mm' },
+          '4.0': { power: '3000W (Biselado)', speed: '0.9 m/min', gas: 'Argón puro 99.99%', pressure: '16 bar', extra: '1.2 mm' },
+          '6.0': { power: '3000W (Precalentado)', speed: '0.6 m/min', gas: 'Argón puro', pressure: '16 bar', extra: '1.2 mm' }
+        }
+      },
+      'cobre-laton': {
+        name: 'Latón y Cobre electrolítico',
+        speeds: {
+          '0.5': { power: '2000W', speed: '4.0 m/min', gas: 'Argón o Nitrógeno', pressure: '14 bar', extra: '0.8 mm' },
+          '1.0': { power: '2000W - 3000W', speed: '2.6 m/min', gas: 'Argón puro', pressure: '15 bar', extra: '1.0 mm' },
+          '2.0': { power: '3000W', speed: '1.6 m/min', gas: 'Argón puro', pressure: '16 bar', extra: '1.0 mm' },
+          '3.0': { power: '3000W', speed: '1.0 m/min', gas: 'Argón puro', pressure: '16 bar', extra: '1.2 mm' },
+          '4.0': { power: '3000W (Potencia máx)', speed: '0.7 m/min', gas: 'Argón puro', pressure: '16 bar', extra: '1.2 mm' },
+          '6.0': { power: 'Consultar ingeniería DATA', speed: '0.4 m/min', gas: 'Argón puro', pressure: '16 bar', extra: '1.2 mm' }
+        }
+      }
     }
   },
-  'acero-carbon': {
-    name: 'Acero al Carbón (A36 / Calibres)',
-    speeds: {
-      '0.5': { power: '1500W', speed: '6.0 m/min', gas: 'Aire Seco o Argón', pressure: '10 - 12 bar', wire: '0.8 mm' },
-      '1.0': { power: '1500W', speed: '4.8 m/min', gas: 'Aire Seco o Argón', pressure: '12 bar', wire: '0.8 mm' },
-      '2.0': { power: '2000W', speed: '3.2 m/min', gas: 'Aire Seco o Argón', pressure: '12 - 14 bar', wire: '1.0 mm' },
-      '3.0': { power: '2000W - 3000W', speed: '2.1 m/min', gas: 'Nitrógeno o Argón', pressure: '14 bar', wire: '1.2 mm' },
-      '4.0': { power: '3000W', speed: '1.4 m/min', gas: 'Argón puro', pressure: '14 bar', wire: '1.2 mm' },
-      '6.0': { power: '3000W (Doble pase)', speed: '0.9 m/min', gas: 'Argón puro', pressure: '15 bar', wire: '1.2 mm' }
-    }
-  },
-  'aluminio': {
-    name: 'Aluminio (Serie 5000 / 6000)',
-    speeds: {
-      '0.5': { power: '1500W', speed: '4.5 m/min', gas: 'Argón puro 99.99%', pressure: '14 bar', wire: '1.0 mm' },
-      '1.0': { power: '2000W', speed: '3.5 m/min', gas: 'Argón puro 99.99%', pressure: '14 bar', wire: '1.0 mm' },
-      '2.0': { power: '2000W - 3000W', speed: '2.2 m/min', gas: 'Argón puro 99.99%', pressure: '15 bar', wire: '1.2 mm' },
-      '3.0': { power: '3000W', speed: '1.4 m/min', gas: 'Argón puro 99.99%', pressure: '16 bar', wire: '1.2 mm' },
-      '4.0': { power: '3000W (Biselado)', speed: '0.9 m/min', gas: 'Argón puro 99.99%', pressure: '16 bar', wire: '1.2 mm' },
-      '6.0': { power: '3000W (Recomendado precalentado)', speed: '0.6 m/min', gas: 'Argón puro', pressure: '16 bar', wire: '1.2 mm' }
-    }
-  },
-  'cobre-laton': {
-    name: 'Latón y Cobre electrolítico',
-    speeds: {
-      '0.5': { power: '2000W', speed: '4.0 m/min', gas: 'Argón o Nitrógeno', pressure: '14 bar', wire: '0.8 mm' },
-      '1.0': { power: '2000W - 3000W', speed: '2.6 m/min', gas: 'Argón puro', pressure: '15 bar', wire: '1.0 mm' },
-      '2.0': { power: '3000W', speed: '1.6 m/min', gas: 'Argón puro', pressure: '16 bar', wire: '1.0 mm' },
-      '3.0': { power: '3000W', speed: '1.0 m/min', gas: 'Argón puro', pressure: '16 bar', wire: '1.2 mm' },
-      '4.0': { power: '3000W (Potencia máx)', speed: '0.7 m/min', gas: 'Argón puro', pressure: '16 bar', wire: '1.2 mm' },
-      '6.0': { power: 'Consultar ingeniería DATA', speed: '0.4 m/min', gas: 'Argón puro', pressure: '16 bar', wire: '1.2 mm' }
+  corte: {
+    steps: ['1.0', '3.0', '6.0', '10', '12', '16'],
+    speedLabel: 'Velocidad de Corte',
+    extraLabel: 'Boquilla Sugerida',
+    materials: {
+      'acero-inox': {
+        name: 'Acero Inoxidable (304 / 316)',
+        speeds: {
+          '1.0': { power: '1.5 kW', speed: '22 – 28 m/min', gas: 'Nitrógeno / Aire 16 bar', pressure: '14 - 16 bar', extra: 'Doble / Simple 1.5 mm' },
+          '3.0': { power: '3.0 kW', speed: '7.5 – 10 m/min', gas: 'Nitrógeno (N2)', pressure: '15 - 16 bar', extra: 'Simple 2.0 mm' },
+          '6.0': { power: '3.0 kW - 6.0 kW', speed: '3.0 – 5.2 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Simple 2.5 mm' },
+          '10': { power: '6.0 kW', speed: '1.8 – 2.4 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Simple 3.0 mm' },
+          '12': { power: '6.0 kW - 12 kW', speed: '1.4 – 3.0 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Simple 3.5 mm' },
+          '16': { power: '12 kW', speed: '1.2 – 1.8 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Alta velocidad 4.0 mm' }
+        }
+      },
+      'acero-carbon': {
+        name: 'Acero al Carbón (A36 / Placa)',
+        speeds: {
+          '1.0': { power: '1.5 kW', speed: '26 – 35 m/min', gas: 'Aire Seco 16 bar', pressure: '14 - 16 bar', extra: 'Simple 1.5 mm' },
+          '3.0': { power: '1.5 kW - 3.0 kW', speed: '5.5 – 9.0 m/min', gas: 'Oxígeno / Aire Seco', pressure: '1.5 - 14 bar', extra: 'Doble 1.4 mm' },
+          '6.0': { power: '3.0 kW', speed: '2.6 – 3.4 m/min', gas: 'Oxígeno (O2)', pressure: '0.8 - 1.2 bar', extra: 'Doble 1.6 mm' },
+          '10': { power: '3.0 kW - 6.0 kW', speed: '1.4 – 2.6 m/min', gas: 'Oxígeno (O2)', pressure: '0.7 - 1.0 bar', extra: 'Doble 2.0 mm' },
+          '12': { power: '6.0 kW', speed: '1.6 – 2.2 m/min', gas: 'Oxígeno (O2)', pressure: '0.6 - 0.9 bar', extra: 'Doble 2.0 mm' },
+          '16': { power: '6.0 kW - 12 kW', speed: '1.0 – 1.8 m/min', gas: 'Oxígeno (O2)', pressure: '0.6 - 0.8 bar', extra: 'Doble 2.5 mm' }
+        }
+      },
+      'aluminio': {
+        name: 'Aluminio (Serie 5000 / 6000)',
+        speeds: {
+          '1.0': { power: '1.5 kW', speed: '18 – 24 m/min', gas: 'Nitrógeno / Aire 16 bar', pressure: '14 - 16 bar', extra: 'Simple 1.5 mm' },
+          '3.0': { power: '3.0 kW', speed: '6.0 – 8.5 m/min', gas: 'Nitrógeno (N2)', pressure: '15 - 16 bar', extra: 'Simple 2.0 mm' },
+          '6.0': { power: '6.0 kW', speed: '2.8 – 3.8 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Simple 2.5 mm' },
+          '10': { power: '6.0 kW - 12 kW', speed: '1.3 – 2.4 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Simple 3.0 mm' },
+          '12': { power: '12 kW', speed: '1.5 – 2.1 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Simple 3.5 mm' },
+          '16': { power: '12 kW (Consultar)', speed: '0.8 – 1.2 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Simple 4.0 mm' }
+        }
+      },
+      'cobre-laton': {
+        name: 'Latón y Cobre electrolítico',
+        speeds: {
+          '1.0': { power: '2.0 kW - 3.0 kW', speed: '14 – 20 m/min', gas: 'Nitrógeno (N2)', pressure: '14 - 16 bar', extra: 'Simple 1.5 mm' },
+          '3.0': { power: '3.0 kW - 6.0 kW', speed: '4.0 – 7.0 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Simple 2.0 mm' },
+          '6.0': { power: '6.0 kW', speed: '1.6 – 2.3 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Simple 2.5 mm' },
+          '10': { power: '6.0 kW - 12 kW', speed: '0.9 – 1.6 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Simple 3.0 mm' },
+          '12': { power: '12 kW', speed: '0.9 – 1.3 m/min', gas: 'Nitrógeno (N2)', pressure: '16 bar', extra: 'Simple 3.5 mm' },
+          '16': { power: 'Consultar ingeniería DATA', speed: 'Por prueba en taller', gas: 'Nitrógeno / Oxígeno', extra: 'A definir' }
+        }
+      }
     }
   }
 };
 
-const THICKNESS_STEPS = ['0.5', '1.0', '2.0', '3.0', '4.0', '6.0'];
+const CALC_TEXT_EN = {
+  modes: { soldadura: 'Welding', corte: 'CNC Cutting' },
+  speedLabel: { soldadura: 'Travel Speed', corte: 'Cutting Speed' },
+  extraLabel: { soldadura: 'Suggested Wire', corte: 'Suggested Nozzle' },
+  materials: {
+    'acero-inox': 'Stainless Steel (304 / 316)',
+    'acero-carbon': 'Carbon Steel (A36 / Gauge)',
+    'aluminio': 'Aluminum (5000 / 6000 Series)',
+    'cobre-laton': 'Brass & Electrolytic Copper'
+  },
+  translateVal(val) {
+    return String(val)
+      .replace('Consultar ingeniería DATA', 'Consult DATA engineering')
+      .replace('Por prueba en taller', 'Shop-trial calibrated')
+      .replace('A definir', 'TBD')
+      .replace('(Biselado)', '(Beveled)')
+      .replace('(Doble pase)', '(Double pass)')
+      .replace('(Precalentado)', '(Preheated)')
+      .replace('(Potencia máx)', '(Max power)')
+      .replace('(Consultar)', '(Inquire)')
+      .replace('Nitrógeno o Argón', 'Nitrogen or Argon')
+      .replace('Nitrógeno / Aire', 'Nitrogen / Air')
+      .replace('Nitrógeno / Oxígeno', 'Nitrogen / Oxygen')
+      .replace('Oxígeno / Aire Seco', 'Oxygen / Dry Air')
+      .replace('Aire Seco o Argón', 'Dry Air or Argon')
+      .replace('Aire Seco', 'Dry Air')
+      .replace('Argón o Nitrógeno', 'Argon or Nitrogen')
+      .replace('Argón puro 99.99%', 'Pure Argon 99.99%')
+      .replace('Argón puro', 'Pure Argon')
+      .replace('Nitrógeno (N2)', 'Nitrogen (N2)')
+      .replace('Oxígeno (O2)', 'Oxygen (O2)')
+      .replace('Doble / Simple', 'Double / Single')
+      .replace('Alta velocidad', 'High speed')
+      .replace(/\bDoble\b/g, 'Double')
+      .replace(/\bSimple\b/g, 'Single');
+  }
+};
 
 function initTechCalculator() {
   const container = document.getElementById('tech-calculator');
   if (!container) return;
 
+  let currentMode = 'soldadura';
   let currentMaterial = 'acero-inox';
-  let currentThicknessIndex = 1; // 1.0 mm por defecto
+  let currentThicknessIndex = 1;
 
+  const modeBtns = container.querySelectorAll('.calc-mode-btn');
   const materialBtns = container.querySelectorAll('.calc-mat-btn');
   const slider = container.querySelector('#calc-thickness-slider');
+  const tickBtns = container.querySelectorAll('.calc-tick-btn');
   const thicknessValEl = container.querySelector('#calc-current-thickness');
 
   const titleEl = container.querySelector('#calc-result-title');
   const powerEl = container.querySelector('#calc-result-power');
+  const speedLabelEl = container.querySelector('#calc-speed-label');
+  const extraLabelEl = container.querySelector('#calc-extra-label');
   const speedEl = container.querySelector('#calc-result-speed');
   const gasEl = container.querySelector('#calc-result-gas');
   const pressureEl = container.querySelector('#calc-result-pressure');
@@ -74,29 +492,66 @@ function initTechCalculator() {
   const ctaBtn = container.querySelector('#calc-quote-btn');
 
   function updateCalculator() {
-    materialBtns.forEach(btn => btn.setAttribute('aria-pressed', String(btn.getAttribute('data-material') === currentMaterial)));
-    const matData = TECH_CALC_MATRIX[currentMaterial];
-    const thicknessKey = THICKNESS_STEPS[currentThicknessIndex];
+    const isEn = getCurrentLang() === 'en';
+    const modeData = TECH_CALC_MATRIX[currentMode];
+    const steps = modeData.steps;
+    if (currentThicknessIndex >= steps.length) currentThicknessIndex = steps.length - 1;
+
+    modeBtns.forEach(btn => {
+      const active = btn.dataset.calcMode === currentMode;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    materialBtns.forEach(btn => {
+      const active = btn.getAttribute('data-material') === currentMaterial;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    tickBtns.forEach((btn, idx) => {
+      const label = steps[idx];
+      if (label) btn.textContent = `${label}mm`;
+      btn.classList.toggle('is-active', idx === currentThicknessIndex);
+      btn.setAttribute('aria-pressed', String(idx === currentThicknessIndex));
+    });
+
+    const matData = modeData.materials[currentMaterial];
+    const thicknessKey = steps[currentThicknessIndex];
     const spec = matData.speeds[thicknessKey];
+    const modeLabel = isEn ? CALC_TEXT_EN.modes[currentMode] : (currentMode === 'corte' ? 'Corte CNC' : 'Soldadura');
+    const matName = isEn ? (CALC_TEXT_EN.materials[currentMaterial] || matData.name) : matData.name;
+    const speedLabel = isEn ? CALC_TEXT_EN.speedLabel[currentMode] : modeData.speedLabel;
+    const extraLabel = isEn ? CALC_TEXT_EN.extraLabel[currentMode] : modeData.extraLabel;
+    const translateVal = val => (isEn ? CALC_TEXT_EN.translateVal(val) : val);
 
     if (thicknessValEl) thicknessValEl.textContent = `${thicknessKey} mm`;
-    if (titleEl) titleEl.textContent = `${matData.name} · ${thicknessKey} mm`;
-    if (powerEl) powerEl.textContent = spec.power;
-    if (speedEl) speedEl.textContent = spec.speed;
-    if (gasEl) gasEl.textContent = spec.gas;
-    if (pressureEl) pressureEl.textContent = spec.pressure;
-    if (wireEl) wireEl.textContent = spec.wire;
+    if (titleEl) titleEl.textContent = `${modeLabel} · ${matName} · ${thicknessKey} mm`;
+    if (speedLabelEl) speedLabelEl.textContent = speedLabel;
+    if (extraLabelEl) extraLabelEl.textContent = extraLabel;
+    const powerText = translateVal(spec.power);
+    if (powerEl) powerEl.textContent = powerText;
+    const keepUnitsTogether = val => String(val).replace(/(\d)\s+(m\/min|bar|mm|kW|W|min|horas|hours)\b/gi, '$1\u00A0$2');
+    if (speedEl) speedEl.textContent = keepUnitsTogether(translateVal(spec.speed));
+    if (gasEl) gasEl.textContent = keepUnitsTogether(translateVal(spec.gas));
+    if (pressureEl) pressureEl.textContent = keepUnitsTogether(translateVal(spec.pressure));
+    if (wireEl) wireEl.textContent = keepUnitsTogether(translateVal(spec.extra));
 
     if (ctaBtn) {
-      const msg = encodeURIComponent(`Hola, me interesa cotizar un equipo láser DATA para soldar/cortar ${matData.name} en espesor de ${thicknessKey} mm (Potencia sugerida: ${spec.power}).`);
+      const msg = isEn
+        ? encodeURIComponent(`Hello, I would like a quote on DATA laser equipment for ${modeLabel.toLowerCase()} ${matName} at ${thicknessKey} mm thickness (Recommended power: ${powerText}).`)
+        : encodeURIComponent(`Hola, me interesa cotizar un equipo láser DATA para ${modeLabel.toLowerCase()} de ${matData.name} en espesor de ${thicknessKey} mm (Potencia sugerida: ${spec.power}).`);
       ctaBtn.href = `https://wa.me/5215527753215?text=${msg}`;
     }
   }
 
+  modeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentMode = btn.dataset.calcMode || 'soldadura';
+      updateCalculator();
+    });
+  });
+
   materialBtns.forEach(btn => {
     btn.addEventListener('click', function() {
-      materialBtns.forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
       currentMaterial = this.getAttribute('data-material');
       updateCalculator();
     });
@@ -109,6 +564,17 @@ function initTechCalculator() {
     });
   }
 
+  tickBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const step = parseInt(btn.dataset.step, 10);
+      if (Number.isNaN(step)) return;
+      currentThicknessIndex = step;
+      if (slider) slider.value = String(step);
+      updateCalculator();
+    });
+  });
+
+  document.addEventListener('datacnc:langchange', updateCalculator);
   updateCalculator();
 }
 
@@ -118,7 +584,9 @@ function initTechCalculator() {
 const REGIONS_DATA = {
   'valle-mexico': {
     title: 'Zona Metropolitana & Valle de México',
-    sla: '< 4 Horas en Planta',
+    cityDefault: 'CDMX · Sede',
+    sla: '< 4 horas',
+    remoteSla: '< 2 horas',
     status: 'Respuesta Inmediata CDMX',
     states: ['Ciudad de México (CDMX)', 'Estado de México (EdoMex)', 'Cuernavaca / Morelos', 'Hidalgo Sur'],
     description: 'Atención técnica directa desde nuestro Showroom y Bodega Central en Iztapalapa, CDMX. Diagnóstico en sitio el mismo día y entrega de consumibles en menos de 4 horas.',
@@ -127,7 +595,9 @@ const REGIONS_DATA = {
   },
   'bajio-centro': {
     title: 'Corredor Industrial Bajío & Centro',
-    sla: '< 24 Horas en Planta',
+    cityDefault: 'Querétaro / Puebla',
+    sla: '< 24 horas',
+    remoteSla: '< 2 horas',
     status: 'Rutas Diarias de Asistencia',
     states: ['Querétaro', 'Puebla', 'Toluca / Lerma', 'Guanajuato (León, Celaya, Silao)', 'Tlaxcala', 'Pachuca'],
     description: 'Rutas programadas de servicio preventivo y respuesta a emergencias para corredores automotrices y metalmecánicos. Arribo garantizado al día siguiente hábil.',
@@ -136,7 +606,9 @@ const REGIONS_DATA = {
   },
   'norte-occidente': {
     title: 'Zona Norte, Occidente y Frontera',
-    sla: '< 48 Horas en Planta',
+    cityDefault: 'Guadalajara / Monterrey',
+    sla: '< 48 horas',
+    remoteSla: '< 30 min',
     status: 'Telemetría Remota < 30 min',
     states: ['Nuevo León (Monterrey, Apodaca)', 'Jalisco (Guadalajara, Zapopan)', 'Coahuila (Saltillo, Ramos Arizpe)', 'San Luis Potosí', 'Chihuahua', 'Sonora'],
     description: 'Diagnóstico remoto inmediato por telemetría óptica en menos de 30 minutos. Desplazamiento de ingenieros y envío aéreo de refacciones prioritarias.',
@@ -145,13 +617,45 @@ const REGIONS_DATA = {
   }
 };
 
+const REGIONS_DATA_EN = {
+  'valle-mexico': {
+    title: 'Mexico City Metro & Valley of Mexico',
+    cityDefault: 'CDMX · HQ',
+    sla: '< 4 hours',
+    remoteSla: '< 2 hours',
+    states: ['Mexico City (CDMX)', 'State of Mexico (EdoMex)', 'Cuernavaca / Morelos', 'Southern Hidalgo'],
+    description: 'Direct technical support from our Showroom and Central Warehouse in Iztapalapa, CDMX. Same-day on-site diagnostics and consumables delivery in under 4 hours.',
+    engineers: '6 Active Field Engineers'
+  },
+  'bajio-centro': {
+    title: 'Bajío & Central Industrial Corridor',
+    cityDefault: 'Querétaro / Puebla',
+    sla: '< 24 hours',
+    remoteSla: '< 2 hours',
+    states: ['Querétaro', 'Puebla', 'Toluca / Lerma', 'Guanajuato (León, Celaya, Silao)', 'Tlaxcala', 'Pachuca'],
+    description: 'Scheduled preventive service routes and emergency response for automotive and metalworking corridors. Next-business-day on-site arrival guaranteed.',
+    engineers: '4 Dedicated Regional Specialists'
+  },
+  'norte-occidente': {
+    title: 'North, West & Border Region',
+    cityDefault: 'Guadalajara / Monterrey',
+    sla: '< 48 hours',
+    remoteSla: '< 30 min',
+    states: ['Nuevo León (Monterrey, Apodaca)', 'Jalisco (Guadalajara, Zapopan)', 'Coahuila (Saltillo, Ramos Arizpe)', 'San Luis Potosí', 'Chihuahua', 'Sonora'],
+    description: 'Immediate remote diagnostics via optical telemetry in under 30 minutes, backed by field engineer dispatch and priority air shipping of critical spare parts.',
+    engineers: 'Remote Specialist + On-Site Dispatch'
+  }
+};
+
 function initCoverageMap() {
   const container = document.getElementById('coverage-map-component');
   if (!container) return;
 
   const tabBtns = container.querySelectorAll('.region-tab-btn');
+  const cityEl = container.querySelector('#sla-city-val');
   const titleEl = container.querySelector('#sla-region-title');
   const timeEl = container.querySelector('#sla-time-val');
+  const remoteEl = container.querySelector('#sla-remote-val');
   const descEl = container.querySelector('#sla-region-desc');
   const statesContainer = container.querySelector('#sla-states-container');
   const engineersEl = container.querySelector('#sla-engineers-val');
@@ -159,12 +663,32 @@ function initCoverageMap() {
 
   const cityPoints = [...container.querySelectorAll('.coverage-map-city')];
   const cityChoices = [...container.querySelectorAll('.coverage-city-choice')];
+  let currentRegionKey = 'valle-mexico';
+  let currentCityKey;
+
+  function updateCityButtonsLanguage(isEn) {
+    const cdmxChoice = container.querySelector('.coverage-city-choice[data-city-select="cdmx"] .coverage-city-name');
+    if (cdmxChoice) {
+      const dot = cdmxChoice.querySelector('.coverage-city-dot');
+      cdmxChoice.textContent = '';
+      if (dot) cdmxChoice.appendChild(dot);
+      cdmxChoice.appendChild(document.createTextNode(isEn ? 'CDMX · HQ' : 'CDMX · Sede'));
+    }
+    const cdmxPointTitle = container.querySelector('.coverage-map-city[data-map-city="cdmx"] title');
+    if (cdmxPointTitle) cdmxPointTitle.textContent = isEn ? 'CDMX · HQ' : 'CDMX · Sede';
+  }
 
   function updateRegion(key, cityKey) {
-    const reg = REGIONS_DATA[key];
+    const isEn = getCurrentLang() === 'en';
+    const reg = (isEn ? REGIONS_DATA_EN : REGIONS_DATA)[key] || REGIONS_DATA[key];
     if (!reg) return;
+    currentRegionKey = key;
+    currentCityKey = cityKey;
+
+    updateCityButtonsLanguage(isEn);
     const city = cityPoints.find(node => node.dataset.mapRegion === key && (!cityKey || node.dataset.mapCity === cityKey));
     const selectedCity = city?.dataset.mapCity;
+    const cityLabel = city?.querySelector('title')?.textContent || reg.cityDefault;
     container.querySelectorAll('[data-map-region]').forEach(node => {
       const active = node.dataset.mapCity ? node.dataset.mapCity === selectedCity : node.dataset.mapRegion === key;
       node.classList.toggle('is-active', active);
@@ -177,10 +701,12 @@ function initCoverageMap() {
       button.setAttribute('aria-pressed', String(active));
     });
     const mapStatus = container.querySelector('.coverage-selected-zone');
-    if (mapStatus) mapStatus.textContent = `${city?.querySelector('title').textContent || reg.title} · ${reg.status}`;
+    if (mapStatus) mapStatus.textContent = `${cityLabel} · ${isEn ? 'Arrival' : 'Arribo'} ${reg.sla}`;
 
+    if (cityEl) cityEl.textContent = cityLabel;
     if (titleEl) titleEl.textContent = reg.title;
     if (timeEl) timeEl.textContent = reg.sla;
+    if (remoteEl) remoteEl.textContent = reg.remoteSla;
     if (descEl) descEl.textContent = reg.description;
     if (engineersEl) engineersEl.textContent = reg.engineers;
 
@@ -189,7 +715,9 @@ function initCoverageMap() {
     }
 
     if (quoteBtn) {
-      const msg = encodeURIComponent(`Hola, requiero asesoría técnica sobre disponibilidad y tiempos de soporte de DATA CNC en la región: ${reg.title} (${reg.sla}).`);
+      const msg = isEn
+        ? encodeURIComponent(`Hello, I need technical support availability and response times for DATA CNC in ${cityLabel} (${reg.title}, on-site arrival ${reg.sla}).`)
+        : encodeURIComponent(`Hola, requiero asesoría técnica sobre disponibilidad y tiempos de soporte de DATA CNC en ${cityLabel} (${reg.title}, arribo en planta ${reg.sla}).`);
       quoteBtn.href = `https://wa.me/5215527753215?text=${msg}`;
     }
   }
@@ -213,6 +741,7 @@ function initCoverageMap() {
     });
   });
 
+  document.addEventListener('datacnc:langchange', () => updateRegion(currentRegionKey, currentCityKey));
   updateRegion('valle-mexico');
 }
 
@@ -229,12 +758,13 @@ const HERO_SHOWCASE_SLIDES = [
   {
     kicker: 'DATA Laser · Fibra Óptica 3 en 1',
     titleLines: ['Soldadora Láser', '3 en 1 Serie RL'],
-    desc: 'Suelda, corta y limpia metales en una sola unidad con enfriamiento por chiller. Hasta 5x más rápida que MIG/TIG, con asesoría y respaldo local en México.',
+    desc: 'Suelda, corta y limpia con chiller integrado, panel táctil superior y alimentador automático de alambre. Acabado limpio casi sin post-procesamiento y respaldo local en México.',
     power: '1500W – 3000W',
-    app: 'Inox · Carbón · Aluminio',
+    app: 'Chiller + Alimentador',
     status: 'SHOWROOM CDMX · EN STOCK',
     model: 'RL-1500 / RL-2000 / RL-3000',
-    sub: 'Equipo industrial con puesta en marcha en México',
+    sub: 'Fuente láser + chiller + alimentador de alambre automático',
+    ctaLabel: 'Ver ficha Serie RL',
     fichaUrl: 'ficha-soldadora-rl.html',
     demoUrl: 'demostracion.html?equipo=soldadora-rl-3en1#demo-page-form'
   },
@@ -247,6 +777,7 @@ const HERO_SHOWCASE_SLIDES = [
     status: 'ENTREGA & INSTALACIÓN NACIONAL',
     model: 'DATA-CUT 4×10 Pro',
     sub: 'Precisión de posicionamiento ±0.03 mm · 100 m/min',
+    ctaLabel: 'Ver ficha Corte 4×10',
     fichaUrl: 'ficha-cortadora-4x10.html',
     demoUrl: 'demostracion.html?equipo=cortadora-4x10#demo-page-form'
   },
@@ -259,18 +790,20 @@ const HERO_SHOWCASE_SLIDES = [
     status: 'CERO CHILLER · OPERACIÓN ÁGIL',
     model: 'RA-800 / RA-1200 / RA-1500',
     sub: 'Hasta 60% más compacta · 220V monofásico/bifásico',
+    ctaLabel: 'Ver ficha Serie RA',
     fichaUrl: 'ficha-soldadora-ra.html',
     demoUrl: 'demostracion.html?equipo=soldadora-ra-aire#demo-page-form'
   },
   {
-    kicker: 'DATA CNC · Aire Industrial 24/7',
-    titleLines: ['Compresor de Tornillo', 'con Secador Integrado'],
-    desc: 'Módulo 4 en 1 (compresor, tanque, secador refrigerativo y filtros coalescentes) diseñado para alimentar corte láser y líneas neumáticas sin humedad.',
-    power: '10 HP – 50 HP',
-    app: '8 – 16 bar · Punto de rocío 2°C',
-    status: 'OPERACIÓN CONTINUA 24/7',
-    model: 'DT-15B / DT-20B / DT-30B',
-    sub: 'Aire limpio y seco de alta presión para corte láser',
+    kicker: 'DATA CNC · Especial Corte Láser',
+    titleLines: ['Compresor de Tornillo', '15 kW · 16 bar'],
+    desc: 'Sistema integrado de alta presión con compresor rotativo de 15 kW, secador refrigerativo con filtros de aceite/partículas y tanque acumulador para expulsar metal fundido.',
+    power: '15 kW (20 HP) · 16 bar',
+    app: 'Secador + Tanque acumulador',
+    status: 'SPECIAL FOR LASER CUTTING',
+    model: 'DT-15B · 15 kW / 16 bar',
+    sub: 'Aire 100% limpio y seco para óptica de corte láser',
+    ctaLabel: 'Ver ficha Compresor',
     fichaUrl: 'ficha-compresor-tornillo.html',
     demoUrl: 'demostracion.html?equipo=compresor-tornillo#demo-page-form'
   },
@@ -283,8 +816,67 @@ const HERO_SHOWCASE_SLIDES = [
     status: 'DISEÑO INDUSTRIAL A MEDIDA',
     model: 'DATA Flame Serie C & H',
     sub: 'Distribución térmica ±3°C · Recuperación ciclónica 98%',
+    ctaLabel: 'Ver ficha DATA Flame',
     fichaUrl: 'ficha-data-flame.html',
     demoUrl: 'demostracion.html?equipo=pintura-hornos#demo-page-form'
+  }
+];
+
+const HERO_SHOWCASE_SLIDES_EN = [
+  {
+    kicker: 'DATA Laser · 3-in-1 Fiber Optic',
+    titleLines: ['Fiber Laser Welder', '3-in-1 RL Series'],
+    desc: 'Welds, cuts, and cleans with an integrated chiller, top touchscreen panel, and automatic wire feeder. Clean weld seams with virtually zero post-processing and local support in Mexico.',
+    power: '1500W – 3000W',
+    app: 'Chiller + Wire Feeder',
+    status: 'CDMX SHOWROOM · IN STOCK',
+    model: 'RL-1500 / RL-2000 / RL-3000',
+    sub: 'Laser source + chiller + automatic wire feeder',
+    ctaLabel: 'View RL Series Specs'
+  },
+  {
+    kicker: 'DATA Laser · Industrial CNC Cutting',
+    titleLines: ['Flatbed Fiber', 'Laser Cutter 4×10'],
+    desc: '1500 × 3000 mm working bed with aerospace aluminum gantry, autofocus cutting head, and CypCut software for high-speed sheet and plate cutting.',
+    power: '1.5 kW – 12 kW',
+    app: 'Carbon · Stainless · Brass',
+    status: 'NATIONWIDE DELIVERY & SETUP',
+    model: 'DATA-CUT 4×10 Pro',
+    sub: 'Positioning accuracy ±0.03 mm · 100 m/min',
+    ctaLabel: 'View 4×10 Cutter Specs'
+  },
+  {
+    kicker: 'DATA Laser · Ultra Portable',
+    titleLines: ['Laser Welder', 'RA Series (Air-Cooled)'],
+    desc: '100% forced-air cooling with no external water chiller or water hoses. Compact build for on-site installations, field work, and fine weld seams.',
+    power: '800W – 1500W',
+    app: 'On-Site Work · Job Shop',
+    status: 'NO CHILLER · AGILE OPERATION',
+    model: 'RA-800 / RA-1200 / RA-1500',
+    sub: 'Up to 60% more compact · 220V single/split-phase',
+    ctaLabel: 'View RA Series Specs'
+  },
+  {
+    kicker: 'DATA CNC · Special For Laser Cutting',
+    titleLines: ['Screw Compressor', '15 kW · 16 bar'],
+    desc: 'Integrated high-pressure air system with a 15 kW rotary screw compressor, refrigerated air dryer with oil/particulate filtration, and accumulator tank for laser cutting.',
+    power: '15 kW (20 HP) · 16 bar',
+    app: 'Dryer + Accumulator Tank',
+    status: 'SPECIAL FOR LASER CUTTING',
+    model: 'DT-15B · 15 kW / 16 bar',
+    sub: '100% clean, dry air for laser cutting optics',
+    ctaLabel: 'View Compressor Specs'
+  },
+  {
+    kicker: 'DATA Flame · Thermal Finishing',
+    titleLines: ['Powder Coating', '& Curing Ovens'],
+    desc: 'Cyclone powder recovery booths and forced-air curing ovens operating from 50°C to 250°C for uniform, high-durability industrial finishes.',
+    power: 'LP / Natural Gas / Electric',
+    app: 'Series C Booth + Series H Oven',
+    status: 'CUSTOM INDUSTRIAL DESIGN',
+    model: 'DATA Flame C & H Series',
+    sub: 'Thermal uniformity ±3°C · 98% cyclone recovery',
+    ctaLabel: 'View DATA Flame Specs'
   }
 ];
 
@@ -293,11 +885,11 @@ function initHeroShowcase() {
   if (!hero) return;
 
   const slides = [...hero.querySelectorAll('.hero-slide')];
-  const railDots = [...hero.querySelectorAll('.hero-rail-dot')];
   const dockTabs = [...hero.querySelectorAll('.hero-dock-tab')];
   const prevBtn = document.getElementById('hero-prev-btn');
   const nextBtn = document.getElementById('hero-next-btn');
   const autoplayBtn = document.getElementById('hero-autoplay-btn');
+  const progressEl = document.getElementById('hero-autoplay-progress');
   const stageEl = hero.querySelector('.hero-stage');
 
   const kickerEl = document.getElementById('hero-slide-kicker');
@@ -307,49 +899,91 @@ function initHeroShowcase() {
   const appEl = document.getElementById('hero-slide-app');
   const ctaEl = document.getElementById('hero-slide-cta');
   const demoEl = document.getElementById('hero-slide-demo');
-  const statusEl = document.getElementById('hero-stage-status');
+  const statusEl = document.getElementById('hero-stage-status-text') || document.getElementById('hero-stage-status');
   const counterEl = document.getElementById('hero-stage-counter');
   const modelEl = document.getElementById('hero-stage-model');
   const subEl = document.getElementById('hero-stage-sub');
 
+  const copyEl = hero.querySelector('.hero-showcase-copy');
+  const captionEl = hero.querySelector('.hero-stage-caption');
+
   if (!slides.length || slides.length !== HERO_SHOWCASE_SLIDES.length) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const AUTOPLAY_MS = 6500;
   let activeIndex = 0;
-  let userPaused = reducedMotion.matches;
+  let userPaused = false;
   let timerId = null;
-  let pointerOverHero = false;
+  let leavingTimerId = null;
+
+  function triggerReveal(el) {
+    if (!el || reducedMotion.matches) return;
+    el.classList.remove('is-entering');
+    void el.offsetWidth;
+    el.classList.add('is-entering');
+  }
+
+  function restartProgressBar(active) {
+    if (!progressEl) return;
+    progressEl.classList.remove('is-running');
+    progressEl.style.width = active ? '0%' : '100%';
+    if (!active) return;
+    void progressEl.offsetWidth;
+    progressEl.classList.add('is-running');
+  }
 
   function syncAutoplayUI() {
+    if (stageEl) stageEl.classList.toggle('is-paused', userPaused);
     if (!autoplayBtn) return;
+    const isEn = getCurrentLang() === 'en';
     const pauseIcon = autoplayBtn.querySelector('.pause-icon');
     const playIcon = autoplayBtn.querySelector('.play-icon');
     if (pauseIcon) pauseIcon.style.display = userPaused ? 'none' : 'block';
     if (playIcon) playIcon.style.display = userPaused ? 'block' : 'none';
     autoplayBtn.setAttribute('aria-pressed', String(userPaused));
-    autoplayBtn.setAttribute('aria-label', userPaused ? 'Reanudar rotación automática' : 'Pausar rotación automática');
+    autoplayBtn.setAttribute(
+      'aria-label',
+      isEn
+        ? (userPaused ? 'Resume automatic rotation' : 'Pause automatic rotation')
+        : (userPaused ? 'Reanudar rotación automática' : 'Pausar rotación automática')
+    );
   }
 
-  function renderSlide(nextIndex) {
+  function renderSlide(nextIndex, { animate = true } = {}) {
+    const isEn = getCurrentLang() === 'en';
     const total = HERO_SHOWCASE_SLIDES.length;
+    const prevIndex = activeIndex;
     activeIndex = ((nextIndex % total) + total) % total;
-    const item = HERO_SHOWCASE_SLIDES[activeIndex];
+    const baseItem = HERO_SHOWCASE_SLIDES[activeIndex];
+    const item = isEn ? { ...baseItem, ...(HERO_SHOWCASE_SLIDES_EN[activeIndex] || {}) } : baseItem;
+    const shouldTransition = animate && prevIndex !== activeIndex;
+
+    if (leavingTimerId) {
+      clearTimeout(leavingTimerId);
+      leavingTimerId = null;
+    }
 
     slides.forEach((slide, idx) => {
       const isActive = idx === activeIndex;
+      const isLeaving = shouldTransition && idx === prevIndex;
       slide.classList.toggle('is-active', isActive);
+      slide.classList.toggle('is-leaving', isLeaving);
       slide.setAttribute('aria-hidden', String(!isActive));
     });
 
-    const syncControls = (buttons) => {
-      buttons.forEach(btn => {
-        const isActive = Number(btn.dataset.slideTarget) === activeIndex;
-        btn.classList.toggle('is-active', isActive);
-        btn.setAttribute('aria-pressed', String(isActive));
-      });
-    };
-    syncControls(railDots);
-    syncControls(dockTabs);
+    if (shouldTransition) {
+      leavingTimerId = setTimeout(() => {
+        slides.forEach(slide => slide.classList.remove('is-leaving'));
+        leavingTimerId = null;
+      }, 900);
+    }
+
+    dockTabs.forEach(btn => {
+      const isActive = Number(btn.dataset.slideTarget) === activeIndex;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-selected', String(isActive));
+      btn.setAttribute('tabindex', isActive ? '0' : '-1');
+    });
 
     if (kickerEl) kickerEl.textContent = item.kicker;
     if (titleEl) {
@@ -363,12 +997,20 @@ function initHeroShowcase() {
     if (descEl) descEl.textContent = item.desc;
     if (powerEl) powerEl.textContent = item.power;
     if (appEl) appEl.textContent = item.app;
-    if (ctaEl) ctaEl.setAttribute('href', item.fichaUrl);
+    if (ctaEl) {
+      ctaEl.setAttribute('href', item.fichaUrl);
+      ctaEl.textContent = item.ctaLabel;
+    }
     if (demoEl) demoEl.setAttribute('href', item.demoUrl);
     if (statusEl) statusEl.textContent = item.status;
     if (counterEl) counterEl.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
     if (modelEl) modelEl.textContent = item.model;
     if (subEl) subEl.textContent = item.sub;
+
+    if (shouldTransition) {
+      triggerReveal(copyEl);
+      triggerReveal(captionEl);
+    }
   }
 
   function stopAutoplay() {
@@ -376,26 +1018,29 @@ function initHeroShowcase() {
       clearInterval(timerId);
       timerId = null;
     }
+    restartProgressBar(false);
   }
 
-  function startAutoplay(force = false) {
+  function startAutoplay() {
     stopAutoplay();
-    if (userPaused || (reducedMotion.matches && !force) || (pointerOverHero && !force)) return;
+    if (userPaused) return;
+    restartProgressBar(true);
     timerId = setInterval(() => {
-      renderSlide(activeIndex + 1);
-    }, 6500);
+      renderSlide(activeIndex + 1, { animate: true });
+      restartProgressBar(true);
+    }, AUTOPLAY_MS);
   }
 
   function goToSlide(index) {
-    const wasAutoplaying = timerId !== null;
-    renderSlide(index);
-    if (wasAutoplaying) startAutoplay(pointerOverHero);
+    renderSlide(index, { animate: true });
+    if (!userPaused) startAutoplay();
+    else restartProgressBar(false);
   }
 
   prevBtn?.addEventListener('click', () => goToSlide(activeIndex - 1));
   nextBtn?.addEventListener('click', () => goToSlide(activeIndex + 1));
 
-  [...railDots, ...dockTabs].forEach(btn => {
+  dockTabs.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = Number(btn.dataset.slideTarget);
       if (!Number.isNaN(target)) goToSlide(target);
@@ -406,29 +1051,27 @@ function initHeroShowcase() {
     userPaused = !userPaused;
     syncAutoplayUI();
     if (userPaused) stopAutoplay();
-    else startAutoplay(true);
-  });
-
-  hero.addEventListener('mouseenter', () => {
-    pointerOverHero = true;
-    stopAutoplay();
-  });
-  hero.addEventListener('mouseleave', () => {
-    pointerOverHero = false;
-    startAutoplay();
-  });
-  hero.addEventListener('focusin', stopAutoplay);
-  hero.addEventListener('focusout', (event) => {
-    if (!hero.contains(event.relatedTarget)) startAutoplay();
+    else startAutoplay();
   });
 
   hero.addEventListener('keydown', (event) => {
+    const inDock = event.target instanceof Element && Boolean(event.target.closest('.hero-showcase-dock'));
     if (event.key === 'ArrowRight') {
       event.preventDefault();
       goToSlide(activeIndex + 1);
+      if (inDock) dockTabs[activeIndex]?.focus();
     } else if (event.key === 'ArrowLeft') {
       event.preventDefault();
       goToSlide(activeIndex - 1);
+      if (inDock) dockTabs[activeIndex]?.focus();
+    } else if (inDock && event.key === 'Home') {
+      event.preventDefault();
+      goToSlide(0);
+      dockTabs[0]?.focus();
+    } else if (inDock && event.key === 'End') {
+      event.preventDefault();
+      goToSlide(dockTabs.length - 1);
+      dockTabs[dockTabs.length - 1]?.focus();
     }
   });
 
@@ -447,16 +1090,13 @@ function initHeroShowcase() {
     });
   }
 
-  reducedMotion.addEventListener('change', () => {
-    if (reducedMotion.matches) {
-      userPaused = true;
-      stopAutoplay();
-    }
+  document.addEventListener('datacnc:langchange', () => {
     syncAutoplayUI();
+    renderSlide(activeIndex, { animate: false });
   });
 
   syncAutoplayUI();
-  renderSlide(0);
+  renderSlide(0, { animate: false });
   startAutoplay();
 }
 
@@ -516,8 +1156,14 @@ function initThemeToggle() {
   if (!toggleBtn) return;
 
   function updateToggleUI(currentTheme) {
+    const isEn = getCurrentLang() === 'en';
     toggleBtn.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
-    toggleBtn.setAttribute('title', currentTheme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+    toggleBtn.setAttribute(
+      'title',
+      isEn
+        ? (currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode')
+        : (currentTheme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro')
+    );
   }
 
   const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
@@ -532,6 +1178,10 @@ function initThemeToggle() {
     } catch (e) {}
     updateToggleUI(nextTheme);
   });
+
+  document.addEventListener('datacnc:langchange', () => {
+    updateToggleUI(document.documentElement.getAttribute('data-theme') || 'dark');
+  });
 }
 
 /**
@@ -539,6 +1189,7 @@ function initThemeToggle() {
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initLanguageToggle();
   initProductJourney();
   initNavigation();
   initProductCatalog();
@@ -567,11 +1218,11 @@ const PRODUCTS_DATA = [
     fichaUrl: 'ficha-soldadora-rl.html',
     categoryUrl: 'soldadura-laser.html',
     name: 'Soldadora Láser 3 en 1 RL (Enfriada por Agua)',
-    subtitle: 'Suelda, Corta y Limpia en una sola unidad de alta potencia',
+    subtitle: 'Suelda, Corta y Limpia con chiller integrado y alimentador automático de alambre',
     tag: 'Fibra Óptica / 3 en 1',
     powerTag: '1500W - 3000W',
-    image: 'assets/images/soldadora-rl-torch.jpg',
-    description: 'Combina las funciones de soldadura láser de penetración profunda, limpieza superficial de óxido/pintura y corte de lámina ligera. Entre 2 y 5 veces más rápida que los procesos tradicionales MIG y TIG.',
+    image: 'assets/images/soldadora-rl-studio.jpg',
+    description: 'Sistema industrial con fuente láser de fibra, chiller integrado, panel táctil superior, antorcha con cordón umbilical y alimentador automático de alambre. Acabado limpio casi sin post-procesamiento.',
     specsPreview: [
       'Funciones 3 en 1: Soldadura, Limpieza superficial y Corte fino',
       'Enfriamiento por Chiller industrial de agua de alta precisión',
@@ -674,12 +1325,12 @@ const PRODUCTS_DATA = [
     divisionLogo: 'assets/images/logo-data-cnc.png',
     fichaUrl: 'ficha-compresor-tornillo.html',
     categoryUrl: 'compresores.html',
-    name: 'Compresor de Tornillo Rotativo con Secador',
-    subtitle: 'Aire industrial limpio y seco que impulsa la productividad 24/7',
-    tag: 'Operación Continua',
-    powerTag: '10 HP - 50 HP',
-    image: 'assets/images/compresor-pipe.jpg',
-    description: 'Diseñado específicamente para las exigencias de corte láser y líneas neumáticas pesadas. Entrega flujo de aire continuo libre de pulsaciones, humedad y condensados gracias a su secador refrigerativo integrado.',
+    name: 'Compresor de Tornillo Rotativo 15 kW / 16 bar',
+    subtitle: 'Aire seco y de alta presión especial para corte láser 24/7',
+    tag: 'Special For Laser Cutting',
+    powerTag: '15 kW · 16 bar',
+    image: 'assets/images/compresor-tornillo-studio.jpg',
+    description: 'Sistema integrado DATA CNC de 15 kW y 16 bar con compresor de tornillo rotativo, secador refrigerativo con filtros de aceite/partículas y tanque acumulador horizontal para expulsar metal fundido en corte láser.',
     specsPreview: [
       'Módulo 4 en 1: Compresor + Tanque + Secador + Filtros coalescentes',
       'Motor eléctrico de alta eficiencia montado sobre aisladores de vibración',
@@ -732,12 +1383,12 @@ const PRODUCTS_DATA = [
     divisionLogo: 'assets/images/logo-data-cnc.png',
     fichaUrl: 'respaldo-tecnico.html',
     categoryUrl: 'index.html#data-protect',
-    name: 'DATA PROTECT: Soporte, Garantía y Refacciones',
-    subtitle: 'Póliza integral de disponibilidad operativa para tu inversión',
-    tag: 'Servicio y Garantía',
+    name: 'DATA PROTECT: Soporte, Garantía y Consumibles',
+    subtitle: 'Póliza integral, refacciones originales y kit de consumibles en stock CDMX',
+    tag: 'Servicio y Consumibles',
     powerTag: 'Cobertura Nacional',
-    image: 'assets/images/K1y7125iksihX4WRKM3q1skpQ8.png',
-    description: 'Programa oficial de respaldo técnico postventa para toda la república mexicana. Incluye técnicos certificados, refacciones originales en stock y visitas de calibración preventiva.',
+    image: 'assets/images/kit-consumibles-laser.jpg',
+    description: 'Programa oficial de respaldo técnico postventa y stock permanente en CDMX: boquillas de cobre, lentes y ventanas de protección selladas, cerámicas de aislamiento, alineador, gafas láser y visita de técnicos certificados.',
     specsPreview: [
       '12 Meses de garantía total de fábrica en componentes clave',
       'Tiempo de respuesta técnica menor a 24 horas',
@@ -764,11 +1415,21 @@ function initNavigation() {
 
   function setMenuOpen(isOpen) {
     if (!toggleBtn || !navMenu) return;
+    const isEn = getCurrentLang() === 'en';
     navMenu.classList.toggle('open', isOpen);
     toggleBtn.setAttribute('aria-expanded', String(isOpen));
-    toggleBtn.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    toggleBtn.setAttribute(
+      'aria-label',
+      isEn
+        ? (isOpen ? 'Close navigation menu' : 'Open navigation menu')
+        : (isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación')
+    );
     navMenu.inert = window.matchMedia('(max-width: 1100px)').matches && !isOpen;
   }
+
+  document.addEventListener('datacnc:langchange', () => {
+    if (toggleBtn) setMenuOpen(toggleBtn.getAttribute('aria-expanded') === 'true');
+  });
 
   if (toggleBtn && navMenu) {
     toggleBtn.addEventListener('click', () => {
@@ -811,8 +1472,19 @@ function initNavigation() {
     dropdownTrigger.setAttribute('aria-expanded', String(open));
   }
   if (dropdownTrigger && dropdownPanel) {
+    let hoverCloseTimer = null;
+    const isDesktopNav = () => window.matchMedia('(min-width: 1101px)').matches;
     setDropdownOpen(false);
     dropdownTrigger.addEventListener('click', () => setDropdownOpen(dropdownTrigger.getAttribute('aria-expanded') !== 'true'));
+    dropdownItem.addEventListener('mouseenter', () => {
+      if (!isDesktopNav()) return;
+      clearTimeout(hoverCloseTimer);
+      setDropdownOpen(true);
+    });
+    dropdownItem.addEventListener('mouseleave', () => {
+      if (!isDesktopNav()) return;
+      hoverCloseTimer = setTimeout(() => setDropdownOpen(false), 120);
+    });
     dropdownTrigger.addEventListener('keydown', event => {
       if (event.key === 'ArrowDown') {
         event.preventDefault(); setDropdownOpen(true); dropdownPanel.querySelector('a')?.focus();
@@ -863,28 +1535,174 @@ function initProductCatalog() {
   const filterBtns = document.querySelectorAll('.filter-btn');
 
   if (!grid) return;
+  const isHome = document.body.classList.contains('home-page');
+
+  const HOME_CARD_META = {
+    'soldadora-rl-3en1': {
+      appLabel: 'Soldadura láser',
+      title: 'Soldadora Láser 3 en 1 RL',
+      desc: 'Suelda, corta y limpia metales con alimentador automático de alambre.',
+      facts: [['Potencia', '1500W – 3000W'], ['Refrigeración', 'Chiller de agua']]
+    },
+    'soldadora-ra-aire': {
+      appLabel: 'Soldadura láser',
+      title: 'Soldadora Láser RA Portátil',
+      desc: 'Montajes en obra y cordones finos en formato compacto.',
+      facts: [['Potencia', '800W – 1500W'], ['Refrigeración', 'Aire forzado']]
+    },
+    'cortadora-4x10': {
+      appLabel: 'Corte CNC',
+      title: 'Cortadora Láser Cama Plana 4×10',
+      desc: 'Lámina y placa metálica con cabezal autofocus y control CypCut.',
+      facts: [['Potencia', '1.5 kW – 12 kW'], ['Área útil', '1500 × 3000 mm']]
+    },
+    'compresor-tornillo': {
+      appLabel: 'Aire industrial',
+      title: 'Compresor de Tornillo DT-B',
+      desc: 'Módulo 4 en 1 con secador refrigerativo para corte láser continuo.',
+      facts: [['Potencia', '15 kW (20 HP)'], ['Presión', '16 bar · aire seco']]
+    },
+    'pintura-hornos': {
+      appLabel: 'Acabados térmicos',
+      title: 'Sistema DATA FLAME',
+      desc: 'Cabinas ciclónicas de pintura en polvo y hornos de polimerización.',
+      facts: [['Energía', 'Gas / Eléctrico'], ['Curado', '50°C – 250°C']]
+    },
+    'data-protect': {
+      appLabel: 'Servicio postventa',
+      title: 'Póliza DATA PROTECT',
+      desc: 'Refacciones originales y kit de consumibles en almacén CDMX.',
+      facts: [['Garantía', '12 meses'], ['Despacho', 'Inmediato CDMX']]
+    }
+  };
+
+  const HOME_CARD_META_EN = {
+    'soldadora-rl-3en1': {
+      appLabel: 'Laser welding',
+      title: '3-in-1 Laser Welder RL',
+      desc: 'Welds, cuts, and cleans metals with an automatic wire feeder.',
+      facts: [['Power', '1500W – 3000W'], ['Cooling', 'Water chiller']]
+    },
+    'soldadora-ra-aire': {
+      appLabel: 'Laser welding',
+      title: 'Portable Laser Welder RA',
+      desc: 'On-site installations and fine weld seams in a compact frame.',
+      facts: [['Power', '800W – 1500W'], ['Cooling', 'Forced air']]
+    },
+    'cortadora-4x10': {
+      appLabel: 'CNC cutting',
+      title: '4×10 Flatbed Laser Cutter',
+      desc: 'Sheet and plate cutting with autofocus head and CypCut control.',
+      facts: [['Power', '1.5 kW – 12 kW'], ['Work area', '1500 × 3000 mm']]
+    },
+    'compresor-tornillo': {
+      appLabel: 'Industrial air',
+      title: 'DT-B Screw Compressor',
+      desc: '4-in-1 system with refrigerated dryer for continuous laser cutting.',
+      facts: [['Power', '15 kW (20 HP)'], ['Pressure', '16 bar · dry air']]
+    },
+    'pintura-hornos': {
+      appLabel: 'Thermal finishing',
+      title: 'DATA FLAME System',
+      desc: 'Cyclone powder coating booths and industrial curing ovens.',
+      facts: [['Energy', 'Gas / Electric'], ['Curing', '50°C – 250°C']]
+    },
+    'data-protect': {
+      appLabel: 'After-sales service',
+      title: 'DATA PROTECT Plan',
+      desc: 'Original spare parts and consumables kit stocked in CDMX.',
+      facts: [['Warranty', '12 months'], ['Dispatch', 'Same-day CDMX']]
+    }
+  };
+
+  let currentCategory = 'todos';
 
   function renderProducts(category = 'todos') {
+    currentCategory = category;
+    const isEn = getCurrentLang() === 'en';
     grid.innerHTML = '';
     const filtered = category === 'todos' 
       ? PRODUCTS_DATA 
       : PRODUCTS_DATA.filter(p => p.category === category);
     const count = document.getElementById('product-count');
-    if (count) count.textContent = `${filtered.length} ${filtered.length === 1 ? 'solución disponible' : 'soluciones disponibles'} · Consulta los detalles de cada equipo`;
+    if (count) {
+      if (isHome) {
+        const showFilteredCount = category !== 'todos';
+        const activeBtn = document.querySelector(`.filter-btn[data-filter="${category}"]`);
+        const filterLabel = activeBtn ? activeBtn.textContent.trim().replace(/\s+/g, ' ') : '';
+        count.hidden = !showFilteredCount;
+        count.textContent = showFilteredCount
+          ? (isEn
+            ? `${filtered.length} ${filtered.length === 1 ? 'solution' : 'solutions'} in ${filterLabel}`
+            : `${filtered.length} ${filtered.length === 1 ? 'solución' : 'soluciones'} en ${filterLabel}`)
+          : '';
+      } else {
+        count.hidden = false;
+        count.textContent = `${filtered.length} ${filtered.length === 1 ? 'solución disponible' : 'soluciones disponibles'} · Consulta los detalles de cada equipo`;
+      }
+    }
 
-    if (category === 'todos') {
+    if (!isHome && category === 'todos') {
       grid.classList.add('products-bento-grid');
     } else {
       grid.classList.remove('products-bento-grid');
     }
 
-    grid.classList.toggle('is-single-result', filtered.length === 1);
-    filtered.forEach((product, idx) => {
+    grid.classList.toggle('is-single-result', !isHome && filtered.length === 1);
+    filtered.forEach((product) => {
       const card = document.createElement('article');
       card.className = 'product-card';
       card.setAttribute('data-category', product.category);
 
-      // Asignar clases de Bento Grid asimétrico en vista completa
+      if (isHome) {
+        const isService = product.id === 'data-protect' || product.category === 'soporte';
+        card.classList.toggle('is-service-card', isService);
+        const metaMap = isEn ? HOME_CARD_META_EN : HOME_CARD_META;
+        const meta = metaMap[product.id] || {
+          appLabel: product.tag,
+          title: product.name,
+          desc: product.subtitle,
+          facts: [[isEn ? 'Capacity' : 'Capacidad', product.powerTag], [isEn ? 'Division' : 'Aplicación', product.divisionName]]
+        };
+        const factsHtml = meta.facts.map(([label, value]) => `
+          <div><dt>${label}</dt><dd>${value}</dd></div>
+        `).join('');
+        const viewSpecsLabel = isService
+          ? (isEn ? 'View plan' : 'Ver póliza')
+          : (isEn ? 'View specs' : 'Ver ficha');
+        const quoteLabel = isEn ? 'Quote' : 'Cotizar';
+        const viewAria = isEn ? `${viewSpecsLabel}: ${meta.title}` : `${viewSpecsLabel}: ${meta.title}`;
+        const quoteAria = isEn ? `Quote ${meta.title} on WhatsApp` : `Cotizar: ${meta.title} en WhatsApp`;
+        const waText = isEn
+          ? `Hello DATA CNC MX, I would like a quote for: ${meta.title}`
+          : `Hola DATA CNC MX, me interesa cotizar el equipo: ${product.name}`;
+
+        card.innerHTML = `
+          <div class="product-thumb-wrapper">
+            <a href="${product.fichaUrl || '#'}" class="product-thumb-link" aria-label="${viewAria}">
+              <img class="product-thumb" src="${product.image}" alt="${meta.title}" loading="lazy" decoding="async" />
+            </a>
+          </div>
+          <div class="product-content">
+            <span class="product-kicker tech-mono">${meta.appLabel}</span>
+            <h3 class="product-title"><a href="${product.fichaUrl || '#'}" style="color: inherit;">${meta.title}</a></h3>
+            <p class="product-desc">${meta.desc}</p>
+            <dl class="product-quick-facts">${factsHtml}</dl>
+            <div class="product-actions">
+              <a href="${product.fichaUrl || '#'}" class="btn btn-primary btn-ver-ficha" aria-label="${viewAria}">
+                ${viewSpecsLabel}
+              </a>
+              <a href="https://wa.me/5215527753215?text=${encodeURIComponent(waText)}" target="_blank" rel="noopener" class="btn btn-secondary" aria-label="${quoteAria}">
+                ${quoteLabel}
+              </a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+        return;
+      }
+
+      // Asignar clases de Bento Grid asimétrico en páginas internas
       if (category === 'todos') {
         if (product.id === 'soldadora-rl-3en1') {
           card.classList.add('bento-hero-item');
@@ -943,15 +1761,7 @@ function initProductCatalog() {
       grid.appendChild(card);
     });
 
-    decorateProductCards();
-
-    // Re-enlazar botones de ficha técnica
-    grid.querySelectorAll('.btn-ficha').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-product-id');
-        openFichaModal(id);
-      });
-    });
+    if (!isHome) decorateProductCards();
   }
 
   // Filtrado al hacer clic
@@ -970,6 +1780,7 @@ function initProductCatalog() {
 
   // Render inicial
   renderProducts('todos');
+  document.addEventListener('datacnc:langchange', () => renderProducts(currentCategory));
 }
 
 /* ==========================================================================
@@ -1000,19 +1811,6 @@ function closeModal(modal) {
 }
 
 function initModals() {
-  const overlayFicha = document.getElementById('modal-ficha');
-  const closeFicha = document.getElementById('close-ficha-btn');
-  const printFicha = document.getElementById('print-ficha-btn');
-
-  if (closeFicha && overlayFicha) {
-    closeFicha.addEventListener('click', () => closeModal(overlayFicha));
-    overlayFicha.addEventListener('click', event => {
-      if (event.target === overlayFicha) closeModal(overlayFicha);
-    });
-  }
-
-  if (printFicha) printFicha.addEventListener('click', () => window.print());
-
   document.querySelectorAll('.modal-overlay, .lightbox-modal').forEach(modal => {
     modal.inert = true;
     modal.addEventListener('keydown', event => {
@@ -1036,98 +1834,6 @@ function initModals() {
     const activeModal = document.querySelector('.modal-overlay.active, .lightbox-modal.active');
     if (activeModal) closeModal(activeModal);
   });
-}
-
-function openFichaModal(productId) {
-  const product = PRODUCTS_DATA.find(p => p.id === productId);
-  if (!product) return;
-
-  const modal = document.getElementById('modal-ficha');
-  const title = document.getElementById('modal-ficha-title');
-  const body = document.getElementById('modal-ficha-body');
-  const waBtn = document.getElementById('modal-ficha-wa');
-
-  title.textContent = `Ficha técnica: ${product.name}`;
-
-  let espesoresRows = '';
-  if (product.fullSpecs.espesores) {
-    espesoresRows = product.fullSpecs.espesores.map(e => `
-      <tr>
-        <td><strong>${e.material}</strong></td>
-        <td>${e.mm}</td>
-      </tr>
-    `).join('');
-  }
-
-  body.innerHTML = `
-    <div class="ficha-intro">
-      <div class="ficha-image">
-        <img src="${product.image}" alt="${product.name}" style="width: 100%; height: auto; object-fit: contain;">
-      </div>
-      <div>
-        <span style="color: var(--brand); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">${product.tag}</span>
-        <h3 style="font-size: 1.5rem; margin: 0.3rem 0 0.8rem 0;">${product.name}</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">${product.description}</p>
-        <div class="ficha-tags">
-          <span>
-            POTENCIA: ${product.powerTag}
-          </span>
-          <span>
-            GARANTÍA DATA PROTECT 1 AÑO
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <h4 style="margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.1rem;">1. Especificaciones operativas</h4>
-    <div class="spec-table-container">
-      <table class="spec-table">
-        <tbody>
-          <tr><th>Parámetro</th><th>Especificación Oficial DATA CNC</th></tr>
-          ${product.fullSpecs.modelos ? `<tr><td>Modelos Disponibles</td><td>${product.fullSpecs.modelos}</td></tr>` : ''}
-          ${product.fullSpecs.potencias ? `<tr><td>Rango de Potencia</td><td>${product.fullSpecs.potencias}</td></tr>` : ''}
-          ${product.fullSpecs.longitudOnda ? `<tr><td>Longitud de Onda Láser</td><td>${product.fullSpecs.longitudOnda}</td></tr>` : ''}
-          ${product.fullSpecs.areaCorte ? `<tr><td>Área de Trabajo</td><td>${product.fullSpecs.areaCorte}</td></tr>` : ''}
-          ${product.fullSpecs.velocidadSoldadura ? `<tr><td>Velocidad Operativa</td><td>${product.fullSpecs.velocidadSoldadura}</td></tr>` : ''}
-          ${product.fullSpecs.velocidadMaxima ? `<tr><td>Velocidad de Posicionamiento</td><td>${product.fullSpecs.velocidadMaxima}</td></tr>` : ''}
-          ${product.fullSpecs.enfriamiento ? `<tr><td>Sistema de Enfriamiento</td><td>${product.fullSpecs.enfriamiento}</td></tr>` : ''}
-          ${product.fullSpecs.gasesAsistencia ? `<tr><td>Gases de Asistencia</td><td>${product.fullSpecs.gasesAsistencia}</td></tr>` : ''}
-          ${product.fullSpecs.voltaje ? `<tr><td>Alimentación Eléctrica</td><td>${product.fullSpecs.voltaje}</td></tr>` : ''}
-          ${product.fullSpecs.presionTrabajo ? `<tr><td>Presión Nominal</td><td>${product.fullSpecs.presionTrabajo}</td></tr>` : ''}
-          ${product.fullSpecs.caudalAire ? `<tr><td>Caudal de Aire</td><td>${product.fullSpecs.caudalAire}</td></tr>` : ''}
-          ${product.fullSpecs.rangoTemperatura ? `<tr><td>Rango de Temperatura</td><td>${product.fullSpecs.rangoTemperatura}</td></tr>` : ''}
-          ${product.fullSpecs.tiemposRespuesta ? `<tr><td>Soporte Técnico Especializado</td><td>${product.fullSpecs.tiemposRespuesta}</td></tr>` : ''}
-        </tbody>
-      </table>
-    </div>
-
-    ${espesoresRows ? `
-      <h4 style="margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.1rem;">2. Capacidades de espesor por material</h4>
-      <div class="spec-table-container">
-        <table class="spec-table">
-          <thead>
-            <tr><th>Material Metálico</th><th>Espesor Recomendado de Penetración</th></tr>
-          </thead>
-          <tbody>
-            ${espesoresRows}
-          </tbody>
-        </table>
-      </div>
-    ` : ''}
-
-    <div style="margin-top: 2rem; padding: 1.25rem; background: var(--bg-sage); border-left: 4px solid var(--brand); border-radius: 4px;">
-      <h5 style="color: var(--brand); font-size: 0.95rem; margin-bottom: 0.3rem;">Servicio Técnico y Entrega Inmediata</h5>
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
-        Todos los equipos incluyen instalación en tu planta, capacitación a personal operativo y garantía respaldada por <strong>DATA PROTECT</strong> con centro de servicio técnico en Iztapalapa, Ciudad de México.
-      </p>
-    </div>
-  `;
-
-  if (waBtn) {
-    waBtn.href = `https://wa.me/5215527753215?text=Hola%20DATA%20CNC%20MX,%20estoy%20viendo%20la%20Ficha%20Técnica%20de%20${encodeURIComponent(product.name)}%20y%20deseo%20una%20cotización%20formal.`;
-  }
-
-  openModal(modal, document.activeElement);
 }
 
 /* ==========================================================================
@@ -1217,22 +1923,41 @@ function initDemoScheduler() {
    ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('main-contact-form');
-  if (!form) return;
+  if (form) {
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const nombre = form.elements.name ? form.elements.name.value.trim() : '';
+      const empresa = form.elements.company ? form.elements.company.value.trim() : '';
+      const email = form.elements.email ? form.elements.email.value.trim() : '';
+      const phone = form.elements.phone ? form.elements.phone.value.trim() : '';
+      const estado = form.elements.state ? (form.elements.state.value || 'Por definir') : 'Por definir';
+      const maquina = form.elements.product_interest ? form.elements.product_interest.value : (form.elements.machine ? form.elements.machine.value : 'General');
+      const mensaje = form.elements.message ? form.elements.message.value.trim() : 'Sin detalles adicionales';
+      const text = `Hola DATA CNC MX, solicito una cotización desde la página web:\n- Nombre: ${nombre}${empresa ? '\n- Empresa: ' + empresa : ''}\n- Teléfono: ${phone}\n- Correo: ${email || 'No proporcionado'}\n- Estado: ${estado}\n- Equipo de interés: ${maquina}\n- Proyecto: ${mensaje}`;
 
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    const nombre = form.elements.name ? form.elements.name.value.trim() : '';
-    const empresa = form.elements.company ? form.elements.company.value.trim() : '';
-    const email = form.elements.email ? form.elements.email.value.trim() : '';
-    const phone = form.elements.phone ? form.elements.phone.value.trim() : '';
-    const estado = form.elements.state ? (form.elements.state.value || 'Por definir') : 'Por definir';
-    const maquina = form.elements.product_interest ? form.elements.product_interest.value : (form.elements.machine ? form.elements.machine.value : 'General');
-    const mensaje = form.elements.message ? form.elements.message.value.trim() : 'Sin detalles adicionales';
-    const text = `Hola DATA CNC MX, solicito una cotización desde la página web:\n- Nombre: ${nombre}${empresa ? '\n- Empresa: ' + empresa : ''}\n- Teléfono: ${phone}\n- Correo: ${email || 'No proporcionado'}\n- Estado: ${estado}\n- Equipo de interés: ${maquina}\n- Proyecto: ${mensaje}`;
+      window.open(`https://wa.me/5215527753215?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+      showToast('WhatsApp está listo con tu solicitud. Envíala desde la conversación para contactar a ventas.');
+    });
+  }
 
-    window.open(`https://wa.me/5215527753215?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-    showToast('WhatsApp está listo con tu solicitud. Envíala desde la conversación para contactar a ventas.');
-  });
+  const quickForm = document.getElementById('quick-quote-form');
+  if (quickForm) {
+    quickForm.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!quickForm.reportValidity()) return;
+      const isEn = getCurrentLang() === 'en';
+      const nombre = quickForm.elements.name?.value.trim() || '';
+      const phone = quickForm.elements.phone?.value.trim() || '';
+      const machine = quickForm.elements.machine?.value || 'General';
+      const state = quickForm.elements.state?.value.trim() || (isEn ? 'TBD' : 'Por definir');
+      const text = isEn
+        ? `Hello DATA CNC MX, I would like a quick quote from the homepage:\n- Name: ${nombre}\n- Phone/WhatsApp: ${phone}\n- Equipment: ${machine}\n- City/State: ${state}`
+        : `Hola DATA CNC MX, solicito cotización rápida desde la página principal:\n- Nombre: ${nombre}\n- Teléfono/WhatsApp: ${phone}\n- Equipo de interés: ${machine}\n- Ciudad/Estado: ${state}`;
+
+      window.open(`https://wa.me/5215527753215?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+      showToast(isEn ? 'WhatsApp is ready with your quote request.' : 'WhatsApp está listo con tu solicitud de cotización.');
+    });
+  }
 }
 
 /* ==========================================================================
@@ -1407,8 +2132,6 @@ function initProductJourney() {
  if (currentProduct && currentProduct.fichaUrl.startsWith('ficha-')) {
   const demoUrl = `demostracion.html?equipo=${encodeURIComponent(currentProduct.id)}#demo-page-form`;
   document.querySelectorAll('a[href="contacto.html"]').forEach(a => { a.href = `contacto.html?equipo=${encodeURIComponent(currentProduct.id)}#main-contact-form`; });
-  document.querySelectorAll('a[href="contacto.html"]').forEach(a => { a.href = `contacto.html?equipo=${encodeURIComponent(currentProduct.id)}#main-contact-form`; });
-  document.querySelectorAll('a[href="contacto.html"]').forEach(a => { a.href = `contacto.html?equipo=${encodeURIComponent(currentProduct.id)}#main-contact-form`; });
   document.querySelectorAll('a[href="demostracion.html"], a[href="index.html#demostracion"]').forEach(a => { a.href = demoUrl; });
   if (!document.querySelector('.mobile-product-actions')) {
    const nav = document.createElement('nav'); nav.className='mobile-product-actions'; nav.setAttribute('aria-label',`Acciones para ${currentProduct.name}`);
@@ -1428,6 +2151,22 @@ function initProductJourney() {
  title?.setAttribute('aria-live', 'polite');
 }
 function decorateProductCards() {
+ const shortSystemByProduct = {
+  'soldadora-rl-3en1': 'Chiller + alimentador',
+  'soldadora-ra-aire': 'Aire forzado (sin chiller)',
+  'cortadora-4x10': 'Cabezal autofocus + CypCut',
+  'compresor-tornillo': 'Secador + tanque 16 bar',
+  'pintura-hornos': 'Cabina ciclónica + horno',
+  'data-protect': 'Stock CDMX + técnicos'
+ };
+ const shortPowerByProduct = {
+  'soldadora-rl-3en1': '220V Bifásico / Trifásico',
+  'soldadora-ra-aire': '220V Monofásico / Bifásico',
+  'cortadora-4x10': 'Industrial Trifásico',
+  'compresor-tornillo': '15 kW · Operación 24/7',
+  'pintura-hornos': 'Gas LP / Natural / Eléctrico',
+  'data-protect': 'Cobertura Nacional'
+ };
  document.querySelectorAll('.product-card').forEach(card => {
   if (card.querySelector('.product-quick-facts')) return;
   const link = card.querySelector('a[href^="ficha-"], a[href="respaldo-tecnico.html"]');
@@ -1438,10 +2177,10 @@ function decorateProductCards() {
   card.querySelectorAll('.product-tag, .card-division-badge, .product-power-tag').forEach(tag => labels.appendChild(tag));
   content.prepend(labels);
   if (!product) return;
-  const application = {soldadura:'Soldadura',corte:'Corte de lámina',compresores:'Aire industrial',pintura:'Pintura y curado',soporte:'Servicio técnico'}[product.category];
-  const specs = product.fullSpecs;
-  const system = specs.enfriamiento || specs.secadorAire || specs.fuenteLaser || specs.tipoEnergia || 'Respaldo y refacciones';
-  const facts = [['Configuración',product.powerTag],['Aplicación',application],['Sistema',system],['Alimentación',specs.voltaje || specs.tipoEnergia || (product.category === 'soporte' ? 'No aplica' : 'Consultar por modelo')]];
+  const application = {soldadura:'Soldadura',corte:'Corte de lámina',compresores:'Aire industrial',pintura:'Pintura y curado',soporte:'Servicio y consumibles'}[product.category];
+  const system = shortSystemByProduct[product.id] || 'Respaldo técnico';
+  const supply = shortPowerByProduct[product.id] || 'Consultar por modelo';
+  const facts = [['Capacidad',product.powerTag],['Aplicación',application],['Sistema',system],['Operación',supply]];
   const dl = document.createElement('dl'); dl.className = 'product-quick-facts';
   facts.forEach(([label,value]) => { const row = document.createElement('div'); const dt = document.createElement('dt'); const dd = document.createElement('dd'); dt.textContent=label; dd.textContent=value; row.append(dt,dd); dl.appendChild(row); });
   content.querySelector('.product-desc')?.after(dl);
