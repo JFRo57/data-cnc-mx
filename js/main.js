@@ -31,6 +31,8 @@ const EN_HOME_I18N = {
   'nav.quote': 'Quote',
   'hero.spec.power': 'Power',
   'hero.spec.config': 'Configuration',
+  'hero.spec.warrantyLabel': 'Support',
+  'hero.spec.warrantyValue': '12-month warranty · Support < 24h',
   'hero.demoCta': 'Book a live demo',
   'hero.g1': '12-month factory warranty',
   'hero.g2': 'Local technical support',
@@ -40,8 +42,6 @@ const EN_HOME_I18N = {
   'hero.tab.2': 'RA Welder',
   'hero.tab.3': '16 bar Compressor',
   'hero.tab.4': 'DATA Flame',
-  'offer.text': 'Laser & CNC machinery, industrial finishing, and technical support in Mexico.',
-  'offer.cta': 'View equipment',
   'stats.installed': 'MACHINES INSTALLED',
   'stats.uptime': 'OPERATIONAL UPTIME',
   'stats.response': 'SUPPORT RESPONSE TIME',
@@ -93,13 +93,13 @@ const EN_HOME_I18N = {
   'cov.subtitle': 'On-site engineering support',
   'cov.title': 'Nationwide Coverage & Arrival Times in Mexico',
   'cov.desc': 'Our central warehouse and technical lab in Iztapalapa, CDMX supply spare parts and guarantee on-site response with in-house engineers so your production never stops.',
-  'cov.tab.vm': 'CDMX & Metro Area (< 4h)',
-  'cov.tab.bc': 'Bajío & Central (< 24h)',
-  'cov.tab.no': 'North & West (< 48h)',
+  'cov.tab.vm': 'CDMX & Metro Area',
+  'cov.tab.bc': 'Bajío & Central',
+  'cov.tab.no': 'North & West',
   'cov.cityLabel': 'Selected city',
   'cov.arrivalLabel': 'On-site plant arrival',
   'cov.remoteLabel': 'Remote diagnostics',
-  'cov.engineersLabel': 'Field Engineers:',
+  'cov.engineersLabel': 'Active engineers',
   'cov.warranty.title': '12-month factory warranty',
   'cov.warranty.desc': 'Direct coverage on fiber laser sources, chillers, and CNC controllers with no middlemen.',
   'cov.cta': 'Check Technician Availability',
@@ -109,11 +109,8 @@ const EN_HOME_I18N = {
   'cov.stock.desc': 'Spare parts & consumables ready for nationwide shipping.',
   'cons.subtitle': 'Permanent stock in CDMX',
   'cons.title': 'Original Consumables & Spare Parts Kit',
-  'cons.desc': 'Keep your cutting or welding head running without downtime from wear parts: copper nozzles, sealed protective windows against spatter, ceramic rings, adapters, alignment tools, and certified laser safety goggles.',
-  'cons.item1': 'Copper nozzles & ceramic rings',
-  'cons.item2': 'Individually sealed lenses & windows',
-  'cons.item3': 'Laser goggles & alignment tools',
-  'cons.item4': 'Raycus / Max sources & chillers',
+  'cons.bannerDesc': 'Copper nozzles, sealed lenses & protective windows, ceramics, laser goggles, Raycus/Max sources, and chillers with immediate nationwide shipping.',
+  'cons.cta': 'DATA PROTECT Plan →',
   'partners.label': 'Brands & components:',
   'partners.heads': 'Raytools / WSX Laser Heads',
   'partners.ctrl': 'CypCut CNC Control',
@@ -124,10 +121,6 @@ const EN_HOME_I18N = {
   'qq.b1': 'No-obligation engineering consultation',
   'qq.b2': 'On-site or video-call testing in CDMX',
   'qq.b3': 'Mexican invoicing & on-site operator training',
-  'qq.demoCta': 'Book a showroom demo',
-  'qq.link.catalog': 'Full catalog',
-  'qq.link.policy': 'DATA PROTECT plan',
-  'qq.link.contact': 'Contact & location',
   'qq.form.nameLabel': 'Full name *',
   'qq.form.phoneLabel': 'WhatsApp or phone *',
   'qq.form.machineLabel': 'Equipment of interest',
@@ -162,7 +155,6 @@ const EN_HOME_I18N = {
 };
 
 const EN_HOME_HTML_I18N = {
-  'compare.showroom': '<strong>Iztapalapa Showroom, CDMX:</strong> C. José María de Joaristi 235 · On-site or video-call testing.',
   'footer.phone': '<strong>Phone:</strong> <a href="tel:+525527753215">+52 55 2775 3215</a>',
   'footer.email': '<strong>Email:</strong> <a href="mailto:ventas@datacncmx.com">ventas@datacncmx.com</a>',
   'footer.address': '<strong>Address:</strong> C. José María de Joaristi 235, San Juan, Iztapalapa, C.P. 09830, CDMX'
@@ -590,7 +582,9 @@ const REGIONS_DATA = {
     status: 'Respuesta Inmediata CDMX',
     states: ['Ciudad de México (CDMX)', 'Estado de México (EdoMex)', 'Cuernavaca / Morelos', 'Hidalgo Sur'],
     description: 'Atención técnica directa desde nuestro Showroom y Bodega Central en Iztapalapa, CDMX. Diagnóstico en sitio el mismo día y entrega de consumibles en menos de 4 horas.',
+    descShort: 'Atención técnica directa desde nuestro Showroom y Bodega Central en Iztapalapa con diagnóstico en sitio y entrega inmediata de consumibles.',
     engineers: '6 Ingenieros de Campo Activos',
+    engineersShort: '6 en campo',
     stockStatus: '100% Stock en Bodega Local'
   },
   'bajio-centro': {
@@ -601,7 +595,9 @@ const REGIONS_DATA = {
     status: 'Rutas Diarias de Asistencia',
     states: ['Querétaro', 'Puebla', 'Toluca / Lerma', 'Guanajuato (León, Celaya, Silao)', 'Tlaxcala', 'Pachuca'],
     description: 'Rutas programadas de servicio preventivo y respuesta a emergencias para corredores automotrices y metalmecánicos. Arribo garantizado al día siguiente hábil.',
+    descShort: 'Rutas programadas de mantenimiento preventivo y emergencias para corredores automotrices y metalmecánicos del centro del país.',
     engineers: '4 Especialistas Asignados a la Zona',
+    engineersShort: '4 especialistas',
     stockStatus: 'Despacho Express Nacional 24h'
   },
   'norte-occidente': {
@@ -612,7 +608,9 @@ const REGIONS_DATA = {
     status: 'Telemetría Remota < 30 min',
     states: ['Nuevo León (Monterrey, Apodaca)', 'Jalisco (Guadalajara, Zapopan)', 'Coahuila (Saltillo, Ramos Arizpe)', 'San Luis Potosí', 'Chihuahua', 'Sonora'],
     description: 'Diagnóstico remoto inmediato por telemetría óptica en menos de 30 minutos. Desplazamiento de ingenieros y envío aéreo de refacciones prioritarias.',
+    descShort: 'Telemetría óptica dedicada desde CDMX respaldada por desplazamiento de ingenieros y envío aéreo prioritario de refacciones.',
     engineers: 'Soporte Especializado Remoto + Visita',
+    engineersShort: 'Remoto + campo',
     stockStatus: 'Envío Aéreo Prioritario'
   }
 };
@@ -625,7 +623,9 @@ const REGIONS_DATA_EN = {
     remoteSla: '< 2 hours',
     states: ['Mexico City (CDMX)', 'State of Mexico (EdoMex)', 'Cuernavaca / Morelos', 'Southern Hidalgo'],
     description: 'Direct technical support from our Showroom and Central Warehouse in Iztapalapa, CDMX. Same-day on-site diagnostics and consumables delivery in under 4 hours.',
-    engineers: '6 Active Field Engineers'
+    descShort: 'Direct engineering support from our Showroom and Central Warehouse in Iztapalapa with on-site diagnostics and immediate consumables dispatch.',
+    engineers: '6 Active Field Engineers',
+    engineersShort: '6 in field'
   },
   'bajio-centro': {
     title: 'Bajío & Central Industrial Corridor',
@@ -634,7 +634,9 @@ const REGIONS_DATA_EN = {
     remoteSla: '< 2 hours',
     states: ['Querétaro', 'Puebla', 'Toluca / Lerma', 'Guanajuato (León, Celaya, Silao)', 'Tlaxcala', 'Pachuca'],
     description: 'Scheduled preventive service routes and emergency response for automotive and metalworking corridors. Next-business-day on-site arrival guaranteed.',
-    engineers: '4 Dedicated Regional Specialists'
+    descShort: 'Scheduled preventive maintenance and emergency routes serving automotive and metalworking corridors across Central Mexico.',
+    engineers: '4 Dedicated Regional Specialists',
+    engineersShort: '4 specialists'
   },
   'norte-occidente': {
     title: 'North, West & Border Region',
@@ -643,7 +645,70 @@ const REGIONS_DATA_EN = {
     remoteSla: '< 30 min',
     states: ['Nuevo León (Monterrey, Apodaca)', 'Jalisco (Guadalajara, Zapopan)', 'Coahuila (Saltillo, Ramos Arizpe)', 'San Luis Potosí', 'Chihuahua', 'Sonora'],
     description: 'Immediate remote diagnostics via optical telemetry in under 30 minutes, backed by field engineer dispatch and priority air shipping of critical spare parts.',
-    engineers: 'Remote Specialist + On-Site Dispatch'
+    descShort: 'Dedicated optical telemetry from CDMX backed by field engineer dispatch and priority air shipping of spare parts.',
+    engineers: 'Remote Specialist + On-Site Dispatch',
+    engineersShort: 'Remote + field'
+  }
+};
+
+const HOME_CITIES_DATA = {
+  cdmx: {
+    region: 'valle-mexico',
+    title: 'CDMX · Sede y Valle de México',
+    desc: 'Atención directa desde nuestro Showroom y Bodega Central en Iztapalapa con diagnóstico en sitio y entrega inmediata de consumibles.',
+    states: ['Ciudad de México (CDMX)', 'Estado de México (EdoMex)', 'Cuernavaca / Morelos', 'Hidalgo Sur']
+  },
+  queretaro: {
+    region: 'bajio-centro',
+    title: 'Querétaro · Corredor Bajío',
+    desc: 'Cobertura programada y atención a emergencias para parques industriales automotrices y metalmecánicos en Querétaro y El Bajío.',
+    states: ['Querétaro', 'Guanajuato (León, Celaya, Silao)', 'San Luis Potosí Sur', 'Toluca / Lerma']
+  },
+  puebla: {
+    region: 'bajio-centro',
+    title: 'Puebla · Corredor Centro-Oriente',
+    desc: 'Rutas directas desde CDMX para líneas de manufactura, herrería industrial y maquila metalmecánica en Puebla y Tlaxcala.',
+    states: ['Puebla', 'Tlaxcala', 'Pachuca / Hidalgo', 'Veracruz Centro']
+  },
+  guadalajara: {
+    region: 'norte-occidente',
+    title: 'Guadalajara · Zona Occidente',
+    desc: 'Telemetría óptica dedicada desde CDMX respaldada por ingenieros asignados y envío aéreo prioritario de refacciones hacia Jalisco.',
+    states: ['Jalisco (Guadalajara, Zapopan)', 'Aguascalientes', 'Colima / Manzanillo', 'Michoacán']
+  },
+  monterrey: {
+    region: 'norte-occidente',
+    title: 'Monterrey · Zona Norte y Frontera',
+    desc: 'Diagnóstico remoto por telemetría óptica respaldado por desplazamiento de especialistas y envío aéreo de refacciones al corredor norte.',
+    states: ['Nuevo León (Monterrey, Apodaca)', 'Coahuila (Saltillo, Ramos Arizpe)', 'Chihuahua', 'Sonora / Tamaulipas']
+  }
+};
+
+const HOME_CITIES_DATA_EN = {
+  cdmx: {
+    title: 'CDMX · HQ & Valley of Mexico',
+    desc: 'Direct engineering support from our Showroom and Central Warehouse in Iztapalapa with on-site diagnostics and immediate consumables dispatch.',
+    states: ['Mexico City (CDMX)', 'State of Mexico (EdoMex)', 'Cuernavaca / Morelos', 'Southern Hidalgo']
+  },
+  queretaro: {
+    title: 'Querétaro · Bajío Corridor',
+    desc: 'Scheduled preventive coverage and emergency support for automotive and metalworking industrial parks in Querétaro and El Bajío.',
+    states: ['Querétaro', 'Guanajuato (León, Celaya, Silao)', 'Southern San Luis Potosí', 'Toluca / Lerma']
+  },
+  puebla: {
+    title: 'Puebla · Central-East Corridor',
+    desc: 'Direct service routes from CDMX supporting manufacturing lines and metal fabrication shops across Puebla and Tlaxcala.',
+    states: ['Puebla', 'Tlaxcala', 'Pachuca / Hidalgo', 'Central Veracruz']
+  },
+  guadalajara: {
+    title: 'Guadalajara · Western Region',
+    desc: 'Dedicated optical telemetry from CDMX backed by field engineer dispatch and priority air shipping of spare parts to Jalisco.',
+    states: ['Jalisco (Guadalajara, Zapopan)', 'Aguascalientes', 'Colima / Manzanillo', 'Michoacán']
+  },
+  monterrey: {
+    title: 'Monterrey · North & Border',
+    desc: 'Remote optical telemetry diagnostics backed by specialist dispatch and priority air shipping of critical spare parts to the northern corridor.',
+    states: ['Nuevo León (Monterrey, Apodaca)', 'Coahuila (Saltillo, Ramos Arizpe)', 'Chihuahua', 'Sonora / Tamaulipas']
   }
 };
 
@@ -651,6 +716,7 @@ function initCoverageMap() {
   const container = document.getElementById('coverage-map-component');
   if (!container) return;
 
+  const isHome = document.body.classList.contains('home-page');
   const tabBtns = container.querySelectorAll('.region-tab-btn');
   const cityEl = container.querySelector('#sla-city-val');
   const titleEl = container.querySelector('#sla-region-title');
@@ -689,8 +755,14 @@ function initCoverageMap() {
     const city = cityPoints.find(node => node.dataset.mapRegion === key && (!cityKey || node.dataset.mapCity === cityKey));
     const selectedCity = city?.dataset.mapCity;
     const cityLabel = city?.querySelector('title')?.textContent || reg.cityDefault;
+    const homeCityInfo = isHome && cityKey
+      ? { ...(HOME_CITIES_DATA[cityKey] || {}), ...(isEn ? HOME_CITIES_DATA_EN[cityKey] || {} : {}) }
+      : null;
+
     container.querySelectorAll('[data-map-region]').forEach(node => {
-      const active = node.dataset.mapCity ? node.dataset.mapCity === selectedCity : node.dataset.mapRegion === key;
+      const active = isHome && !cityKey
+        ? node.dataset.mapRegion === key
+        : (node.dataset.mapCity ? node.dataset.mapCity === selectedCity : node.dataset.mapRegion === key);
       node.classList.toggle('is-active', active);
       if (node.classList.contains('coverage-map-city')) node.setAttribute('aria-pressed', String(active));
     });
@@ -704,20 +776,28 @@ function initCoverageMap() {
     if (mapStatus) mapStatus.textContent = `${cityLabel} · ${isEn ? 'Arrival' : 'Arribo'} ${reg.sla}`;
 
     if (cityEl) cityEl.textContent = cityLabel;
-    if (titleEl) titleEl.textContent = reg.title;
+    if (titleEl) titleEl.textContent = homeCityInfo?.title || reg.title;
     if (timeEl) timeEl.textContent = reg.sla;
     if (remoteEl) remoteEl.textContent = reg.remoteSla;
-    if (descEl) descEl.textContent = reg.description;
-    if (engineersEl) engineersEl.textContent = reg.engineers;
+    if (descEl) {
+      descEl.textContent = isHome
+        ? (homeCityInfo?.desc || reg.descShort || reg.description)
+        : reg.description;
+    }
+    if (engineersEl) engineersEl.textContent = isHome ? (reg.engineersShort || reg.engineers) : reg.engineers;
 
+    const statesList = homeCityInfo?.states || reg.states;
     if (statesContainer) {
-      statesContainer.innerHTML = reg.states.map(s => `<li class="sla-state-pill">${s}</li>`).join('');
+      statesContainer.innerHTML = statesList.map(s => `<li class="sla-state-pill">${s}</li>`).join('');
     }
 
     if (quoteBtn) {
+      const hasSpecificCity = !isHome || Boolean(cityKey);
+      const targetText = hasSpecificCity ? `${cityLabel} (${reg.title}, arribo ${reg.sla})` : `${reg.title} (arribo ${reg.sla})`;
+      const targetTextEn = hasSpecificCity ? `${cityLabel} (${reg.title}, arrival ${reg.sla})` : `${reg.title} (arrival ${reg.sla})`;
       const msg = isEn
-        ? encodeURIComponent(`Hello, I need technical support availability and response times for DATA CNC in ${cityLabel} (${reg.title}, on-site arrival ${reg.sla}).`)
-        : encodeURIComponent(`Hola, requiero asesoría técnica sobre disponibilidad y tiempos de soporte de DATA CNC en ${cityLabel} (${reg.title}, arribo en planta ${reg.sla}).`);
+        ? encodeURIComponent(`Hello, I need technical support availability and response times for DATA CNC in ${targetTextEn}.`)
+        : encodeURIComponent(`Hola, requiero asesoría técnica sobre disponibilidad y tiempos de soporte de DATA CNC en ${targetText}.`);
       quoteBtn.href = `https://wa.me/5215527753215?text=${msg}`;
     }
   }
@@ -819,6 +899,19 @@ const HERO_SHOWCASE_SLIDES = [
     ctaLabel: 'Ver ficha DATA Flame',
     fichaUrl: 'ficha-data-flame.html',
     demoUrl: 'demostracion.html?equipo=pintura-hornos#demo-page-form'
+  },
+  {
+    kicker: 'DATA Laser · Fibra Óptica 3 en 1 (Comparativa)',
+    titleLines: ['Soldadora Láser', '3 en 1 Serie RL'],
+    desc: 'Suelda, corta y limpia con chiller integrado, panel táctil superior y alimentador automático de alambre. Acabado limpio casi sin post-procesamiento y respaldo local en México.',
+    power: '1500W – 3000W',
+    app: 'Chiller + Alimentador',
+    status: 'SHOWROOM CDMX · EN STOCK',
+    model: 'RL-1500 / RL-2000 / RL-3000',
+    sub: 'Fuente láser + chiller + alimentador de alambre automático',
+    ctaLabel: 'Ver ficha Serie RL',
+    fichaUrl: 'ficha-soldadora-rl.html',
+    demoUrl: 'demostracion.html?equipo=soldadora-rl-3en1#demo-page-form'
   }
 ];
 
@@ -877,6 +970,17 @@ const HERO_SHOWCASE_SLIDES_EN = [
     model: 'DATA Flame C & H Series',
     sub: 'Thermal uniformity ±3°C · 98% cyclone recovery',
     ctaLabel: 'View DATA Flame Specs'
+  },
+  {
+    kicker: 'DATA Laser · 3-in-1 Fiber Optic (Compare)',
+    titleLines: ['Fiber Laser Welder', '3-in-1 RL Series'],
+    desc: 'Welds, cuts, and cleans with an integrated chiller, top touchscreen panel, and automatic wire feeder. Clean weld seams with virtually zero post-processing and local support in Mexico.',
+    power: '1500W – 3000W',
+    app: 'Chiller + Wire Feeder',
+    status: 'CDMX SHOWROOM · IN STOCK',
+    model: 'RL-1500 / RL-2000 / RL-3000',
+    sub: 'Laser source + chiller + automatic wire feeder',
+    ctaLabel: 'View RL Series Specs'
   }
 ];
 
@@ -885,36 +989,40 @@ function initHeroShowcase() {
   if (!hero) return;
 
   const slides = [...hero.querySelectorAll('.hero-slide')];
-  const dockTabs = [...hero.querySelectorAll('.hero-dock-tab')];
+  const dotBtns = [...hero.querySelectorAll('.hero-dot-btn')];
   const prevBtn = document.getElementById('hero-prev-btn');
   const nextBtn = document.getElementById('hero-next-btn');
   const autoplayBtn = document.getElementById('hero-autoplay-btn');
   const progressEl = document.getElementById('hero-autoplay-progress');
-  const stageEl = hero.querySelector('.hero-stage');
+  const stageEl = hero.querySelector('.hero-slides-layer');
 
   const kickerEl = document.getElementById('hero-slide-kicker');
   const titleEl = document.getElementById('hero-slide-title');
+  const titleLinkEl = document.getElementById('hero-title-link');
+  const stageLinkEl = document.getElementById('hero-stage-link');
   const descEl = document.getElementById('hero-slide-desc');
   const powerEl = document.getElementById('hero-slide-power');
   const appEl = document.getElementById('hero-slide-app');
-  const ctaEl = document.getElementById('hero-slide-cta');
-  const demoEl = document.getElementById('hero-slide-demo');
   const statusEl = document.getElementById('hero-stage-status-text') || document.getElementById('hero-stage-status');
-  const counterEl = document.getElementById('hero-stage-counter');
-  const modelEl = document.getElementById('hero-stage-model');
-  const subEl = document.getElementById('hero-stage-sub');
+  const ctaBtn = document.getElementById('hero-slide-cta');
+  const demoBtn = document.getElementById('hero-slide-demo');
 
   const copyEl = hero.querySelector('.hero-showcase-copy');
-  const captionEl = hero.querySelector('.hero-stage-caption');
 
   if (!slides.length || slides.length !== HERO_SHOWCASE_SLIDES.length) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const mobileQuery = window.matchMedia('(max-width: 767.98px)');
   const AUTOPLAY_MS = 6500;
   let activeIndex = 0;
   let userPaused = false;
+  let hoverPaused = false;
   let timerId = null;
   let leavingTimerId = null;
+
+  function isAutoplayBlocked() {
+    return userPaused || hoverPaused || mobileQuery.matches || reducedMotion.matches;
+  }
 
   function triggerReveal(el) {
     if (!el || reducedMotion.matches) return;
@@ -933,7 +1041,7 @@ function initHeroShowcase() {
   }
 
   function syncAutoplayUI() {
-    if (stageEl) stageEl.classList.toggle('is-paused', userPaused);
+    hero.classList.toggle('is-paused', userPaused || hoverPaused);
     if (!autoplayBtn) return;
     const isEn = getCurrentLang() === 'en';
     const pauseIcon = autoplayBtn.querySelector('.pause-icon');
@@ -971,6 +1079,8 @@ function initHeroShowcase() {
       slide.setAttribute('aria-hidden', String(!isActive));
     });
 
+    hero.classList.toggle('is-compare-slide', slides[activeIndex]?.dataset.compareScrim === 'true');
+
     if (shouldTransition) {
       leavingTimerId = setTimeout(() => {
         slides.forEach(slide => slide.classList.remove('is-leaving'));
@@ -978,7 +1088,7 @@ function initHeroShowcase() {
       }, 900);
     }
 
-    dockTabs.forEach(btn => {
+    dotBtns.forEach(btn => {
       const isActive = Number(btn.dataset.slideTarget) === activeIndex;
       btn.classList.toggle('is-active', isActive);
       btn.setAttribute('aria-selected', String(isActive));
@@ -986,30 +1096,35 @@ function initHeroShowcase() {
     });
 
     if (kickerEl) kickerEl.textContent = item.kicker;
-    if (titleEl) {
-      titleEl.textContent = '';
-      titleEl.appendChild(document.createTextNode(item.titleLines[0]));
-      titleEl.appendChild(document.createElement('br'));
+    const titleTarget = titleLinkEl || titleEl;
+    if (titleTarget) {
+      titleTarget.textContent = '';
+      titleTarget.appendChild(document.createTextNode(item.titleLines[0]));
+      titleTarget.appendChild(document.createElement('br'));
       const span = document.createElement('span');
       span.textContent = item.titleLines[1];
-      titleEl.appendChild(span);
+      titleTarget.appendChild(span);
+    }
+    if (titleLinkEl) titleLinkEl.setAttribute('href', item.fichaUrl);
+    if (stageLinkEl) {
+      stageLinkEl.setAttribute('href', item.fichaUrl);
+      const slideName = item.titleLines.join(' ');
+      stageLinkEl.setAttribute('aria-label', isEn ? `View equipment: ${slideName}` : `Ver equipo: ${slideName}`);
     }
     if (descEl) descEl.textContent = item.desc;
     if (powerEl) powerEl.textContent = item.power;
     if (appEl) appEl.textContent = item.app;
-    if (ctaEl) {
-      ctaEl.setAttribute('href', item.fichaUrl);
-      ctaEl.textContent = item.ctaLabel;
-    }
-    if (demoEl) demoEl.setAttribute('href', item.demoUrl);
     if (statusEl) statusEl.textContent = item.status;
-    if (counterEl) counterEl.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
-    if (modelEl) modelEl.textContent = item.model;
-    if (subEl) subEl.textContent = item.sub;
+    if (ctaBtn) {
+      ctaBtn.textContent = item.ctaLabel;
+      ctaBtn.setAttribute('href', item.fichaUrl);
+    }
+    if (demoBtn) {
+      demoBtn.setAttribute('href', item.demoUrl);
+    }
 
     if (shouldTransition) {
       triggerReveal(copyEl);
-      triggerReveal(captionEl);
     }
   }
 
@@ -1023,7 +1138,7 @@ function initHeroShowcase() {
 
   function startAutoplay() {
     stopAutoplay();
-    if (userPaused) return;
+    if (isAutoplayBlocked()) return;
     restartProgressBar(true);
     timerId = setInterval(() => {
       renderSlide(activeIndex + 1, { animate: true });
@@ -1033,14 +1148,14 @@ function initHeroShowcase() {
 
   function goToSlide(index) {
     renderSlide(index, { animate: true });
-    if (!userPaused) startAutoplay();
+    if (!isAutoplayBlocked()) startAutoplay();
     else restartProgressBar(false);
   }
 
   prevBtn?.addEventListener('click', () => goToSlide(activeIndex - 1));
   nextBtn?.addEventListener('click', () => goToSlide(activeIndex + 1));
 
-  dockTabs.forEach(btn => {
+  dotBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = Number(btn.dataset.slideTarget);
       if (!Number.isNaN(target)) goToSlide(target);
@@ -1050,42 +1165,68 @@ function initHeroShowcase() {
   autoplayBtn?.addEventListener('click', () => {
     userPaused = !userPaused;
     syncAutoplayUI();
-    if (userPaused) stopAutoplay();
+    if (isAutoplayBlocked()) stopAutoplay();
+    else startAutoplay();
+  });
+
+  hero.addEventListener('mouseenter', () => {
+    hoverPaused = true;
+    syncAutoplayUI();
+    stopAutoplay();
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    hoverPaused = false;
+    syncAutoplayUI();
+    startAutoplay();
+  });
+
+  mobileQuery.addEventListener('change', () => {
+    if (isAutoplayBlocked()) stopAutoplay();
     else startAutoplay();
   });
 
   hero.addEventListener('keydown', (event) => {
-    const inDock = event.target instanceof Element && Boolean(event.target.closest('.hero-showcase-dock'));
-    if (event.key === 'ArrowRight') {
+    const inRail = event.target instanceof Element && Boolean(event.target.closest('.hero-dots-rail'));
+    if (event.key === 'ArrowRight' || (inRail && event.key === 'ArrowDown')) {
       event.preventDefault();
       goToSlide(activeIndex + 1);
-      if (inDock) dockTabs[activeIndex]?.focus();
-    } else if (event.key === 'ArrowLeft') {
+      if (inRail) dotBtns[activeIndex]?.focus();
+    } else if (event.key === 'ArrowLeft' || (inRail && event.key === 'ArrowUp')) {
       event.preventDefault();
       goToSlide(activeIndex - 1);
-      if (inDock) dockTabs[activeIndex]?.focus();
-    } else if (inDock && event.key === 'Home') {
+      if (inRail) dotBtns[activeIndex]?.focus();
+    } else if (inRail && event.key === 'Home') {
       event.preventDefault();
       goToSlide(0);
-      dockTabs[0]?.focus();
-    } else if (inDock && event.key === 'End') {
+      dotBtns[0]?.focus();
+    } else if (inRail && event.key === 'End') {
       event.preventDefault();
-      goToSlide(dockTabs.length - 1);
-      dockTabs[dockTabs.length - 1]?.focus();
+      goToSlide(dotBtns.length - 1);
+      dotBtns[dotBtns.length - 1]?.focus();
     }
   });
 
   if (stageEl) {
     let pointerStartX = null;
+    let suppressStageClick = false;
     stageEl.addEventListener('pointerdown', (event) => {
       pointerStartX = event.clientX;
+      suppressStageClick = false;
     });
     stageEl.addEventListener('pointerup', (event) => {
       if (pointerStartX === null) return;
       const deltaX = event.clientX - pointerStartX;
       pointerStartX = null;
       if (Math.abs(deltaX) > 45) {
+        suppressStageClick = true;
         goToSlide(deltaX < 0 ? activeIndex + 1 : activeIndex - 1);
+      }
+    });
+    stageLinkEl?.addEventListener('click', (event) => {
+      if (suppressStageClick) {
+        event.preventDefault();
+        suppressStageClick = false;
       }
     });
   }
@@ -1667,33 +1808,23 @@ function initProductCatalog() {
         const factsHtml = meta.facts.map(([label, value]) => `
           <div><dt>${label}</dt><dd>${value}</dd></div>
         `).join('');
-        const viewSpecsLabel = isService
-          ? (isEn ? 'View plan' : 'Ver póliza')
-          : (isEn ? 'View specs' : 'Ver ficha');
-        const quoteLabel = isEn ? 'Quote' : 'Cotizar';
-        const viewAria = isEn ? `${viewSpecsLabel}: ${meta.title}` : `${viewSpecsLabel}: ${meta.title}`;
-        const quoteAria = isEn ? `Quote ${meta.title} on WhatsApp` : `Cotizar: ${meta.title} en WhatsApp`;
-        const waText = isEn
-          ? `Hello DATA CNC MX, I would like a quote for: ${meta.title}`
-          : `Hola DATA CNC MX, me interesa cotizar el equipo: ${product.name}`;
+        const viewSpecsLabel = isEn ? 'View specs & details →' : 'Ver ficha y especificaciones →';
+        const viewAria = `${viewSpecsLabel.replace(' →', '')}: ${meta.title}`;
 
         card.innerHTML = `
           <div class="product-thumb-wrapper">
-            <a href="${product.fichaUrl || '#'}" class="product-thumb-link" aria-label="${viewAria}">
+            <div class="product-thumb-frame">
               <img class="product-thumb" src="${product.image}" alt="${meta.title}" loading="lazy" decoding="async" />
-            </a>
+            </div>
           </div>
           <div class="product-content">
             <span class="product-kicker tech-mono">${meta.appLabel}</span>
-            <h3 class="product-title"><a href="${product.fichaUrl || '#'}" style="color: inherit;">${meta.title}</a></h3>
+            <h3 class="product-title">${meta.title}</h3>
             <p class="product-desc">${meta.desc}</p>
             <dl class="product-quick-facts">${factsHtml}</dl>
             <div class="product-actions">
-              <a href="${product.fichaUrl || '#'}" class="btn btn-primary btn-ver-ficha" aria-label="${viewAria}">
+              <a href="${product.fichaUrl || '#'}" class="btn btn-primary btn-ver-ficha product-card-link" aria-label="${viewAria}">
                 ${viewSpecsLabel}
-              </a>
-              <a href="https://wa.me/5215527753215?text=${encodeURIComponent(waText)}" target="_blank" rel="noopener" class="btn btn-secondary" aria-label="${quoteAria}">
-                ${quoteLabel}
               </a>
             </div>
           </div>

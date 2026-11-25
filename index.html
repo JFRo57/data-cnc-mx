@@ -20,7 +20,7 @@
   <meta property="og:title" content="DATA CNC MX | Tecnología y Control para la Industria Metalmecánica">
   <meta property="og:description"
     content="Venta, instalación y soporte técnico de soldadoras láser de fibra, cortadoras CNC 4x10 y sistemas de aire industrial en México.">
-  <meta property="og:image" content="assets/images/soldadora-rl-studio.jpg">
+  <meta property="og:image" content="https://datacnc.mx/assets/images/soldadora-rl-studio.jpg">
   <meta property="og:url" content="https://datacnc.mx">
 
   <!-- Favicon -->
@@ -36,14 +36,14 @@
 
   <!-- Estilos CSS y Precarga LCP -->
   <link rel="preload" as="image" href="assets/images/soldadora-rl-studio.jpg" fetchpriority="high">
-  <link rel="stylesheet" href="css/style.css?v=20261124-uxui-v8">
+  <link rel="stylesheet" href="css/style.css?v=20261124-uxui-v14">
   <!-- Marcado Estructurado JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "DATA CNC MX",
-    "image": "assets/images/logo-datacnc.png",
+    "image": "https://datacnc.mx/assets/images/logo-datacnc.png",
     "telephone": "+525527753215",
     "email": "ventas@datacncmx.com",
     "address": {
@@ -305,190 +305,179 @@
 
   <main id="contenido" tabindex="-1">
     <!-- ==========================================================================
-         Hero Section
+         Hero Section — Full-Bleed Immersive Banner
          ========================================================================== -->
-    <section id="inicio" class="hero-showcase" aria-label="Equipos destacados DATA CNC MX">
+    <section id="inicio" class="hero-showcase" role="region" aria-roledescription="carrusel"
+      aria-label="Equipos destacados DATA CNC MX">
+      <div class="hero-slides-layer" aria-live="polite">
+        <a id="hero-stage-link" class="hero-stage-link" href="ficha-soldadora-rl.html"
+          aria-label="Ver equipo: Soldadora Láser 3 en 1 Serie RL"></a>
+
+        <figure class="hero-slide is-active" data-slide-index="0" aria-hidden="false"
+          aria-label="1 de 5: Soldadora Láser Serie RL con Alimentador de Alambre">
+          <img src="assets/images/soldadora-rl-studio.jpg"
+            alt="Soldadora láser de fibra DATA CNC Serie RL con antorcha, panel táctil y alimentador automático de alambre"
+            width="2752" height="1536" fetchpriority="high" decoding="async">
+        </figure>
+        <figure class="hero-slide" data-slide-index="1" aria-hidden="true"
+          aria-label="2 de 5: Cortadora láser cama plana 4 por 10">
+          <img src="assets/images/cortadora-4x10-main.png" alt="Cortadora láser de cama plana DATA CNC 4x10"
+            width="1536" height="1024" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" data-slide-index="2" data-fit="contain" aria-hidden="true"
+          aria-label="3 de 5: Soldadora láser Serie RA">
+          <img src="assets/images/lJQzwEZxzFYcHi5XNcZuS0V36o.jpg"
+            alt="Soldadora láser portátil DATA CNC Serie RA refrigerada por aire"
+            width="1195" height="896" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" data-slide-index="3" aria-hidden="true"
+          aria-label="4 de 5: Compresor de tornillo 15 kW 16 bar">
+          <img src="assets/images/compresor-tornillo-studio.jpg"
+            alt="Compresor de aire de tornillo rotativo DATA CNC 15 kW 16 bar con secador refrigerativo y tanque acumulador"
+            width="2752" height="1536" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" data-slide-index="4" aria-hidden="true"
+          aria-label="5 de 5: Pintura electrostática y hornos">
+          <img src="assets/images/pintura-electrostatica-main.png"
+            alt="Cabina de pintura electrostática DATA Flame"
+            width="1536" height="1024" loading="lazy" decoding="async">
+        </figure>
+        <figure class="hero-slide" data-slide-index="5" data-compare-scrim="true" aria-hidden="true"
+          aria-label="6 de 6: Soldadora Láser Serie RL (Comparativa derecha)">
+          <img src="Imagenes/Gemini_Generated_Image_cpzmslcpzmslcpzm.jpg"
+            alt="Soldadora láser de fibra DATA CNC Serie RL alineada a la derecha"
+            loading="lazy" decoding="async">
+        </figure>
+
+        <div class="hero-backdrop-overlay" aria-hidden="true"></div>
+        <div class="hero-fullbleed-scrim" aria-hidden="true"></div>
+      </div>
+
       <div class="container hero-showcase-shell">
-        <div class="hero-showcase-grid">
-          <div class="hero-showcase-copy">
-            <span id="hero-slide-kicker" class="section-subtitle hero-brand-eyebrow">DATA Laser · Fibra Óptica 3 en 1</span>
-            <h1 id="hero-slide-title" class="hero-title">Soldadora Láser<br><span>3 en 1 Serie RL</span></h1>
-            <p id="hero-slide-desc" class="hero-description">
-              Suelda, corta y limpia con chiller integrado, panel táctil superior y alimentador automático de alambre. Acabado limpio casi sin post-procesamiento y respaldo local en México.
-            </p>
+        <div class="hero-showcase-copy">
+          <div class="hero-eyebrow-row">
+            <span id="hero-stage-status" class="hero-eyebrow-status tech-mono">
+              <span class="live-radar-pulse" aria-hidden="true"></span>
+              <span id="hero-stage-status-text">SHOWROOM CDMX · EN STOCK</span>
+            </span>
+            <span class="live-radar-pulse hero-kicker-pulse" aria-hidden="true"></span>
+            <span id="hero-slide-kicker" class="hero-eyebrow-kicker">DATA Laser · Fibra Óptica 3 en 1</span>
+          </div>
 
-            <div class="hero-slide-specs" aria-label="Especificaciones del equipo" data-i18n-aria="hero.specsAria">
-              <div class="hero-spec-chip">
-                <span class="hero-spec-label" data-i18n="hero.spec.power">Potencia</span>
-                <strong id="hero-slide-power" class="hero-spec-value">1500W – 3000W</strong>
-              </div>
-              <div class="hero-spec-chip">
-                <span class="hero-spec-label" data-i18n="hero.spec.config">Configuración</span>
-                <strong id="hero-slide-app" class="hero-spec-value">Chiller + Alimentador</strong>
-              </div>
+          <h1 id="hero-slide-title" class="hero-title"><a id="hero-title-link" class="hero-title-link" href="ficha-soldadora-rl.html">Soldadora Láser<br><span>3 en 1 Serie RL</span></a></h1>
+
+          <p id="hero-slide-desc" class="hero-description">
+            Suelda, corta y limpia con chiller integrado, panel táctil superior y alimentador automático de alambre. Acabado limpio casi sin post-procesamiento y respaldo local en México.
+          </p>
+
+          <div class="hero-slide-specs hero-inline-specs" aria-label="Especificaciones del equipo" data-i18n-aria="hero.specsAria">
+            <div class="hero-telemetry-item">
+              <span class="hero-spec-label" data-i18n="hero.spec.power">Potencia</span>
+              <strong id="hero-slide-power" class="hero-spec-value">1500W – 3000W</strong>
             </div>
-
-            <div class="hero-buttons">
-              <a id="hero-slide-cta" href="ficha-soldadora-rl.html" class="btn btn-primary">Ver ficha Serie RL</a>
-              <a id="hero-slide-demo" href="demostracion.html?equipo=soldadora-rl-3en1#demo-page-form"
-                class="btn btn-secondary" data-i18n="hero.demoCta">Agendar demostración</a>
+            <div class="hero-telemetry-item">
+              <span class="hero-spec-label" data-i18n="hero.spec.config">Configuración</span>
+              <strong id="hero-slide-app" class="hero-spec-value">Chiller + Alimentador</strong>
             </div>
-
-            <div class="hero-guarantee">
-              <div class="guarantee-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  aria-hidden="true">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <path d="m9 12 2 2 4-4"></path>
-                </svg>
-                <span data-i18n="hero.g1">12 meses de garantía</span>
-              </div>
-              <div class="guarantee-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  aria-hidden="true">
-                  <path
-                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
-                  </path>
-                </svg>
-                <span data-i18n="hero.g2">Soporte técnico local</span>
-              </div>
-              <div class="guarantee-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  aria-hidden="true">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                </svg>
-                <span data-i18n="hero.g3">Capacitación en planta</span>
-              </div>
+            <div class="hero-telemetry-item hero-telemetry-warranty">
+              <span class="hero-spec-label" data-i18n="hero.spec.warrantyLabel">Respaldo</span>
+              <strong class="hero-spec-value" data-i18n="hero.spec.warrantyValue">Garantía 12 meses · Soporte &lt; 24h</strong>
             </div>
           </div>
 
-          <div class="hero-stage-wrap">
-            <div class="hero-stage" role="region" aria-roledescription="carrusel"
-              aria-label="Galería de maquinaria DATA CNC MX">
-              <div class="hero-stage-viewport">
-                <div class="hero-stage-overlay-top">
-                  <span id="hero-stage-status" class="hero-stage-status-pill tech-mono">
-                    <span class="live-radar-pulse" aria-hidden="true"></span>
-                    <span id="hero-stage-status-text">SHOWROOM CDMX · EN STOCK</span>
-                  </span>
-                  <span id="hero-stage-counter" class="hero-stage-counter tech-mono">01 / 05</span>
-                </div>
+          <div class="hero-buttons">
+            <a id="hero-slide-cta" href="ficha-soldadora-rl.html" class="btn btn-primary">Ver ficha Serie RL</a>
+            <a id="hero-slide-demo" href="demostracion.html?equipo=soldadora-rl-3en1#demo-page-form" class="btn btn-outline hero-btn-demo" data-i18n="hero.demoCta">Agendar demostración</a>
+          </div>
 
-                <figure class="hero-slide is-active" data-slide-index="0" aria-hidden="false"
-                  aria-label="1 de 5: Soldadora Láser Serie RL con Alimentador de Alambre">
-                  <img src="assets/images/soldadora-rl-studio.jpg"
-                    alt="Soldadora láser de fibra DATA CNC Serie RL con antorcha, panel táctil y alimentador automático de alambre"
-                    width="2752" height="1536" fetchpriority="high" decoding="async">
-                </figure>
-                <figure class="hero-slide" data-slide-index="1" aria-hidden="true"
-                  aria-label="2 de 5: Cortadora láser cama plana 4 por 10">
-                  <img src="assets/images/cortadora-4x10-main.png" alt="Cortadora láser de cama plana DATA CNC 4x10"
-                    width="1536" height="1024" loading="lazy" decoding="async">
-                </figure>
-                <figure class="hero-slide" data-slide-index="2" data-fit="contain" aria-hidden="true"
-                  aria-label="3 de 5: Soldadora láser Serie RA">
-                  <img src="assets/images/lJQzwEZxzFYcHi5XNcZuS0V36o.jpg"
-                    alt="Soldadora láser portátil DATA CNC Serie RA refrigerada por aire"
-                    width="1195" height="896" loading="lazy" decoding="async">
-                </figure>
-                <figure class="hero-slide" data-slide-index="3" aria-hidden="true"
-                  aria-label="4 de 5: Compresor de tornillo 15 kW 16 bar">
-                  <img src="assets/images/compresor-tornillo-studio.jpg"
-                    alt="Compresor de aire de tornillo rotativo DATA CNC 15 kW 16 bar con secador refrigerativo y tanque acumulador"
-                    width="2752" height="1536" loading="lazy" decoding="async">
-                </figure>
-                <figure class="hero-slide" data-slide-index="4" aria-hidden="true"
-                  aria-label="5 de 5: Pintura electrostática y hornos">
-                  <img src="assets/images/pintura-electrostatica-main.png"
-                    alt="Cabina de pintura electrostática DATA Flame"
-                    width="1536" height="1024" loading="lazy" decoding="async">
-                </figure>
-
-                <div class="hero-autoplay-bar" aria-hidden="true">
-                  <span id="hero-autoplay-progress" class="hero-autoplay-progress"></span>
-                </div>
-              </div>
-
-              <div class="hero-stage-bottombar">
-                <div class="hero-stage-caption">
-                  <span id="hero-stage-model" class="hero-stage-model">RL-1500 / RL-2000 / RL-3000</span>
-                  <span id="hero-stage-sub" class="hero-stage-sub">Fuente láser + chiller + alimentador de alambre automático</span>
-                </div>
-                <div class="hero-stage-controls" role="group" aria-label="Controles del carrusel" data-i18n-aria="hero.controlsAria">
-                  <button id="hero-prev-btn" class="hero-ctrl-btn" type="button" aria-label="Equipo anterior" data-i18n-aria="hero.prevAria">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2" aria-hidden="true">
-                      <path d="m15 18-6-6 6-6"></path>
-                    </svg>
-                  </button>
-                  <button id="hero-autoplay-btn" class="hero-ctrl-btn" type="button" aria-label="Pausar rotación automática"
-                    aria-pressed="false">
-                    <svg class="pause-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                      aria-hidden="true">
-                      <rect x="6" y="4" width="4" height="16" rx="1"></rect>
-                      <rect x="14" y="4" width="4" height="16" rx="1"></rect>
-                    </svg>
-                    <svg class="play-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                      aria-hidden="true" style="display:none;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </button>
-                  <button id="hero-next-btn" class="hero-ctrl-btn" type="button" aria-label="Equipo siguiente" data-i18n-aria="hero.nextAria">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2" aria-hidden="true">
-                      <path d="m9 18 6-6-6-6"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
+          <div class="hero-guarantee hero-compare-guarantee">
+            <div class="guarantee-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+              <span data-i18n="hero.g1">12 meses de garantía</span>
+            </div>
+            <div class="guarantee-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                </path>
+              </svg>
+              <span data-i18n="hero.g2">Soporte técnico local</span>
+            </div>
+            <div class="guarantee-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span data-i18n="hero.g3">Capacitación en planta</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="hero-showcase-dock" role="tablist" aria-label="Elegir equipo destacado" data-i18n-aria="hero.dockAria">
-          <button class="hero-dock-tab is-active" type="button" role="tab" data-slide-target="0" aria-selected="true"
-            tabindex="0">
-            <span class="hero-dock-dot" aria-hidden="true"></span>
-            <span class="hero-dock-name" data-i18n="hero.tab.0">Soldadora RL</span>
-          </button>
-          <button class="hero-dock-tab" type="button" role="tab" data-slide-target="1" aria-selected="false"
-            tabindex="-1">
-            <span class="hero-dock-dot" aria-hidden="true"></span>
-            <span class="hero-dock-name" data-i18n="hero.tab.1">Cortadora 4×10</span>
-          </button>
-          <button class="hero-dock-tab" type="button" role="tab" data-slide-target="2" aria-selected="false"
-            tabindex="-1">
-            <span class="hero-dock-dot" aria-hidden="true"></span>
-            <span class="hero-dock-name" data-i18n="hero.tab.2">Soldadora RA</span>
-          </button>
-          <button class="hero-dock-tab" type="button" role="tab" data-slide-target="3" aria-selected="false"
-            tabindex="-1">
-            <span class="hero-dock-dot" aria-hidden="true"></span>
-            <span class="hero-dock-name" data-i18n="hero.tab.3">Compresor 16 bar</span>
-          </button>
-          <button class="hero-dock-tab" type="button" role="tab" data-slide-target="4" aria-selected="false"
-            tabindex="-1">
-            <span class="hero-dock-dot" aria-hidden="true"></span>
-            <span class="hero-dock-name" data-i18n="hero.tab.4">DATA Flame</span>
-          </button>
-        </div>
+      <div class="hero-dots-rail" role="tablist" aria-label="Elegir equipo destacado" data-i18n-aria="hero.dockAria">
+        <button class="hero-dot-btn is-active" type="button" role="tab" data-slide-target="0" aria-selected="true"
+          tabindex="0" aria-label="Soldadora Láser 3 en 1 Serie RL">
+          <span class="hero-dot-indicator" aria-hidden="true"></span>
+        </button>
+        <button class="hero-dot-btn" type="button" role="tab" data-slide-target="1" aria-selected="false"
+          tabindex="-1" aria-label="Cortadora Láser Cama Plana 4×10">
+          <span class="hero-dot-indicator" aria-hidden="true"></span>
+        </button>
+        <button class="hero-dot-btn" type="button" role="tab" data-slide-target="2" aria-selected="false"
+          tabindex="-1" aria-label="Soldadora Láser Serie RA (Aire)">
+          <span class="hero-dot-indicator" aria-hidden="true"></span>
+        </button>
+        <button class="hero-dot-btn" type="button" role="tab" data-slide-target="3" aria-selected="false"
+          tabindex="-1" aria-label="Compresor de Tornillo 15 kW · 16 bar">
+          <span class="hero-dot-indicator" aria-hidden="true"></span>
+        </button>
+        <button class="hero-dot-btn" type="button" role="tab" data-slide-target="4" aria-selected="false"
+          tabindex="-1" aria-label="Pintura Electrostática y Hornos DATA Flame">
+          <span class="hero-dot-indicator" aria-hidden="true"></span>
+        </button>
+        <button class="hero-dot-btn" type="button" role="tab" data-slide-target="5" aria-selected="false"
+          tabindex="-1" aria-label="Soldadora Láser Serie RL (Comparativa derecha)">
+          <span class="hero-dot-indicator" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="hero-floating-controls" role="group" aria-label="Controles del carrusel" data-i18n-aria="hero.controlsAria">
+        <button id="hero-prev-btn" class="hero-ctrl-btn" type="button" aria-label="Equipo anterior" data-i18n-aria="hero.prevAria">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" aria-hidden="true">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+        <button id="hero-autoplay-btn" class="hero-ctrl-btn" type="button" aria-label="Pausar rotación automática"
+          aria-pressed="false">
+          <svg class="pause-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"
+            aria-hidden="true">
+            <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+            <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+          </svg>
+          <svg class="play-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"
+            aria-hidden="true" style="display:none;">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </button>
+        <button id="hero-next-btn" class="hero-ctrl-btn" type="button" aria-label="Equipo siguiente" data-i18n-aria="hero.nextAria">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" aria-hidden="true">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="hero-autoplay-bar" aria-hidden="true">
+        <span id="hero-autoplay-progress" class="hero-autoplay-progress"></span>
       </div>
     </section>
-
-    <!-- Franja fija breve de oferta completa y acceso directo al catálogo -->
-    <div class="offer-strip">
-      <div class="container offer-strip-inner">
-        <p class="offer-strip-text" data-i18n="offer.text">Maquinaria láser y CNC, acabados industriales y soporte técnico en México.</p>
-        <a href="#productos" class="offer-strip-link">
-          <span data-i18n="offer.cta">Ver equipos</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <polyline points="19 12 12 19 5 12"></polyline>
-          </svg>
-        </a>
-      </div>
-    </div>
 
     <!-- ==========================================================================
          Catálogo de Productos y Fichas Técnicas
@@ -526,253 +515,7 @@
     </section>
 
     <!-- ==========================================================================
-         Mapa Interactivo de Cobertura y Respaldo Técnico
-         ========================================================================== -->
-    <section class="coverage-section" id="cobertura-nacional"
-      aria-label="Cobertura de servicio técnico y refacciones en México" data-i18n-aria="cov.aria">
-      <div class="container" id="coverage-map-component">
-        <div class="section-header">
-          <span class="section-subtitle" data-i18n="cov.subtitle">Respaldo técnico en planta</span>
-          <h2 class="section-title" data-i18n="cov.title">Cobertura Nacional y Tiempos de Arribo en México</h2>
-          <p class="section-desc" data-i18n="cov.desc">
-            Nuestra bodega central y laboratorio técnico en Iztapalapa, CDMX, abastecen refacciones y garantizan
-            respuesta en sitio con personal propio para que tu producción nunca pare.
-          </p>
-        </div>
-
-        <!-- Métricas Clave de Respaldo integradas -->
-        <div class="stats-section coverage-metrics-band" aria-label="Métricas de respaldo de DATA CNC" data-i18n-aria="stats.aria">
-          <div class="stats-grid">
-            <div class="stat-item">
-              <div class="stat-number tech-mono" data-target="500" data-prefix="+">+500</div>
-              <div class="stat-label" data-i18n="stats.installed">MÁQUINAS INSTALADAS</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number tech-mono" data-target="99" data-suffix="%">99%</div>
-              <div class="stat-label" data-i18n="stats.uptime">DISPONIBILIDAD OPERATIVA</div>
-            </div>
-            <div class="stat-item stat-item-response">
-              <div class="stat-number tech-mono" data-target="24" data-prefix="< " data-suffix=" HORAS"
-                data-suffix-es=" HORAS" data-suffix-en=" HOURS">&lt; 24 HORAS</div>
-              <div class="stat-label" data-i18n="stats.response">TIEMPO DE RESPUESTA DE SOPORTE</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pestañas de Regiones -->
-        <div class="region-tabs-group">
-          <button type="button" class="region-tab-btn active" data-region="valle-mexico" aria-pressed="true" data-i18n="cov.tab.vm">CDMX &amp;
-            Área Metro (&lt; 4h)</button>
-          <button type="button" class="region-tab-btn" data-region="bajio-centro" aria-pressed="false" data-i18n="cov.tab.bc">Bajío &amp;
-            Centro (&lt; 24h)</button>
-          <button type="button" class="region-tab-btn" data-region="norte-occidente" aria-pressed="false" data-i18n="cov.tab.no">Norte &amp;
-            Occidente (&lt; 48h)</button>
-        </div>
-
-        <div class="coverage-layout">
-          <!-- Tarjeta de Detalle SLA -->
-          <div class="region-sla-card">
-            <div class="sla-city-row">
-              <span class="sla-city-kicker" data-i18n="cov.cityLabel">Ciudad seleccionada</span>
-              <strong id="sla-city-val" class="sla-city-name">CDMX · Sede</strong>
-            </div>
-
-            <div class="sla-arrival-grid">
-              <div class="sla-metric-block sla-metric-arrival">
-                <span class="sla-metric-label" data-i18n="cov.arrivalLabel">Arribo a planta</span>
-                <div class="sla-time-tag tech-mono" id="sla-time-val">&lt; 4 horas</div>
-              </div>
-              <div class="sla-metric-block sla-metric-remote">
-                <span class="sla-metric-label" data-i18n="cov.remoteLabel">Diagnóstico remoto</span>
-                <div class="sla-remote-tag tech-mono" id="sla-remote-val">&lt; 2 horas</div>
-              </div>
-            </div>
-
-            <h3 id="sla-region-title" class="sla-region-title">Zona Metropolitana &amp; Valle de México</h3>
-            <p id="sla-region-desc" class="sla-region-desc">
-              Atención técnica directa desde nuestro Showroom y Bodega Central en Iztapalapa, CDMX. Diagnóstico en sitio
-              el mismo día y entrega de consumibles en menos de 4 horas.
-            </p>
-
-            <ul class="sla-states-list" id="sla-states-container">
-              <li class="sla-state-pill">Ciudad de México (CDMX)</li>
-              <li class="sla-state-pill">Estado de México (EdoMex)</li>
-              <li class="sla-state-pill">Cuernavaca / Morelos</li>
-              <li class="sla-state-pill">Hidalgo Sur</li>
-            </ul>
-
-            <div class="sla-engineers-row">
-              <span class="sla-engineers-label" data-i18n="cov.engineersLabel">Ingenieros de Campo:</span>
-              <span id="sla-engineers-val" class="tech-mono sla-engineers-val">6 Ingenieros de Campo Activos</span>
-            </div>
-
-            <div class="sla-warranty-note">
-              <strong data-i18n="cov.warranty.title">Garantía de fábrica: 12 meses</strong>
-              <span data-i18n="cov.warranty.desc">Cobertura directa en fuentes láser de fibra, chillers y controles CNC sin intermediarios.</span>
-            </div>
-
-            <a id="sla-quote-btn" href="https://wa.me/5215527753215" target="_blank" rel="noopener noreferrer"
-              class="btn btn-primary btn-block" data-i18n="cov.cta">
-              Consultar Disponibilidad de Técnico
-            </a>
-          </div>
-
-          <!-- Mapa Visual Esquemático de Apoyo -->
-          <div class="coverage-map-visual">
-            <div class="coverage-map-heading">
-              <h3 data-i18n="cov.map.title">Red de soporte DATA CNC</h3><span class="coverage-map-kicker" data-i18n="cov.map.country">México</span>
-            </div>
-            <p class="coverage-selected-zone" role="status" aria-live="polite">CDMX · Sede · Respuesta Inmediata CDMX</p>
-            <!-- Geography: Natural Earth 1:110m, public domain. Source: https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_admin_0_countries.geojson -->
-            <div class="coverage-map-body"><svg class="map-svg-canvas" viewBox="0 0 640 380" role="group"
-                aria-label="Mapa de México con la sede en CDMX y ciudades de referencia: Querétaro, Puebla, Guadalajara y Monterrey"
-                xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="map-tech-grid" width="32" height="32" patternUnits="userSpaceOnUse">
-                    <path d="M 32 0 L 0 0 0 32" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.14" />
-                  </pattern>
-                </defs>
-                <rect width="640" height="380" fill="url(#map-tech-grid)" class="coverage-map-grid-rect" />
-                <path class="coverage-country-shape"
-                  d="M59.1,23.5 L78.6,22.0 L100.5,20.0 L98.9,23.7 L124.9,32.7 L164.2,45.9 L198.4,45.8 L212.0,45.8 L212.1,38.1 L241.9,38.1 L248.2,44.7 L257.0,50.6 L267.2,58.8 L272.9,68.6 L277.2,78.9 L286.1,84.5 L300.4,90.1 L311.2,75.4 L325.3,75.0 L337.4,82.5 L346.1,95.3 L352.0,106.2 L362.2,116.9 L366.0,130.0 L370.8,138.8 L384.2,144.6 L396.4,148.7 L403.1,148.1 L396.5,164.5 L393.4,178.0 L392.2,203.0 L390.5,212.2 L393.5,222.4 L398.9,231.5 L402.3,246.0 L413.7,259.9 L417.7,270.6 L424.5,279.8 L442.7,284.8 L449.9,292.6 L465.0,287.4 L478.1,285.5 L491.0,282.1 L501.8,278.9 L512.8,271.3 L516.9,260.4 L518.3,244.6 L521.2,239.2 L532.9,234.3 L551.1,229.9 L566.3,230.6 L576.8,229.0 L580.9,233.0 L580.3,242.0 L571.1,253.1 L567.0,264.5 L570.2,267.7 L567.6,275.8 L563.3,290.4 L558.9,285.6 L555.3,285.9 L552.0,286.2 L545.9,297.5 L542.7,295.2 L540.7,296.1 L540.8,298.9 L524.9,298.7 L508.8,298.7 L508.8,309.2 L501.0,309.3 L507.4,315.5 L513.8,319.8 L515.7,323.9 L518.5,325.0 L518.0,331.4 L496.0,331.4 L487.7,346.7 L490.1,350.2 L488.1,354.6 L487.7,360.0 L468.2,339.9 L459.3,333.8 L445.3,328.9 L435.7,330.3 L421.8,337.3 L413.2,339.2 L401.0,334.2 L388.1,330.7 L372.0,322.1 L359.1,319.5 L339.6,310.8 L325.2,301.8 L320.9,296.8 L311.3,295.7 L293.6,289.8 L286.5,281.3 L268.0,270.7 L259.4,258.9 L255.3,249.8 L261.0,247.9 L259.2,242.6 L263.2,237.8 L263.3,231.3 L257.5,222.9 L255.9,215.4 L250.1,206.0 L235.0,187.4 L217.7,172.8 L209.3,161.2 L194.5,153.5 L191.3,149.0 L194.0,137.4 L185.2,133.0 L175.0,123.9 L170.7,110.9 L161.5,109.4 L151.5,99.5 L143.4,90.4 L142.7,84.6 L133.4,70.5 L127.3,56.2 L127.6,49.0 L115.1,41.6 L109.4,42.4 L99.6,37.2 L96.8,44.8 L99.6,53.8 L101.3,67.8 L107.2,75.5 L120.0,88.4 L122.8,92.8 L125.5,94.2 L127.7,100.6 L130.8,100.3 L134.2,112.4 L139.5,117.1 L143.1,123.8 L154.0,133.3 L159.7,150.7 L164.8,158.9 L169.6,167.6 L170.5,177.5 L178.8,178.1 L185.7,186.6 L191.9,195.0 L191.5,198.3 L184.3,205.2 L181.2,205.1 L176.7,193.7 L165.4,183.1 L153.0,174.0 L144.2,169.3 L144.8,155.6 L142.2,145.5 L134.0,139.7 L122.1,131.3 L119.9,133.7 L115.5,128.8 L104.9,124.3 L94.8,113.5 L96.0,112.1 L103.1,113.1 L109.5,106.1 L110.1,97.7 L96.9,84.4 L86.8,79.2 L80.4,67.5 L74.0,55.2 L66.1,40.3 L59.1,23.5 Z" />
-                <path class="coverage-map-route" data-map-region="bajio-centro" d="M368.8,268.5 L347.2,246.9" />
-                <path class="coverage-map-route" data-map-region="bajio-centro" d="M368.8,268.5 L384.8,275.8" />
-                <path class="coverage-map-route" data-map-region="norte-occidente" d="M368.8,268.5 L296.3,245.5" />
-                <path class="coverage-map-route" data-map-region="norte-occidente" d="M368.8,268.5 L348.5,151.5" />
-                <g class="coverage-map-city" data-map-region="valle-mexico" data-map-city="cdmx" role="button"
-                  tabindex="0" aria-label="Seleccionar CDMX · Sede" aria-pressed="true">
-                  <title>CDMX · Sede</title>
-                  <circle class="coverage-map-hit" cx="368.8" cy="268.5" r="10" />
-                  <circle class="coverage-map-selection-ring" cx="368.8" cy="268.5" r="13" />
-                  <circle class="coverage-map-dot" cx="368.8" cy="268.5" r="5" />
-                  <text class="coverage-map-city-tag" x="368.8" y="294">CDMX</text>
-                </g>
-                <g class="coverage-map-city" data-map-region="bajio-centro" data-map-city="queretaro" role="button"
-                  tabindex="0" aria-label="Seleccionar Querétaro" aria-pressed="false">
-                  <title>Querétaro</title>
-                  <circle class="coverage-map-hit" cx="347.2" cy="246.9" r="10" />
-                  <circle class="coverage-map-selection-ring" cx="347.2" cy="246.9" r="13" />
-                  <circle class="coverage-map-dot" cx="347.2" cy="246.9" r="4" />
-                  <text class="coverage-map-city-tag" x="347.2" y="232">QRO</text>
-                </g>
-                <g class="coverage-map-city" data-map-region="bajio-centro" data-map-city="puebla" role="button"
-                  tabindex="0" aria-label="Seleccionar Puebla" aria-pressed="false">
-                  <title>Puebla</title>
-                  <circle class="coverage-map-hit" cx="384.8" cy="275.8" r="10" />
-                  <circle class="coverage-map-selection-ring" cx="384.8" cy="275.8" r="13" />
-                  <circle class="coverage-map-dot" cx="384.8" cy="275.8" r="4" />
-                  <text class="coverage-map-city-tag" x="403" y="279">PUE</text>
-                </g>
-                <g class="coverage-map-city" data-map-region="norte-occidente" data-map-city="guadalajara" role="button"
-                  tabindex="0" aria-label="Seleccionar Guadalajara" aria-pressed="false">
-                  <title>Guadalajara</title>
-                  <circle class="coverage-map-hit" cx="296.3" cy="245.5" r="10" />
-                  <circle class="coverage-map-selection-ring" cx="296.3" cy="245.5" r="13" />
-                  <circle class="coverage-map-dot" cx="296.3" cy="245.5" r="4" />
-                  <text class="coverage-map-city-tag" x="278" y="249">GDL</text>
-                </g>
-                <g class="coverage-map-city" data-map-region="norte-occidente" data-map-city="monterrey" role="button"
-                  tabindex="0" aria-label="Seleccionar Monterrey" aria-pressed="false">
-                  <title>Monterrey</title>
-                  <circle class="coverage-map-hit" cx="348.5" cy="151.5" r="10" />
-                  <circle class="coverage-map-selection-ring" cx="348.5" cy="151.5" r="13" />
-                  <circle class="coverage-map-dot" cx="348.5" cy="151.5" r="4" />
-                  <text class="coverage-map-city-tag" x="348.5" y="136">MTY</text>
-                </g>
-              </svg>
-              <ul class="coverage-city-list" aria-label="Ciudades y tiempos de referencia">
-                <li data-map-region="valle-mexico" data-map-city="cdmx"><button class="coverage-city-choice"
-                    type="button" data-city-select="cdmx" aria-pressed="true"><span class="coverage-city-name"><span
-                        class="coverage-city-dot" aria-hidden="true"></span>CDMX · Sede</span><span
-                      class="coverage-city-time">&lt; 4 h</span></button></li>
-                <li data-map-region="bajio-centro" data-map-city="queretaro"><button class="coverage-city-choice"
-                    type="button" data-city-select="queretaro" aria-pressed="false"><span
-                      class="coverage-city-name"><span class="coverage-city-dot"
-                        aria-hidden="true"></span>Querétaro</span><span class="coverage-city-time">&lt; 24
-                      h</span></button></li>
-                <li data-map-region="bajio-centro" data-map-city="puebla"><button class="coverage-city-choice"
-                    type="button" data-city-select="puebla" aria-pressed="false"><span class="coverage-city-name"><span
-                        class="coverage-city-dot" aria-hidden="true"></span>Puebla</span><span
-                      class="coverage-city-time">&lt; 24 h</span></button></li>
-                <li data-map-region="norte-occidente" data-map-city="guadalajara"><button class="coverage-city-choice"
-                    type="button" data-city-select="guadalajara" aria-pressed="false"><span
-                      class="coverage-city-name"><span class="coverage-city-dot"
-                        aria-hidden="true"></span>Guadalajara</span><span class="coverage-city-time">&lt; 48
-                      h</span></button></li>
-                <li data-map-region="norte-occidente" data-map-city="monterrey"><button class="coverage-city-choice"
-                    type="button" data-city-select="monterrey" aria-pressed="false"><span
-                      class="coverage-city-name"><span class="coverage-city-dot"
-                        aria-hidden="true"></span>Monterrey</span><span class="coverage-city-time">&lt; 48
-                      h</span></button></li>
-              </ul>
-            </div>
-            <div class="coverage-stock-note"><strong data-i18n="cov.stock.title">Bodega central · Iztapalapa, CDMX</strong><span data-i18n="cov.stock.desc">Refacciones y
-                consumibles para envío nacional.</span></div>
-          </div>
-        </div>
-
-        <!-- Kit de Consumibles y Disponibilidad de Refacciones Críticas -->
-        <div class="consumables-showcase-card">
-          <div class="consumables-media">
-            <img src="assets/images/kit-consumibles-laser.jpg"
-              alt="Kit de consumibles y accesorios láser DATA CNC: boquillas de cobre, ventanas de protección selladas, cerámicas, gafas de seguridad y alineador"
-              width="2752" height="1536" loading="lazy" decoding="async">
-          </div>
-          <div class="consumables-copy">
-            <span class="section-subtitle" style="margin-bottom:0.45rem;" data-i18n="cons.subtitle">Stock permanente en CDMX</span>
-            <h3 data-i18n="cons.title">Kit de Consumibles y Refacciones Originales</h3>
-            <p data-i18n="cons.desc">
-              Mantén tu cabezal de corte o soldadura operativo sin paros por falta de piezas de desgaste: boquillas de
-              cobre, ventanas de protección selladas contra salpicaduras, cerámicas de aislamiento, adaptadores,
-              alineador de precisión y gafas certificadas de seguridad láser.
-            </p>
-            <div class="stock-grid">
-              <div class="stock-item">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span data-i18n="cons.item1">Boquillas de cobre y cerámicas</span>
-              </div>
-              <div class="stock-item">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span data-i18n="cons.item2">Lentes y ventanas en empaque sellado</span>
-              </div>
-              <div class="stock-item">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span data-i18n="cons.item3">Gafas láser y herramientas de ajuste</span>
-              </div>
-              <div class="stock-item">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span data-i18n="cons.item4">Fuentes Raycus / Max y chillers</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Ecosistema de marcas y componentes integrado en respaldo técnico -->
-        <div class="partners-strip coverage-partners-strip" aria-label="Marcas y componentes integrados" data-i18n-aria="partners.aria">
-          <span class="partners-label tech-mono" data-i18n="partners.label">Marcas y componentes:</span>
-          <ul class="partners-list">
-            <li>Raycus &amp; Maxphotonics</li>
-            <li>IPG Photonics</li>
-            <li data-i18n="partners.heads">Cabezales Raytools / WSX</li>
-            <li data-i18n="partners.ctrl">Control CNC CypCut</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         Herramientas para Decidir: Calculadora Técnica + Comparativa Compacta
+         Herramientas para Decidir: Calculadora Técnica de Parámetros
          ========================================================================== -->
     <section class="tech-calculator-section" id="calculadora-tecnica"
       aria-label="Calculadora interactiva de parámetros de soldadura y corte láser" data-i18n-aria="calc.aria">
@@ -889,75 +632,178 @@
           </div>
         </div>
 
-        <!-- Comparativa Compacta MIG/TIG vs Láser DATA + Demostración -->
-        <div class="comparison-compact-block" id="comparativa" role="region"
-          aria-label="Comparativa MIG/TIG contra Soldadura Láser DATA" data-i18n-aria="compare.aria">
-          <div class="comparison-compact-head">
-            <div>
-              <h3 class="comparison-compact-title" data-i18n="compare.title">Por qué la soldadura láser reemplaza MIG y TIG</h3>
-              <p class="comparison-compact-desc" data-i18n="compare.desc">
-                Menos retrabajo, mínima deformación térmica y avance continuo con alimentador automático de alambre.
-              </p>
-            </div>
-            <a href="soldadura-laser.html" class="comparison-line-link" data-i18n="compare.lineLink">Ver modelos RL y RA &rarr;</a>
-          </div>
+        <!-- Comparativa "Por qué la soldadura láser reemplaza MIG y TIG" extraída de index.html: insertar en soldadura-laser.html -->
+      </div>
+    </section>
 
-          <div class="comparison-showcase-grid">
-            <div class="comparison-table-card">
-              <div class="comparison-table-head" aria-hidden="true">
-                <span data-i18n="compare.col.metric">Criterio</span>
-                <span>MIG / TIG</span>
-                <span data-i18n="compare.col.laser">Láser DATA</span>
-              </div>
-              <div class="comparison-row">
-                <div class="comparison-criterion" data-i18n="compare.r1.criterion">Velocidad de avance</div>
-                <div class="comparison-values">
-                  <div class="comparison-val comparison-val-trad"><span class="comparison-mobile-tag">MIG / TIG</span><span>0.5 – 1.2 m/min</span></div>
-                  <div class="comparison-val comparison-val-laser"><span class="comparison-mobile-tag" data-i18n="compare.col.laser">Láser DATA</span><span data-i18n="compare.r1.laser">Hasta 5× más rápida</span></div>
-                </div>
-              </div>
-              <div class="comparison-row">
-                <div class="comparison-criterion" data-i18n="compare.r2.criterion">Acabado y post-proceso</div>
-                <div class="comparison-values">
-                  <div class="comparison-val comparison-val-trad"><span class="comparison-mobile-tag">MIG / TIG</span><span data-i18n="compare.r2.trad">Esmerilado y pulido</span></div>
-                  <div class="comparison-val comparison-val-laser"><span class="comparison-mobile-tag" data-i18n="compare.col.laser">Láser DATA</span><span data-i18n="compare.r2.laser">Cordón limpio sin escoria</span></div>
-                </div>
-              </div>
-              <div class="comparison-row">
-                <div class="comparison-criterion" data-i18n="compare.r3.criterion">Deformación térmica</div>
-                <div class="comparison-values">
-                  <div class="comparison-val comparison-val-trad"><span class="comparison-mobile-tag">MIG / TIG</span><span data-i18n="compare.r3.trad">Alta zona afectada</span></div>
-                  <div class="comparison-val comparison-val-laser"><span class="comparison-mobile-tag" data-i18n="compare.col.laser">Láser DATA</span><span data-i18n="compare.r3.laser">Distorsión mínima</span></div>
-                </div>
-              </div>
-              <div class="comparison-row">
-                <div class="comparison-criterion" data-i18n="compare.r4.criterion">Aportación de alambre</div>
-                <div class="comparison-values">
-                  <div class="comparison-val comparison-val-trad"><span class="comparison-mobile-tag">MIG / TIG</span><span data-i18n="compare.r4.trad">Manual por pulso</span></div>
-                  <div class="comparison-val comparison-val-laser"><span class="comparison-mobile-tag" data-i18n="compare.col.laser">Láser DATA</span><span data-i18n="compare.r4.laser">Alimentador constante</span></div>
-                </div>
-              </div>
-            </div>
+    <!-- ==========================================================================
+         Mapa Interactivo de Cobertura y Respaldo Técnico
+         ========================================================================== -->
+    <section class="coverage-section" id="cobertura-nacional"
+      aria-label="Cobertura de servicio técnico y refacciones en México" data-i18n-aria="cov.aria">
+      <div class="container" id="coverage-map-component">
+        <div class="section-header">
+          <span class="section-subtitle" data-i18n="cov.subtitle">Respaldo técnico en planta</span>
+          <h2 class="section-title" data-i18n="cov.title">Cobertura Nacional y Tiempos de Arribo en México</h2>
+          <p class="section-desc" data-i18n="cov.desc">
+            Nuestra bodega central y laboratorio técnico en Iztapalapa, CDMX, abastecen refacciones y garantizan
+            respuesta en sitio con personal propio para que tu producción nunca pare.
+          </p>
+        </div>
 
-            <div class="comparison-demo-panel">
-              <figure class="comparison-proof-figure">
-                <div class="process-photo-frame process-photo-dark"><img src="assets/images/soldadora-weld-sample.png"
-                    alt="Aplicación de soldadura láser en taller sobre pieza metálica"
-                    width="615" height="1076" loading="lazy" decoding="async"></div>
-                <figcaption>
-                  <strong data-i18n="compare.p2.title">Prueba real en taller</strong>
-                  <span data-i18n="compare.p2.desc">Evalúa el cordón sobre tus propias piezas en nuestro showroom de Iztapalapa.</span>
-                </figcaption>
-              </figure>
-              <div class="comparison-demo-actions">
-                <a class="btn btn-secondary process-demo-link"
-                  href="demostracion.html?equipo=soldadora-rl-3en1#demo-page-form" data-i18n="compare.cta">Solicitar demostración</a>
-                <p class="demo-location-note" data-i18n-html="compare.showroom">
-                  <strong>Showroom Iztapalapa, CDMX:</strong> C. José María de Joaristi 235 · Pruebas presenciales o videollamada.
-                </p>
-              </div>
+        <!-- Métricas Clave de Respaldo integradas -->
+        <div class="stats-section coverage-metrics-band" aria-label="Métricas de respaldo de DATA CNC" data-i18n-aria="stats.aria">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number tech-mono" data-target="500" data-prefix="+">+500</div>
+              <div class="stat-label" data-i18n="stats.installed">MÁQUINAS INSTALADAS</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number tech-mono" data-target="99" data-suffix="%">99%</div>
+              <div class="stat-label" data-i18n="stats.uptime">DISPONIBILIDAD OPERATIVA</div>
+            </div>
+            <div class="stat-item stat-item-response">
+              <div class="stat-number tech-mono" data-target="24" data-prefix="< " data-suffix=" HORAS"
+                data-suffix-es=" HORAS" data-suffix-en=" HOURS">&lt; 24 HORAS</div>
+              <div class="stat-label" data-i18n="stats.response">TIEMPO DE RESPUESTA DE SOPORTE</div>
             </div>
           </div>
+        </div>
+
+        <!-- Pestañas de Regiones (Único selector interactivo) -->
+        <div class="region-tabs-group">
+          <button type="button" class="region-tab-btn active" data-region="valle-mexico" aria-pressed="true" data-i18n="cov.tab.vm">CDMX &amp; Área Metro</button>
+          <button type="button" class="region-tab-btn" data-region="bajio-centro" aria-pressed="false" data-i18n="cov.tab.bc">Bajío &amp; Centro</button>
+          <button type="button" class="region-tab-btn" data-region="norte-occidente" aria-pressed="false" data-i18n="cov.tab.no">Norte &amp; Occidente</button>
+        </div>
+
+        <div class="coverage-layout">
+          <!-- Tarjeta de Detalle SLA -->
+          <div class="region-sla-card">
+            <div class="sla-kpis-grid">
+              <div class="sla-metric-block sla-metric-arrival">
+                <span class="sla-metric-label" data-i18n="cov.arrivalLabel">Arribo a planta</span>
+                <div class="sla-time-tag tech-mono" id="sla-time-val">&lt; 4 horas</div>
+              </div>
+              <div class="sla-metric-block sla-metric-remote">
+                <span class="sla-metric-label" data-i18n="cov.remoteLabel">Diagnóstico remoto</span>
+                <div class="sla-remote-tag tech-mono" id="sla-remote-val">&lt; 2 horas</div>
+              </div>
+              <div class="sla-metric-block sla-metric-engineers">
+                <span class="sla-metric-label" data-i18n="cov.engineersLabel">Ingenieros activos</span>
+                <div class="sla-remote-tag tech-mono" id="sla-engineers-val">6 en campo</div>
+              </div>
+            </div>
+
+            <h3 id="sla-region-title" class="sla-region-title">Zona Metropolitana &amp; Valle de México</h3>
+            <p id="sla-region-desc" class="sla-region-desc">
+              Atención técnica directa desde nuestro Showroom y Bodega Central en Iztapalapa con diagnóstico en sitio y entrega inmediata de consumibles.
+            </p>
+
+            <ul class="sla-states-list" id="sla-states-container">
+              <li class="sla-state-pill">Ciudad de México (CDMX)</li>
+              <li class="sla-state-pill">Estado de México (EdoMex)</li>
+              <li class="sla-state-pill">Cuernavaca / Morelos</li>
+              <li class="sla-state-pill">Hidalgo Sur</li>
+            </ul>
+
+            <div class="sla-warranty-note">
+              <strong data-i18n="cov.warranty.title">Garantía de fábrica: 12 meses</strong>
+              <span data-i18n="cov.warranty.desc">Cobertura directa en fuentes láser de fibra, chillers y controles CNC sin intermediarios.</span>
+            </div>
+
+            <a id="sla-quote-btn" href="https://wa.me/5215527753215" target="_blank" rel="noopener noreferrer"
+              class="btn btn-primary btn-block" data-i18n="cov.cta">
+              Consultar Disponibilidad de Técnico
+            </a>
+          </div>
+
+          <!-- Mapa Visual Esquemático de Apoyo (100% ancho) -->
+          <div class="coverage-map-visual">
+            <div class="coverage-map-heading">
+              <h3 data-i18n="cov.map.title">Red de soporte DATA CNC</h3><span class="coverage-map-kicker" data-i18n="cov.map.country">México</span>
+            </div>
+            <!-- Geography: Natural Earth 1:110m, public domain. Source: https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_admin_0_countries.geojson -->
+            <div class="coverage-map-body"><svg class="map-svg-canvas" viewBox="0 0 640 380" role="group"
+                aria-label="Mapa de México con nodos seleccionables por región: CDMX, Querétaro, Puebla, Guadalajara y Monterrey"
+                xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="map-tech-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                    <path d="M 32 0 L 0 0 0 32" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.14" />
+                  </pattern>
+                </defs>
+                <rect width="640" height="380" fill="url(#map-tech-grid)" class="coverage-map-grid-rect" />
+                <path class="coverage-country-shape"
+                  d="M59.1,23.5 L78.6,22.0 L100.5,20.0 L98.9,23.7 L124.9,32.7 L164.2,45.9 L198.4,45.8 L212.0,45.8 L212.1,38.1 L241.9,38.1 L248.2,44.7 L257.0,50.6 L267.2,58.8 L272.9,68.6 L277.2,78.9 L286.1,84.5 L300.4,90.1 L311.2,75.4 L325.3,75.0 L337.4,82.5 L346.1,95.3 L352.0,106.2 L362.2,116.9 L366.0,130.0 L370.8,138.8 L384.2,144.6 L396.4,148.7 L403.1,148.1 L396.5,164.5 L393.4,178.0 L392.2,203.0 L390.5,212.2 L393.5,222.4 L398.9,231.5 L402.3,246.0 L413.7,259.9 L417.7,270.6 L424.5,279.8 L442.7,284.8 L449.9,292.6 L465.0,287.4 L478.1,285.5 L491.0,282.1 L501.8,278.9 L512.8,271.3 L516.9,260.4 L518.3,244.6 L521.2,239.2 L532.9,234.3 L551.1,229.9 L566.3,230.6 L576.8,229.0 L580.9,233.0 L580.3,242.0 L571.1,253.1 L567.0,264.5 L570.2,267.7 L567.6,275.8 L563.3,290.4 L558.9,285.6 L555.3,285.9 L552.0,286.2 L545.9,297.5 L542.7,295.2 L540.7,296.1 L540.8,298.9 L524.9,298.7 L508.8,298.7 L508.8,309.2 L501.0,309.3 L507.4,315.5 L513.8,319.8 L515.7,323.9 L518.5,325.0 L518.0,331.4 L496.0,331.4 L487.7,346.7 L490.1,350.2 L488.1,354.6 L487.7,360.0 L468.2,339.9 L459.3,333.8 L445.3,328.9 L435.7,330.3 L421.8,337.3 L413.2,339.2 L401.0,334.2 L388.1,330.7 L372.0,322.1 L359.1,319.5 L339.6,310.8 L325.2,301.8 L320.9,296.8 L311.3,295.7 L293.6,289.8 L286.5,281.3 L268.0,270.7 L259.4,258.9 L255.3,249.8 L261.0,247.9 L259.2,242.6 L263.2,237.8 L263.3,231.3 L257.5,222.9 L255.9,215.4 L250.1,206.0 L235.0,187.4 L217.7,172.8 L209.3,161.2 L194.5,153.5 L191.3,149.0 L194.0,137.4 L185.2,133.0 L175.0,123.9 L170.7,110.9 L161.5,109.4 L151.5,99.5 L143.4,90.4 L142.7,84.6 L133.4,70.5 L127.3,56.2 L127.6,49.0 L115.1,41.6 L109.4,42.4 L99.6,37.2 L96.8,44.8 L99.6,53.8 L101.3,67.8 L107.2,75.5 L120.0,88.4 L122.8,92.8 L125.5,94.2 L127.7,100.6 L130.8,100.3 L134.2,112.4 L139.5,117.1 L143.1,123.8 L154.0,133.3 L159.7,150.7 L164.8,158.9 L169.6,167.6 L170.5,177.5 L178.8,178.1 L185.7,186.6 L191.9,195.0 L191.5,198.3 L184.3,205.2 L181.2,205.1 L176.7,193.7 L165.4,183.1 L153.0,174.0 L144.2,169.3 L144.8,155.6 L142.2,145.5 L134.0,139.7 L122.1,131.3 L119.9,133.7 L115.5,128.8 L104.9,124.3 L94.8,113.5 L96.0,112.1 L103.1,113.1 L109.5,106.1 L110.1,97.7 L96.9,84.4 L86.8,79.2 L80.4,67.5 L74.0,55.2 L66.1,40.3 L59.1,23.5 Z" />
+                <path class="coverage-map-route" data-map-region="bajio-centro" d="M368.8,268.5 L347.2,246.9" />
+                <path class="coverage-map-route" data-map-region="bajio-centro" d="M368.8,268.5 L384.8,275.8" />
+                <path class="coverage-map-route" data-map-region="norte-occidente" d="M368.8,268.5 L296.3,245.5" />
+                <path class="coverage-map-route" data-map-region="norte-occidente" d="M368.8,268.5 L348.5,151.5" />
+                <g class="coverage-map-city is-active" data-map-region="valle-mexico" data-map-city="cdmx" role="button"
+                  tabindex="0" aria-label="Seleccionar CDMX · Sede" aria-pressed="true">
+                  <title>CDMX · Sede</title>
+                  <circle class="coverage-map-hit" cx="368.8" cy="268.5" r="10" />
+                  <circle class="coverage-map-selection-ring" cx="368.8" cy="268.5" r="13" />
+                  <circle class="coverage-map-dot" cx="368.8" cy="268.5" r="5" />
+                  <text class="coverage-map-city-tag" x="368.8" y="294">CDMX</text>
+                </g>
+                <g class="coverage-map-city" data-map-region="bajio-centro" data-map-city="queretaro" role="button"
+                  tabindex="0" aria-label="Seleccionar Querétaro" aria-pressed="false">
+                  <title>Querétaro</title>
+                  <circle class="coverage-map-hit" cx="347.2" cy="246.9" r="10" />
+                  <circle class="coverage-map-selection-ring" cx="347.2" cy="246.9" r="13" />
+                  <circle class="coverage-map-dot" cx="347.2" cy="246.9" r="4" />
+                  <text class="coverage-map-city-tag" x="347.2" y="232">QRO</text>
+                </g>
+                <g class="coverage-map-city" data-map-region="bajio-centro" data-map-city="puebla" role="button"
+                  tabindex="0" aria-label="Seleccionar Puebla" aria-pressed="false">
+                  <title>Puebla</title>
+                  <circle class="coverage-map-hit" cx="384.8" cy="275.8" r="10" />
+                  <circle class="coverage-map-selection-ring" cx="384.8" cy="275.8" r="13" />
+                  <circle class="coverage-map-dot" cx="384.8" cy="275.8" r="4" />
+                  <text class="coverage-map-city-tag" x="403" y="279">PUE</text>
+                </g>
+                <g class="coverage-map-city" data-map-region="norte-occidente" data-map-city="guadalajara" role="button"
+                  tabindex="0" aria-label="Seleccionar Guadalajara" aria-pressed="false">
+                  <title>Guadalajara</title>
+                  <circle class="coverage-map-hit" cx="296.3" cy="245.5" r="10" />
+                  <circle class="coverage-map-selection-ring" cx="296.3" cy="245.5" r="13" />
+                  <circle class="coverage-map-dot" cx="296.3" cy="245.5" r="4" />
+                  <text class="coverage-map-city-tag" x="278" y="249">GDL</text>
+                </g>
+                <g class="coverage-map-city" data-map-region="norte-occidente" data-map-city="monterrey" role="button"
+                  tabindex="0" aria-label="Seleccionar Monterrey" aria-pressed="false">
+                  <title>Monterrey</title>
+                  <circle class="coverage-map-hit" cx="348.5" cy="151.5" r="10" />
+                  <circle class="coverage-map-selection-ring" cx="348.5" cy="151.5" r="13" />
+                  <circle class="coverage-map-dot" cx="348.5" cy="151.5" r="4" />
+                  <text class="coverage-map-city-tag" x="348.5" y="136">MTY</text>
+                </g>
+              </svg>
+            </div>
+            <div class="coverage-stock-note"><strong data-i18n="cov.stock.title">Bodega central · Iztapalapa, CDMX</strong></div>
+          </div>
+        </div>
+
+        <!-- Banner horizontal compacto: Kit de Consumibles y Refacciones Originales -->
+        <div class="consumables-banner">
+          <div class="consumables-banner-copy">
+            <span class="consumables-banner-kicker tech-mono" data-i18n="cons.subtitle">Stock permanente en CDMX</span>
+            <h3 data-i18n="cons.title">Kit de Consumibles y Refacciones Originales</h3>
+            <p data-i18n="cons.bannerDesc">Boquillas de cobre, lentes y ventanas selladas, cerámicas, gafas láser, fuentes Raycus/Max y chillers con envío nacional inmediato.</p>
+          </div>
+          <a href="respaldo-tecnico.html" class="btn btn-outline consumables-banner-cta" data-i18n="cons.cta">Póliza DATA PROTECT &rarr;</a>
+        </div>
+
+        <!-- Ecosistema de marcas y componentes integrado en respaldo técnico -->
+        <div class="partners-strip coverage-partners-strip" aria-label="Marcas y componentes integrados" data-i18n-aria="partners.aria">
+          <span class="partners-label tech-mono" data-i18n="partners.label">Marcas y componentes:</span>
+          <ul class="partners-list">
+            <li>Raycus &amp; Maxphotonics</li>
+            <li>IPG Photonics</li>
+            <li data-i18n="partners.heads">Cabezales Raytools / WSX</li>
+            <li data-i18n="partners.ctrl">Control CNC CypCut</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -979,16 +825,6 @@
               <li data-i18n="qq.b2">Pruebas presenciales o por videollamada en CDMX</li>
               <li data-i18n="qq.b3">Facturación nacional y capacitación en planta</li>
             </ul>
-            <div class="quick-quote-secondary">
-              <a href="demostracion.html#demo-page-form" class="btn btn-outline quick-quote-demo-btn" data-i18n="qq.demoCta">Agendar demostración en showroom</a>
-              <div class="quick-quote-links">
-                <a href="equipos.html" data-i18n="qq.link.catalog">Catálogo completo</a>
-                <span aria-hidden="true">·</span>
-                <a href="respaldo-tecnico.html" data-i18n="qq.link.policy">Póliza DATA PROTECT</a>
-                <span aria-hidden="true">·</span>
-                <a href="contacto.html" data-i18n="qq.link.contact">Contacto y ubicación</a>
-              </div>
-            </div>
           </div>
 
           <form id="quick-quote-form" class="contact-form-card quick-quote-form" novalidate>
@@ -1122,7 +958,7 @@
     </div>
   </div>
 
-  <script defer src="js/main.js?v=20261124-uxui-v8"></script>
+  <script defer src="js/main.js?v=20261124-uxui-v14"></script>
 </body>
 
 </html>
