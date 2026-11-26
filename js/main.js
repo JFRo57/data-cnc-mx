@@ -1398,7 +1398,7 @@ const PRODUCTS_DATA = [
     subtitle: 'Ultra-portátil, sin chiller de agua y libre de mantenimiento de fluidos',
     tag: 'Ultra Portátil',
     powerTag: '800W - 1500W',
-    image: 'assets/images/lJQzwEZxzFYcHi5XNcZuS0V36o.jpg',
+    image: 'assets/images/soldadora-ra-studio.jpg',
     description: 'Tecnología de última generación con disipación por aire forzado. Diseño compacto tipo maleta o torre delgada, ideal para talleres en sitio, montajes en obra y manufactura de alta movilidad.',
     specsPreview: [
       'Refrigeración 100% por aire, cero mangueras de agua externa',
@@ -1500,7 +1500,7 @@ const PRODUCTS_DATA = [
     subtitle: 'Acabados de alta resistencia y curado homogéneo a escala industrial',
     tag: 'Acabados Industriales',
     powerTag: 'Gas / Eléctrico',
-    image: 'assets/images/pintura-electrostatica-main.png',
+    image: 'assets/images/pintura-electrostatica-studio.jpg',
     description: 'Línea completa para aplicación de pintura electrostática en polvo y hornos de polimerización. Garantiza una cobertura uniforme sin escurrimientos, con máxima adherencia mecánica y resistencia a la corrosión.',
     specsPreview: [
       'Pistola electrostática con control de cascada de alto voltaje (100 kV)',
