@@ -841,7 +841,6 @@ const HERO_SHOWCASE_SLIDES = [
     desc: 'Suelda, corta y limpia con chiller integrado, panel táctil superior y alimentador automático de alambre. Acabado limpio casi sin post-procesamiento y respaldo local en México.',
     power: '1500W – 3000W',
     app: 'Chiller + Alimentador',
-    status: 'SHOWROOM CDMX · EN STOCK',
     model: 'RL-1500 / RL-2000 / RL-3000',
     sub: 'Fuente láser + chiller + alimentador de alambre automático',
     ctaLabel: 'Ver ficha Serie RL',
@@ -854,7 +853,6 @@ const HERO_SHOWCASE_SLIDES = [
     desc: 'Mesa de trabajo de 1500 × 3000 mm con pórtico de aluminio de aviación, cabezal autofocus y software CypCut para corte de placa y lámina de alta velocidad.',
     power: '1.5 kW – 12 kW',
     app: 'Carbón · Inox · Latón',
-    status: 'ENTREGA & INSTALACIÓN NACIONAL',
     model: 'DATA-CUT 4×10 Pro',
     sub: 'Precisión de posicionamiento ±0.03 mm · 100 m/min',
     ctaLabel: 'Ver ficha Corte 4×10',
@@ -867,7 +865,6 @@ const HERO_SHOWCASE_SLIDES = [
     desc: 'Disipación 100% por aire forzado sin chiller externo ni mangueras de agua. Diseño compacto para montajes en obra, talleres móviles y cordones finos.',
     power: '800W – 1500W',
     app: 'Montaje en sitio · Taller',
-    status: 'CERO CHILLER · OPERACIÓN ÁGIL',
     model: 'RA-800 / RA-1200 / RA-1500',
     sub: 'Hasta 60% más compacta · 220V monofásico/bifásico',
     ctaLabel: 'Ver ficha Serie RA',
@@ -880,7 +877,6 @@ const HERO_SHOWCASE_SLIDES = [
     desc: 'Sistema integrado de alta presión con compresor rotativo de 15 kW, secador refrigerativo con filtros de aceite/partículas y tanque acumulador para expulsar metal fundido.',
     power: '15 kW (20 HP) · 16 bar',
     app: 'Secador + Tanque acumulador',
-    status: 'SPECIAL FOR LASER CUTTING',
     model: 'DT-15B · 15 kW / 16 bar',
     sub: 'Aire 100% limpio y seco para óptica de corte láser',
     ctaLabel: 'Ver ficha Compresor',
@@ -893,25 +889,11 @@ const HERO_SHOWCASE_SLIDES = [
     desc: 'Cabinas con recuperación ciclónica de polvo y hornos de polimerización por aire forzado a 50°C–250°C para acabados uniformes de alta resistencia.',
     power: 'Gas LP / Natural / Eléctrico',
     app: 'Cabina Serie C + Horno Serie H',
-    status: 'DISEÑO INDUSTRIAL A MEDIDA',
     model: 'DATA Flame Serie C & H',
     sub: 'Distribución térmica ±3°C · Recuperación ciclónica 98%',
     ctaLabel: 'Ver ficha DATA Flame',
     fichaUrl: 'ficha-data-flame.html',
     demoUrl: 'demostracion.html?equipo=pintura-hornos#demo-page-form'
-  },
-  {
-    kicker: 'DATA Laser · Fibra Óptica 3 en 1 (Comparativa)',
-    titleLines: ['Soldadora Láser', '3 en 1 Serie RL'],
-    desc: 'Suelda, corta y limpia con chiller integrado, panel táctil superior y alimentador automático de alambre. Acabado limpio casi sin post-procesamiento y respaldo local en México.',
-    power: '1500W – 3000W',
-    app: 'Chiller + Alimentador',
-    status: 'SHOWROOM CDMX · EN STOCK',
-    model: 'RL-1500 / RL-2000 / RL-3000',
-    sub: 'Fuente láser + chiller + alimentador de alambre automático',
-    ctaLabel: 'Ver ficha Serie RL',
-    fichaUrl: 'ficha-soldadora-rl.html',
-    demoUrl: 'demostracion.html?equipo=soldadora-rl-3en1#demo-page-form'
   }
 ];
 
@@ -922,7 +904,6 @@ const HERO_SHOWCASE_SLIDES_EN = [
     desc: 'Welds, cuts, and cleans with an integrated chiller, top touchscreen panel, and automatic wire feeder. Clean weld seams with virtually zero post-processing and local support in Mexico.',
     power: '1500W – 3000W',
     app: 'Chiller + Wire Feeder',
-    status: 'CDMX SHOWROOM · IN STOCK',
     model: 'RL-1500 / RL-2000 / RL-3000',
     sub: 'Laser source + chiller + automatic wire feeder',
     ctaLabel: 'View RL Series Specs'
@@ -933,7 +914,6 @@ const HERO_SHOWCASE_SLIDES_EN = [
     desc: '1500 × 3000 mm working bed with aerospace aluminum gantry, autofocus cutting head, and CypCut software for high-speed sheet and plate cutting.',
     power: '1.5 kW – 12 kW',
     app: 'Carbon · Stainless · Brass',
-    status: 'NATIONWIDE DELIVERY & SETUP',
     model: 'DATA-CUT 4×10 Pro',
     sub: 'Positioning accuracy ±0.03 mm · 100 m/min',
     ctaLabel: 'View 4×10 Cutter Specs'
@@ -944,7 +924,6 @@ const HERO_SHOWCASE_SLIDES_EN = [
     desc: '100% forced-air cooling with no external water chiller or water hoses. Compact build for on-site installations, field work, and fine weld seams.',
     power: '800W – 1500W',
     app: 'On-Site Work · Job Shop',
-    status: 'NO CHILLER · AGILE OPERATION',
     model: 'RA-800 / RA-1200 / RA-1500',
     sub: 'Up to 60% more compact · 220V single/split-phase',
     ctaLabel: 'View RA Series Specs'
@@ -955,7 +934,6 @@ const HERO_SHOWCASE_SLIDES_EN = [
     desc: 'Integrated high-pressure air system with a 15 kW rotary screw compressor, refrigerated air dryer with oil/particulate filtration, and accumulator tank for laser cutting.',
     power: '15 kW (20 HP) · 16 bar',
     app: 'Dryer + Accumulator Tank',
-    status: 'SPECIAL FOR LASER CUTTING',
     model: 'DT-15B · 15 kW / 16 bar',
     sub: '100% clean, dry air for laser cutting optics',
     ctaLabel: 'View Compressor Specs'
@@ -966,21 +944,9 @@ const HERO_SHOWCASE_SLIDES_EN = [
     desc: 'Cyclone powder recovery booths and forced-air curing ovens operating from 50°C to 250°C for uniform, high-durability industrial finishes.',
     power: 'LP / Natural Gas / Electric',
     app: 'Series C Booth + Series H Oven',
-    status: 'CUSTOM INDUSTRIAL DESIGN',
     model: 'DATA Flame C & H Series',
     sub: 'Thermal uniformity ±3°C · 98% cyclone recovery',
     ctaLabel: 'View DATA Flame Specs'
-  },
-  {
-    kicker: 'DATA Laser · 3-in-1 Fiber Optic (Compare)',
-    titleLines: ['Fiber Laser Welder', '3-in-1 RL Series'],
-    desc: 'Welds, cuts, and cleans with an integrated chiller, top touchscreen panel, and automatic wire feeder. Clean weld seams with virtually zero post-processing and local support in Mexico.',
-    power: '1500W – 3000W',
-    app: 'Chiller + Wire Feeder',
-    status: 'CDMX SHOWROOM · IN STOCK',
-    model: 'RL-1500 / RL-2000 / RL-3000',
-    sub: 'Laser source + chiller + automatic wire feeder',
-    ctaLabel: 'View RL Series Specs'
   }
 ];
 
@@ -1003,7 +969,6 @@ function initHeroShowcase() {
   const descEl = document.getElementById('hero-slide-desc');
   const powerEl = document.getElementById('hero-slide-power');
   const appEl = document.getElementById('hero-slide-app');
-  const statusEl = document.getElementById('hero-stage-status-text') || document.getElementById('hero-stage-status');
   const ctaBtn = document.getElementById('hero-slide-cta');
   const demoBtn = document.getElementById('hero-slide-demo');
 
@@ -1079,7 +1044,6 @@ function initHeroShowcase() {
       slide.setAttribute('aria-hidden', String(!isActive));
     });
 
-    hero.classList.toggle('is-compare-slide', slides[activeIndex]?.dataset.compareScrim === 'true');
 
     if (shouldTransition) {
       leavingTimerId = setTimeout(() => {
@@ -1114,7 +1078,6 @@ function initHeroShowcase() {
     if (descEl) descEl.textContent = item.desc;
     if (powerEl) powerEl.textContent = item.power;
     if (appEl) appEl.textContent = item.app;
-    if (statusEl) statusEl.textContent = item.status;
     if (ctaBtn) {
       ctaBtn.textContent = item.ctaLabel;
       ctaBtn.setAttribute('href', item.fichaUrl);
