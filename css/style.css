@@ -4585,9 +4585,10 @@ button:disabled, .btn[aria-disabled="true"] { cursor:not-allowed; box-shadow:non
 
 #hero-slide-title {
   font-family: 'Plus Jakarta Sans', var(--font-heading);
-  font-size: clamp(2rem, 4.6vw, 4rem);
+  font-size: clamp(2rem, 4.1vw, 3.85rem);
   font-weight: 800;
   line-height: 1.06;
+  min-height: 2.15em;
   color: #ffffff;
 }
 
@@ -4597,7 +4598,8 @@ button:disabled, .btn[aria-disabled="true"] { cursor:not-allowed; box-shadow:non
 
 #hero-slide-desc {
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
+  min-height: 6.4rem;
+  color: rgba(226, 232, 240, 0.85);
 }
 
 .hero-inline-specs {
@@ -5146,8 +5148,15 @@ button:disabled, .btn[aria-disabled="true"] { cursor:not-allowed; box-shadow:non
 
 .home-page .hero-showcase {
   padding-top: calc(var(--header-height) + clamp(2rem, 4vw, 3.25rem));
-  padding-bottom: clamp(3rem, 5vw, 4.25rem);
+  padding-bottom: 5.5rem;
   border-bottom: 1px solid var(--border-subtle);
+}
+
+@media (min-width: 768px) {
+  .home-page .hero-showcase {
+    min-height: max(86vh, 710px);
+    height: max(86vh, 710px);
+  }
 }
 
 .home-page .hero-stage-link {
