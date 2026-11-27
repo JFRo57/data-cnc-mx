@@ -4674,14 +4674,14 @@ button:disabled, .btn[aria-disabled="true"] { cursor:not-allowed; box-shadow:non
 
   .hero-slide--compressor img {
     position: relative;
-    left: -2%;
+    left: -8%;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 82% 54%;
-    transform-origin: 82% 54%;
-    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 97%, transparent 100%);
-    mask-image: linear-gradient(90deg, #000 0%, #000 97%, transparent 100%);
+    object-position: 80% 54%;
+    transform-origin: 80% 54%;
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(90deg, #000 0%, #000 94%, transparent 100%);
   }
 }
 
