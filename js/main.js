@@ -1393,7 +1393,7 @@ const PRODUCTS_DATA = [
     subtitle: 'Velocidad, precisión y calidad de corte para lámina y placa industrial',
     tag: 'Corte CNC Industrial',
     powerTag: '1.5 kW - 12 kW',
-    image: 'assets/images/cortadora-4x10-head.jpg',
+    image: 'assets/images/cortadora-4x10-gal-1.jpg',
     description: 'Mesa de trabajo para formato estándar de 4x10 pies (1500 x 3000 mm o superior). Estructura soldada de alta rigidez tratada térmicamente con pórtico de aluminio de aviación y servomotores de alta dinámica.',
     specsPreview: [
       'Área de trabajo efectiva: 1500 x 3000 mm (Formato 4x10)',
