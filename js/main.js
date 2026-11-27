@@ -977,7 +977,7 @@ function initHeroShowcase() {
   if (!slides.length || slides.length !== HERO_SHOWCASE_SLIDES.length) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const mobileQuery = window.matchMedia('(max-width: 767.98px)');
+  const hoverQuery = window.matchMedia('(hover: hover)');
   const AUTOPLAY_MS = 6500;
   let activeIndex = 0;
   let userPaused = false;
@@ -986,7 +986,7 @@ function initHeroShowcase() {
   let leavingTimerId = null;
 
   function isAutoplayBlocked() {
-    return userPaused || hoverPaused || mobileQuery.matches || reducedMotion.matches;
+    return userPaused || hoverPaused || reducedMotion.matches;
   }
 
   function triggerReveal(el) {
@@ -1133,20 +1133,17 @@ function initHeroShowcase() {
   });
 
   hero.addEventListener('mouseenter', () => {
+    if (!hoverQuery.matches) return;
     hoverPaused = true;
     syncAutoplayUI();
     stopAutoplay();
   });
 
   hero.addEventListener('mouseleave', () => {
+    if (!hoverQuery.matches) return;
     hoverPaused = false;
     syncAutoplayUI();
     startAutoplay();
-  });
-
-  mobileQuery.addEventListener('change', () => {
-    if (isAutoplayBlocked()) stopAutoplay();
-    else startAutoplay();
   });
 
   hero.addEventListener('keydown', (event) => {
